@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AmlaWellness — GLP-1, prescribed and delivered.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f8f4ed;
+    --bg-deep:#efe8db;
+    --paper:#ffffff;
+    --ink:#1a2024;
+    --ink-soft:#5a6770;
+    --teal:#205e76;
+    --teal-deep:#143a4a;
+    --sand:#e8dcc3;
+    --sand-deep:#d4c4a1;
+    --line:rgba(26,32,36,.1);
+    --shadow:0 1px 0 rgba(26,32,36,.04), 0 30px 60px -32px rgba(26,32,36,.2);
+    --container:1280px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{margin:0;font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.02em;color:var(--ink)}
+  h1{font-size:clamp(48px,7vw,104px);line-height:.98;font-weight:400}
+  h2{font-size:clamp(36px,4.4vw,64px);line-height:1.02;font-weight:500}
+  h3{font-size:clamp(24px,2.4vw,32px);line-height:1.15}
+  h4{font-size:22px;line-height:1.25;font-weight:600}
+  p{margin:0 0 1em}
+  a{color:var(--teal);text-decoration:none}
+  .italic{font-style:italic;font-family:'Fraunces',serif;color:var(--teal)}
+  .container{max-width:var(--container);margin:0 auto;padding:0 32px}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:18px 32px;border-radius:8px;font-family:'Inter',sans-serif;
+    font-weight:600;font-size:15px;line-height:1;text-decoration:none;
+    transition:all .2s ease;border:1.5px solid transparent;cursor:pointer;letter-spacing:.01em;white-space:nowrap}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--teal);transform:translateY(-1px)}
+  .btn-teal{background:var(--teal);color:#fff}
+  .btn-teal:hover{background:var(--teal-deep)}
+  .btn-outline{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn-outline:hover{background:var(--ink);color:#fff}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:rgba(26,32,36,.06)}
+  .btn-lg{padding:22px 40px;font-size:16px}
+  .btn-arrow{transition:transform .2s ease}
+  .btn:hover .btn-arrow{transform:translateX(4px)}
+
+  /* ANNOUNCEMENT */
+  .announce{background:var(--ink);color:#fff;text-align:center;font-size:13px;padding:11px;letter-spacing:.02em}
+  .announce strong{font-weight:600}
+
+  /* HEADER */
+  header{position:sticky;top:0;z-index:30;background:rgba(248,244,237,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;gap:24px}
+  .logo img{height:32px;display:block}
+  nav ul{display:flex;gap:36px;list-style:none;padding:0;margin:0}
+  nav a{font-weight:500;font-size:15px;color:var(--ink)}
+  nav a:hover{color:var(--teal)}
+  .nav-actions{display:flex;gap:10px;align-items:center}
+  .nav-actions .btn{padding:11px 20px;font-size:14px}
+  @media(max-width:980px){nav ul{display:none}}
+
+  /* HERO */
+  .hero{padding:80px 0 0;position:relative}
+  .hero-headline{max-width:1080px;margin-bottom:48px}
+  .hero h1 em{font-style:italic;font-weight:400;color:var(--teal)}
+  .hero-meta{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
+  .hero-meta p{font-size:19px;color:var(--ink-soft);max-width:520px;margin:0}
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+  .hero-visual{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:stretch}
+  .hero-visual .stat-block{background:var(--paper);border-radius:24px;padding:48px;display:flex;flex-direction:column;justify-content:space-between;min-height:480px;border:1px solid var(--line)}
+  .hero-product{background:linear-gradient(160deg,var(--ink) 0%,var(--teal-deep) 100%);border-radius:24px;position:relative;overflow:hidden;color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:space-between;min-height:480px}
+  .hero-product .vial{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:380px;filter:drop-shadow(0 32px 48px rgba(0,0,0,.4))}
+  .hero-product h4{color:#fff;font-family:'Fraunces',serif;font-weight:500;font-size:32px;line-height:1.05;letter-spacing:-0.02em;margin:0;max-width:60%}
+  .hero-product .meta{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+  .hero-product .meta small{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;opacity:.6;margin-bottom:6px;font-weight:500}
+  .hero-product .price{font-family:'Fraunces',serif;font-size:32px;font-weight:500;line-height:1}
+  .hero-product .price span{font-size:14px;opacity:.7;font-family:'Inter',sans-serif;font-weight:400}
+  .stat-block .stat-num{font-family:'Fraunces',serif;font-size:120px;line-height:.9;font-weight:400;color:var(--teal);letter-spacing:-0.04em}
+  .stat-block .stat-num em{font-style:italic;font-size:80px}
+  .stat-block .stat-label{font-size:14px;color:var(--ink-soft);max-width:280px;line-height:1.5}
+  .stat-block .stat-bullets{display:grid;gap:12px;margin-top:24px}
+  .stat-block .stat-bullets div{font-size:14px;color:var(--ink-soft);display:flex;gap:10px;align-items:flex-start}
+  .stat-block .stat-bullets div::before{content:"";flex-shrink:0;width:6px;height:6px;border-radius:100px;background:var(--teal);margin-top:8px}
+  @media(max-width:880px){
+    .hero-meta{grid-template-columns:1fr;gap:24px}
+    .hero-ctas{justify-content:flex-start}
+    .hero-visual{grid-template-columns:1fr}
+    .hero-product{min-height:360px;padding:32px}
+    .hero-product .vial{width:240px;right:-20px}
+  }
+
+  /* TRUST PILLS */
+  .pills{padding:48px 0 32px}
+  .pills-row{display:flex;flex-wrap:wrap;gap:10px}
+  .pill{padding:10px 18px;border-radius:100px;border:1px solid var(--line);background:var(--paper);font-size:13px;font-weight:500;color:var(--ink);display:inline-flex;align-items:center;gap:8px}
+  .pill svg{color:var(--teal)}
+
+  /* SECTION */
+  .section{padding:120px 0}
+  .section-head{max-width:880px;margin-bottom:64px}
+  .section-head .eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:20px}
+  .section-head h2{margin-bottom:20px}
+  .section-head p{font-size:19px;color:var(--ink-soft);max-width:680px;margin:0}
+  @media(max-width:780px){.section{padding:72px 0}}
+
+  /* HOW IT WORKS */
+  .how{background:var(--sand);position:relative;overflow:hidden}
+  .how::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(32,94,118,.08),transparent 60%)}
+  .how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+  .how-card{background:var(--paper);border-radius:24px;padding:36px 28px;display:flex;flex-direction:column;gap:24px;min-height:340px;position:relative}
+  .how-num{font-family:'Fraunces',serif;font-size:96px;font-weight:300;line-height:.85;color:var(--teal);font-style:italic;letter-spacing:-0.04em}
+  .how-card h4{font-family:'Fraunces',serif;font-weight:500;font-size:22px;line-height:1.15;letter-spacing:-0.01em;color:var(--ink)}
+  .how-card p{font-size:14px;color:var(--ink-soft);margin:0;line-height:1.55}
+  @media(max-width:980px){.how-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.how-grid{grid-template-columns:1fr}}
+
+  /* COMPARISON */
+  .compare{background:var(--paper)}
+  .compare-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .compare-cell{padding:24px;border-right:1px solid var(--line);display:flex;align-items:center;gap:14px;font-size:15px}
+  .compare-cell:last-child{border-right:0}
+  .compare-row{display:contents}
+  .compare-row.head .compare-cell{padding:32px 24px;font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-0.01em;align-items:flex-end}
+  .compare-row.head .compare-cell.us{background:var(--ink);color:#fff}
+  .compare-cell.us{background:rgba(32,94,118,.05)}
+  .compare-row:not(.head) .compare-cell{border-top:1px solid var(--line);color:var(--ink-soft)}
+  .compare-cell.label{font-weight:500;color:var(--ink);font-size:15px}
+  .yes{color:#1b7a45;font-weight:600}
+  .no{color:#a23b2c;font-weight:600}
+  .yes::before,.no::before{content:"";display:inline-block;width:18px;height:18px;border-radius:100px;margin-right:8px;vertical-align:-4px}
+  .yes::before{background:#1b7a45;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/></svg>") center / 14px no-repeat;-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/></svg>") center / 14px no-repeat}
+  .no::before{background:#a23b2c;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>") center / 14px no-repeat;-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>") center / 14px no-repeat}
+  @media(max-width:680px){.compare-grid{grid-template-columns:1fr 80px 80px}}
+
+  /* TREATMENTS */
+  .tx-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .tx-card{background:var(--paper);border-radius:24px;padding:48px;display:flex;flex-direction:column;gap:24px;border:1px solid var(--line);position:relative;overflow:hidden}
+  .tx-card.dark{background:var(--ink);color:#fff;border-color:transparent}
+  .tx-card.dark h3{color:#fff}
+  .tx-card.dark .meta-row{color:rgba(255,255,255,.7)}
+  .tx-card.dark .btn-outline{color:#fff;border-color:#fff}
+  .tx-card.dark .btn-outline:hover{background:#fff;color:var(--ink)}
+  .tx-tag{display:inline-flex;align-items:center;padding:6px 12px;border-radius:100px;background:var(--sand);color:var(--ink);font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;align-self:flex-start}
+  .tx-card.dark .tx-tag{background:var(--sand);color:var(--ink)}
+  .tx-card .tx-art{height:200px;border-radius:16px;background:linear-gradient(160deg,#efe8db,#d4c4a1);position:relative;display:grid;place-items:center;overflow:hidden}
+  .tx-card.dark .tx-art{background:linear-gradient(160deg,var(--teal-deep),var(--ink))}
+  .tx-card .tx-art img{max-height:80%;max-width:50%;object-fit:contain;filter:drop-shadow(0 20px 32px rgba(0,0,0,.25))}
+  .tx-card h3{margin:0;font-family:'Fraunces',serif;font-weight:500}
+  .tx-card .desc{color:var(--ink-soft);font-size:15px}
+  .tx-card.dark .desc{color:rgba(255,255,255,.7)}
+  .tx-meta{display:grid;grid-template-columns:auto auto;gap:32px;align-items:flex-end;justify-content:space-between;margin-top:auto}
+  .tx-price{font-family:'Fraunces',serif;font-size:48px;font-weight:400;line-height:1;color:var(--teal)}
+  .tx-card.dark .tx-price{color:var(--sand)}
+  .tx-price span{font-size:14px;font-family:'Inter',sans-serif;color:var(--ink-soft);font-weight:400;display:block;margin-top:6px}
+  .tx-card.dark .tx-price span{color:rgba(255,255,255,.6)}
+  @media(max-width:780px){.tx-grid{grid-template-columns:1fr}.tx-card{padding:32px}}
+
+  /* CONTROL — disclaimer split */
+  .control{background:var(--ink);color:#fff;border-radius:32px;overflow:hidden;display:grid;grid-template-columns:1fr 1.4fr;gap:0}
+  .control .left,.control .right{padding:72px 56px}
+  .control .left{background:var(--teal-deep)}
+  .control h2{color:#fff;margin-bottom:24px}
+  .control p{color:rgba(255,255,255,.78);font-size:15px;line-height:1.6}
+  .control .right p:first-child{font-size:18px;color:#fff}
+  @media(max-width:780px){.control{grid-template-columns:1fr}.control .left,.control .right{padding:48px 32px}}
+
+  /* PILLARS — bigger editorial */
+  .pillars-mc{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
+  .pmc-cell{padding:48px 0;border-bottom:1px solid var(--line);padding-right:48px}
+  .pmc-cell:nth-child(odd){padding-right:48px;border-right:1px solid var(--line)}
+  .pmc-cell:nth-child(even){padding-left:48px}
+  .pmc-num{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--teal);letter-spacing:.05em;margin-bottom:12px;font-weight:500}
+  .pmc-cell h4{font-family:'Fraunces',serif;font-weight:500;font-size:28px;letter-spacing:-0.01em;margin-bottom:16px;max-width:520px}
+  .pmc-cell p{color:var(--ink-soft);font-size:16px;line-height:1.6;margin:0;max-width:520px}
+  @media(max-width:780px){.pillars-mc{grid-template-columns:1fr}.pmc-cell:nth-child(odd){padding-right:0;border-right:0}.pmc-cell:nth-child(even){padding-left:0}.pmc-cell{padding:36px 0}}
+
+  /* FAQ */
+  .faq{max-width:920px;margin:0 auto}
+  .faq details{border-top:1px solid var(--line);padding:32px 0}
+  .faq details:last-of-type{border-bottom:1px solid var(--line)}
+  .faq summary{font-family:'Fraunces',serif;font-weight:500;font-size:24px;color:var(--ink);
+    cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px;letter-spacing:-0.01em;line-height:1.2}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"";width:32px;height:32px;border-radius:100px;background:var(--ink) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z'/></svg>") center / 16px no-repeat;flex-shrink:0;transition:transform .2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{color:var(--ink-soft);margin:18px 0 0;font-size:17px;line-height:1.65;max-width:780px}
+
+  /* CTA */
+  .final-cta{background:var(--ink);color:#fff;border-radius:32px;padding:96px 56px;text-align:center;position:relative;overflow:hidden}
+  .final-cta::before{content:"";position:absolute;inset:auto -10% -50% -10%;height:80%;background:radial-gradient(ellipse at center bottom,rgba(32,94,118,.6),transparent 70%)}
+  .final-cta > *{position:relative}
+  .final-cta h2{color:#fff;margin-bottom:24px;font-size:clamp(40px,5vw,72px)}
+  .final-cta h2 em{color:var(--sand);font-style:italic;font-weight:400}
+  .final-cta p{color:rgba(255,255,255,.75);max-width:560px;margin:0 auto 36px;font-size:18px}
+  .final-cta .btn-teal{background:var(--sand);color:var(--ink)}
+  .final-cta .btn-teal:hover{background:#fff}
+
+  /* FOOTER */
+  footer{padding:80px 0 32px;background:var(--bg-deep)}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--line)}
+  .footer-grid img{height:36px;width:auto;margin-bottom:20px}
+  .footer-grid p{color:var(--ink-soft);font-size:14px;line-height:1.6;max-width:340px}
+  footer h5{font-family:'Inter',sans-serif;font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin:0 0 16px}
+  footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:14px}
+  footer a{color:var(--ink-soft)}
+  footer a:hover{color:var(--ink)}
+  .disclaimer{display:grid;grid-template-columns:1fr 90px;gap:32px;padding:32px 0;align-items:center;border-bottom:1px solid var(--line)}
+  .disclaimer p{color:var(--ink-soft);font-size:12px;line-height:1.55;margin:0}
+  .legitscript{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;font-family:'Inter',sans-serif;font-size:9px;color:var(--teal);font-weight:600}
+  .legitscript .ls-mark{display:block;font-size:28px;line-height:1;margin-bottom:4px}
+  .footer-bottom{display:flex;justify-content:space-between;padding-top:24px;color:var(--ink-soft);font-size:13px;flex-wrap:wrap;gap:12px}
+  @media(max-width:880px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.disclaimer{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-screen-label="01 Landing · B Modern Clinical">
+
+<div class="announce">Free shipping on every plan · First-month consultation included</div>
+
+<header>
+  <div class="container nav">
+    <a href="#" class="logo"><img src="assets/logo-wide.png" alt="AmlaWellness" /></a>
+    <nav><ul>
+      <li><a href="#treatments">Treatments</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></nav>
+    <div class="nav-actions">
+      <a href="#login" class="btn btn-ghost">Log in</a>
+      <a href="https://glyra-health-llc.mybaskhealth.com/start-online-visit/test" class="btn btn-primary">Get started</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-headline">
+      <h1>Real clinicians.<br/><em>Personalized</em> care.<br/>Delivered to your door.</h1>
+    </div>
+    <div class="hero-meta">
+      <p>Compounded GLP-1 therapy prescribed by licensed U.S. clinicians, fulfilled by a state-licensed compounding pharmacy, and cold-shipped to your home. No insurance. No surprise pricing.</p>
+      <div class="hero-ctas">
+        <a href="https://glyra-health-llc.mybaskhealth.com/start-online-visit/test" class="btn btn-primary btn-lg">Am I eligible? <span class="btn-arrow">→</span></a>
+        <a href="#how" class="btn btn-outline btn-lg">How it works</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-product">
+        <div>
+          <h4>Compounded GLP-1, delivered weekly.</h4>
+        </div>
+        <img src="assets/glp1-vial.png" alt="GLP-1 vial" class="vial" />
+        <div class="meta">
+          <div>
+            <small>Plans from</small>
+            <div class="price">$199<span>/month</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="stat-block">
+        <div>
+          <div class="stat-num">5<em>–7</em></div>
+          <div class="stat-label">Average business days from approval to first shipment, cold-chain to your door.</div>
+        </div>
+        <div class="stat-bullets">
+          <div>Independent licensed clinician review on every intake</div>
+          <div>Cash-pay pricing — no insurance gymnastics</div>
+          <div>Cancel between refills, no commitments</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST PILLS -->
+<div class="container pills">
+  <div class="pills-row">
+    <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>LegitScript Certified</span>
+    <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>HIPAA Compliant</span>
+    <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>State-Licensed Pharmacy</span>
+    <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Board-Certified Clinicians</span>
+    <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Cold-Chain Shipping</span>
+    <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>48-state coverage</span>
+  </div>
+</div>
+
+<!-- TREATMENTS -->
+<section class="section" id="treatments">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Treatments</span>
+      <h2>Two GLP-1 options.<br/><em class="italic">One personal plan.</em></h2>
+      <p>Compounded medications prescribed by an independent licensed clinician after evaluating your intake. Includes consultation, ongoing care, and cold-shipped delivery.</p>
+    </div>
+    <div class="tx-grid">
+      <article class="tx-card">
+        <span class="tx-tag">Most popular</span>
+        <div class="tx-art"><img src="assets/glp1-vial.png" alt="Semaglutide vial" /></div>
+        <h3>Compounded Semaglutide</h3>
+        <p class="desc">Weekly subcutaneous injection. GLP-1 receptor agonist. Provider-directed titration and monthly refills included.</p>
+        <div class="tx-meta">
+          <div class="tx-price">$199<span>starting / month</span></div>
+          <a href="https://glyra-health-llc.mybaskhealth.com/start-online-visit/test" class="btn btn-teal">Am I eligible? →</a>
+        </div>
+      </article>
+      <article class="tx-card dark">
+        <span class="tx-tag">Dual-action</span>
+        <div class="tx-art"><img src="assets/glp1-vial.png" alt="Tirzepatide vial" /></div>
+        <h3>Compounded Tirzepatide</h3>
+        <p class="desc">Weekly subcutaneous injection acting on both GLP-1 and GIP receptors. Provider-directed dose ladder.</p>
+        <div class="tx-meta">
+          <div class="tx-price">$349<span>starting / month</span></div>
+          <a href="https://glyra-health-llc.mybaskhealth.com/start-online-visit/test" class="btn btn-outline">Am I eligible? →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="section how" id="how">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>From intake to first dose <em class="italic">in under a week.</em></h2>
+      <p>Four steps. Most patients are approved within 48 hours and receive their first cold-shipped delivery within 5–7 business days.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-num">01</div>
+        <h4>Select your plan & complete intake</h4>
+        <p>Pick a treatment and complete the medical intake questionnaire — under 10 minutes.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">02</div>
+        <h4>Dedicated provider review</h4>
+        <p>A licensed clinician reviews your intake and writes a prescription if medically appropriate.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">03</div>
+        <h4>Pharmacy fills prescription</h4>
+        <p>Your prescription is sent to a state-licensed compounding pharmacy for fulfilment.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">04</div>
+        <h4>Cold-shipped to your door</h4>
+        <p>Your medication is cold-shipped directly to you with everything needed to begin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="section compare">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The difference</span>
+      <h2>How AmlaWellness <em class="italic">stacks up.</em></h2>
+      <p>What you'd expect from name-brand telehealth, without the insurance maze or surprise pricing.</p>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-row head">
+        <div class="compare-cell"></div>
+        <div class="compare-cell us">AmlaWellness</div>
+        <div class="compare-cell">Traditional clinic</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell label">Transparent monthly pricing</div>
+        <div class="compare-cell us"><span class="yes">Yes</span></div>
+        <div class="compare-cell"><span class="no">Varies</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell label">Insurance required</div>
+        <div class="compare-cell us"><span class="no">No</span></div>
+        <div class="compare-cell"><span class="yes">Often</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell label">Cold-shipped to your door</div>
+        <div class="compare-cell us"><span class="yes">Yes</span></div>
+        <div class="compare-cell"><span class="no">No</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell label">Provider review on every refill</div>
+        <div class="compare-cell us"><span class="yes">Yes</span></div>
+        <div class="compare-cell"><span class="no">Rarely</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell label">Cancel between refills</div>
+        <div class="compare-cell us"><span class="yes">Yes</span></div>
+        <div class="compare-cell"><span class="no">Restricted</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTROL / DISCLAIMER -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="control">
+      <div class="left">
+        <h2>Personalized GLP-1 at <em class="italic" style="color:var(--sand)">transparent pricing.</em></h2>
+        <a href="about.html" class="btn btn-outline" style="color:#fff;border-color:#fff">Learn more →</a>
+      </div>
+      <div class="right">
+        <p>Compounded drug products are not FDA-approved. The FDA does not evaluate compounded products for safety, effectiveness, or quality. Prescription products require an online consultation with a healthcare provider who will determine if a prescription is appropriate.</p>
+        <p>AmlaWellness is a telehealth brand. We do not prescribe, manufacture, or produce any medication. We connect patients with clinicians who evaluate personal needs, and if a clinician determines that a compounded GLP-1 medication is medically necessary, a partner pharmacy may fill the prescription as prescribed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What we stand for</span>
+      <h2>Built on quality care<br/>and <em class="italic">accountable practice.</em></h2>
+    </div>
+    <div class="pillars-mc">
+      <div class="pmc-cell">
+        <div class="pmc-num">— 01</div>
+        <h4>A dedicated team</h4>
+        <p>Our team is built to empower you with the tools and support to reach your goals through personalized telehealth care — from first intake through ongoing refills.</p>
+      </div>
+      <div class="pmc-cell">
+        <div class="pmc-num">— 02</div>
+        <h4>A telehealth brand, not a pharmacy</h4>
+        <p>AmlaWellness does not prescribe, manufacture, or produce medication. We connect patients with independent clinicians and partner pharmacies who handle the medical work.</p>
+      </div>
+      <div class="pmc-cell">
+        <div class="pmc-num">— 03</div>
+        <h4>Certified clinicians, inclusive care</h4>
+        <p>Our clinicians are fully certified and committed to your wellness journey, regardless of language, background, or identity. High-quality care, full stop.</p>
+      </div>
+      <div class="pmc-cell">
+        <div class="pmc-num">— 04</div>
+        <h4>Standards, reviewed regularly</h4>
+        <p>We work with partners who maintain appropriate licensing, credentialing, and operational standards — and we review our program structure against clinical and regulatory expectations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Things <em class="italic">people ask.</em></h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Who is eligible for compounded GLP-1 treatment?</summary>
+        <p>Eligibility is determined by a licensed clinician after reviewing your intake questionnaire. Generally, adult patients with a BMI ≥ 27 (or ≥ 30 without comorbidities) and no contraindications can be considered. The final decision is made by your provider, not by AmlaWellness.</p>
+      </details>
+      <details>
+        <summary>What's in compounded semaglutide and tirzepatide?</summary>
+        <p>The active ingredient is the same molecule found in the brand-name product, sourced from FDA-registered facilities. Compounded products are prepared by a state-licensed compounding pharmacy and are not FDA-approved. The FDA does not evaluate compounded products for safety or efficacy.</p>
+      </details>
+      <details>
+        <summary>How much does it cost — and do you take insurance?</summary>
+        <p>We operate on transparent cash-pay pricing, no insurance required. Plans start at $199/mo for compounded semaglutide and $349/mo for tirzepatide. Pricing includes the clinician consultation, ongoing care, and medication.</p>
+      </details>
+      <details>
+        <summary>What states do you ship to?</summary>
+        <p>We currently support patients in 48 U.S. states. State-specific licensing may affect treatment availability — your eligibility will be confirmed during intake.</p>
+      </details>
+      <details>
+        <summary>How is the medication shipped?</summary>
+        <p>Your prescription ships in temperature-controlled cold-chain packaging directly from the partner pharmacy. Tracking is provided. Most patients receive their first shipment within 5–7 business days of approval.</p>
+      </details>
+      <details>
+        <summary>What ongoing support is included?</summary>
+        <p>Your plan includes secure messaging with your clinician, dose-titration guidance, side-effect support, and monthly check-ins. You'll have access to our patient portal 24/7.</p>
+      </details>
+      <details>
+        <summary>Can I cancel any time?</summary>
+        <p>Yes. There are no long-term commitments. You can pause or cancel your subscription from your patient portal between refills.</p>
+      </details>
+      <details>
+        <summary>Is this the same as Ozempic® or Wegovy®?</summary>
+        <p>No. Ozempic®, Wegovy®, Mounjaro®, and Zepbound® are FDA-approved brand-name products manufactured by their respective companies and are not affiliated with AmlaWellness. Our compounded products contain the same active ingredient but are prepared by a compounding pharmacy and are not FDA-approved.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="final-cta">
+      <h2>Ready to see if you're <em>eligible?</em></h2>
+      <p>Take the intake questionnaire — most patients hear back within 24 hours. No commitments, no insurance needed.</p>
+      <a href="https://glyra-health-llc.mybaskhealth.com/start-online-visit/test" class="btn btn-teal btn-lg">Start intake →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/logo-wide.png" alt="AmlaWellness" />
+        <p>Personalized telehealth weight-care, delivered with transparency. Built on the belief that quality care should be accessible — without insurance roadblocks or guesswork.</p>
+      </div>
+      <div>
+        <h5>Treatments</h5>
+        <ul>
+          <li><a href="#treatments">Compounded Semaglutide</a></li>
+          <li><a href="#treatments">Compounded Tirzepatide</a></li>
+          <li><a href="#how">How it works</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="privacy.html">Privacy policy</a></li>
+          <li><a href="terms.html">Terms of service</a></li>
+          <li><a href="privacy.html#safety">Safety information</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <p>AmlaWellness is a marketplace platform that collaborates with independent healthcare professionals to deliver services. We do not directly offer medical or pharmacy services, and payment does not ensure that a prescription will be written or dispensed. Independent providers and partner pharmacies handle medical services. Information on this site is for reference only and does not replace professional medical advice. For health-related inquiries, consult your doctor. The FDA-approved brand-name drugs (such as Wegovy®, Ozempic®, Mounjaro®, Zepbound®) are exclusively the property of their manufacturers and are not affiliated with AmlaWellness.</p>
+      <div class="legitscript"><span class="ls-mark">✓</span>LegitScript<br/>Certified</div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 AmlaWellness LLC. All rights reserved.</div>
+      <div>Made with care for your wellness journey.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
