@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sips -g pixelWidth -g pixelHeight -g hasAlpha /Users/alex/Documents/AmlaWellness/assets/vial.png)",
+      "Bash(python3 -m pip install --user --quiet rembg onnxruntime pillow)",
+      "Bash(python3 -c ' *)"
+    ]
+  }
+}

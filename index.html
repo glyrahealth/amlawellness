@@ -6,7 +6,7 @@
 <title>AmlaWellness — GLP-1, prescribed and delivered.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root{
     --bg:#f8f4ed;
@@ -24,15 +24,18 @@
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  section[id]{scroll-margin-top:90px}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
   body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
-  h1,h2,h3,h4{margin:0;font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.02em;color:var(--ink)}
-  h1{font-size:clamp(48px,7vw,104px);line-height:.98;font-weight:400}
-  h2{font-size:clamp(36px,4.4vw,64px);line-height:1.02;font-weight:500}
+  h1,h2,h3,h4{margin:0;font-family:'Nunito',sans-serif;font-weight:500;letter-spacing:-0.02em;color:var(--ink)}
+  h1{font-size:clamp(36px,7vw,104px);line-height:1.02;font-weight:400}
+  h2{font-size:clamp(28px,4.4vw,64px);line-height:1.06;font-weight:500}
   h3{font-size:clamp(24px,2.4vw,32px);line-height:1.15}
   h4{font-size:22px;line-height:1.25;font-weight:600}
   p{margin:0 0 1em}
   a{color:var(--teal);text-decoration:none}
-  .italic{font-style:italic;font-family:'Fraunces',serif;color:var(--teal)}
+  .italic{font-style:italic;font-family:'Nunito',sans-serif;color:var(--teal)}
   .container{max-width:var(--container);margin:0 auto;padding:0 32px}
 
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
@@ -58,6 +61,7 @@
   /* HEADER */
   header{position:sticky;top:0;z-index:30;background:rgba(248,244,237,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;gap:24px}
+  .logo{display:inline-block;padding-left:16px}
   .logo img{height:32px;display:block}
   nav ul{display:flex;gap:36px;list-style:none;padding:0;margin:0}
   nav a{font-weight:500;font-size:15px;color:var(--ink)}
@@ -77,13 +81,13 @@
   .hero-visual .stat-block{background:var(--paper);border-radius:24px;padding:48px;display:flex;flex-direction:column;justify-content:space-between;min-height:480px;border:1px solid var(--line)}
   .hero-product{background:linear-gradient(160deg,var(--ink) 0%,var(--teal-deep) 100%);border-radius:24px;position:relative;overflow:hidden;color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:space-between;min-height:480px}
   .hero-product .vial{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:380px;filter:drop-shadow(0 32px 48px rgba(0,0,0,.4))}
-  .hero-product h4{color:#fff;font-family:'Fraunces',serif;font-weight:500;font-size:32px;line-height:1.05;letter-spacing:-0.02em;margin:0;max-width:60%}
+  .hero-product h4{color:#fff;font-family:'Nunito',sans-serif;font-weight:500;font-size:32px;line-height:1.05;letter-spacing:-0.02em;margin:0;max-width:60%}
   .hero-product .meta{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
   .hero-product .meta small{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;opacity:.6;margin-bottom:6px;font-weight:500}
-  .hero-product .price{font-family:'Fraunces',serif;font-size:32px;font-weight:500;line-height:1}
+  .hero-product .price{font-family:'Nunito',sans-serif;font-size:32px;font-weight:500;line-height:1}
   .hero-product .price span{font-size:14px;opacity:.7;font-family:'Inter',sans-serif;font-weight:400}
-  .stat-block .stat-num{font-family:'Fraunces',serif;font-size:120px;line-height:.9;font-weight:400;color:var(--teal);letter-spacing:-0.04em}
-  .stat-block .stat-num em{font-style:italic;font-size:80px}
+  .stat-block .stat-num{font-family:'Nunito',sans-serif;font-size:clamp(72px,11vw,120px);line-height:.9;font-weight:400;color:var(--teal);letter-spacing:-0.04em}
+  .stat-block .stat-num em{font-style:italic;font-size:.66em}
   .stat-block .stat-label{font-size:14px;color:var(--ink-soft);max-width:280px;line-height:1.5}
   .stat-block .stat-bullets{display:grid;gap:12px;margin-top:24px}
   .stat-block .stat-bullets div{font-size:14px;color:var(--ink-soft);display:flex;gap:10px;align-items:flex-start}
@@ -109,35 +113,55 @@
   .section-head h2{margin-bottom:20px}
   .section-head p{font-size:19px;color:var(--ink-soft);max-width:680px;margin:0}
   @media(max-width:780px){.section{padding:72px 0}}
+  @media(max-width:520px){.container{padding:0 20px}.section{padding:56px 0}.section-head{margin-bottom:40px}}
 
   /* HOW IT WORKS */
   .how{background:var(--sand);position:relative;overflow:hidden}
   .how::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(32,94,118,.08),transparent 60%)}
   .how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
   .how-card{background:var(--paper);border-radius:24px;padding:36px 28px;display:flex;flex-direction:column;gap:24px;min-height:340px;position:relative}
-  .how-num{font-family:'Fraunces',serif;font-size:96px;font-weight:300;line-height:.85;color:var(--teal);font-style:italic;letter-spacing:-0.04em}
-  .how-card h4{font-family:'Fraunces',serif;font-weight:500;font-size:22px;line-height:1.15;letter-spacing:-0.01em;color:var(--ink)}
+  .how-num{font-family:'Nunito',sans-serif;font-size:96px;font-weight:300;line-height:.85;color:var(--teal);font-style:italic;letter-spacing:-0.04em}
+  .how-card h4{font-family:'Nunito',sans-serif;font-weight:500;font-size:22px;line-height:1.15;letter-spacing:-0.01em;color:var(--ink)}
   .how-card p{font-size:14px;color:var(--ink-soft);margin:0;line-height:1.55}
   @media(max-width:980px){.how-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:520px){.how-grid{grid-template-columns:1fr}}
 
+  /* CONTACT FORM */
+  .contact-form{max-width:720px}
+  .contact-form h2{color:var(--teal-deep);margin-bottom:32px}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+  .form-field{display:flex;flex-direction:column}
+  .form-field.full{grid-column:1 / -1}
+  .form-field label{font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;color:var(--teal-deep);margin-bottom:8px;letter-spacing:-0.01em}
+  .form-field label .req{color:#c0392b;margin-left:3px;font-size:12px;vertical-align:top}
+  .form-field input,.form-field textarea{width:100%;background:transparent;border:1.5px solid rgba(20,58,74,.18);border-radius:100px;padding:12px 18px;font-family:'Inter',sans-serif;font-size:14px;color:var(--ink);transition:border-color .2s ease;outline:none}
+  .form-field textarea{border-radius:14px;min-height:120px;resize:vertical}
+  .form-field input::placeholder,.form-field textarea::placeholder{color:rgba(20,58,74,.4)}
+  .form-field input:focus,.form-field textarea:focus{border-color:var(--teal-deep)}
+  .form-submit{margin-top:20px}
+  .form-submit button{background:var(--teal-deep);color:#fff;border:0;padding:14px 40px;border-radius:100px;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;cursor:pointer;transition:background .2s ease}
+  .form-submit button:hover{background:var(--ink)}
+  @media(max-width:580px){.form-grid{grid-template-columns:1fr}}
+
   /* COMPARISON */
-  .compare{background:var(--paper)}
-  .compare-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .compare-cell{padding:24px;border-right:1px solid var(--line);display:flex;align-items:center;gap:14px;font-size:15px}
-  .compare-cell:last-child{border-right:0}
+  .compare{background:var(--bg)}
+  .compare-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+  .compare-cell{padding:22px 28px;display:flex;align-items:center;gap:12px;font-size:15px;color:var(--ink-soft);background:var(--paper)}
   .compare-row{display:contents}
-  .compare-row.head .compare-cell{padding:32px 24px;font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-0.01em;align-items:flex-end}
-  .compare-row.head .compare-cell.us{background:var(--ink);color:#fff}
-  .compare-cell.us{background:rgba(32,94,118,.05)}
-  .compare-row:not(.head) .compare-cell{border-top:1px solid var(--line);color:var(--ink-soft)}
-  .compare-cell.label{font-weight:500;color:var(--ink);font-size:15px}
-  .yes{color:#1b7a45;font-weight:600}
-  .no{color:#a23b2c;font-weight:600}
-  .yes::before,.no::before{content:"";display:inline-block;width:18px;height:18px;border-radius:100px;margin-right:8px;vertical-align:-4px}
-  .yes::before{background:#1b7a45;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/></svg>") center / 14px no-repeat;-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/></svg>") center / 14px no-repeat}
-  .no::before{background:#a23b2c;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>") center / 14px no-repeat;-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>") center / 14px no-repeat}
-  @media(max-width:680px){.compare-grid{grid-template-columns:1fr 80px 80px}}
+  .compare-row.head .compare-cell{padding:26px 28px;font-family:'Nunito',sans-serif;font-weight:600;font-size:18px;letter-spacing:-0.01em;color:var(--ink)}
+  .compare-row.head .compare-cell.us{background:var(--teal-deep);color:#fff}
+  .compare-cell.us{background:rgba(32,94,118,.06)}
+  .compare-row:not(.head) .compare-cell{border-top:1px solid var(--line)}
+  .compare-cell.label{color:var(--ink);font-weight:500}
+  .yes,.no{font-weight:500;color:var(--ink-soft);display:inline-flex;align-items:center;gap:10px}
+  .yes::before,.no::before{content:"";flex-shrink:0;width:22px;height:22px;border-radius:100px}
+  .yes::before{background:var(--teal-deep) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/></svg>") center / 14px no-repeat}
+  .no::before{background:#b9bfc4 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>") center / 12px no-repeat}
+  @media(max-width:680px){
+    .compare-grid{grid-template-columns:1fr 88px 88px}
+    .compare-cell{padding:16px 14px;font-size:14px;gap:8px}
+    .compare-row.head .compare-cell{font-size:14px;padding:18px 14px}
+  }
 
   /* TREATMENTS */
   .tx-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -152,11 +176,11 @@
   .tx-card .tx-art{height:200px;border-radius:16px;background:linear-gradient(160deg,#efe8db,#d4c4a1);position:relative;display:grid;place-items:center;overflow:hidden}
   .tx-card.dark .tx-art{background:linear-gradient(160deg,var(--teal-deep),var(--ink))}
   .tx-card .tx-art img{max-height:80%;max-width:50%;object-fit:contain;filter:drop-shadow(0 20px 32px rgba(0,0,0,.25))}
-  .tx-card h3{margin:0;font-family:'Fraunces',serif;font-weight:500}
+  .tx-card h3{margin:0;font-family:'Nunito',sans-serif;font-weight:500}
   .tx-card .desc{color:var(--ink-soft);font-size:15px}
   .tx-card.dark .desc{color:rgba(255,255,255,.7)}
   .tx-meta{display:grid;grid-template-columns:auto auto;gap:32px;align-items:flex-end;justify-content:space-between;margin-top:auto}
-  .tx-price{font-family:'Fraunces',serif;font-size:48px;font-weight:400;line-height:1;color:var(--teal)}
+  .tx-price{font-family:'Nunito',sans-serif;font-size:48px;font-weight:400;line-height:1;color:var(--teal)}
   .tx-card.dark .tx-price{color:var(--sand)}
   .tx-price span{font-size:14px;font-family:'Inter',sans-serif;color:var(--ink-soft);font-weight:400;display:block;margin-top:6px}
   .tx-card.dark .tx-price span{color:rgba(255,255,255,.6)}
@@ -176,8 +200,8 @@
   .pmc-cell{padding:48px 0;border-bottom:1px solid var(--line);padding-right:48px}
   .pmc-cell:nth-child(odd){padding-right:48px;border-right:1px solid var(--line)}
   .pmc-cell:nth-child(even){padding-left:48px}
-  .pmc-num{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--teal);letter-spacing:.05em;margin-bottom:12px;font-weight:500}
-  .pmc-cell h4{font-family:'Fraunces',serif;font-weight:500;font-size:28px;letter-spacing:-0.01em;margin-bottom:16px;max-width:520px}
+  .pmc-num{font-family:'Nunito',sans-serif;font-style:italic;font-size:14px;color:var(--teal);letter-spacing:.05em;margin-bottom:12px;font-weight:500}
+  .pmc-cell h4{font-family:'Nunito',sans-serif;font-weight:500;font-size:28px;letter-spacing:-0.01em;margin-bottom:16px;max-width:520px}
   .pmc-cell p{color:var(--ink-soft);font-size:16px;line-height:1.6;margin:0;max-width:520px}
   @media(max-width:780px){.pillars-mc{grid-template-columns:1fr}.pmc-cell:nth-child(odd){padding-right:0;border-right:0}.pmc-cell:nth-child(even){padding-left:0}.pmc-cell{padding:36px 0}}
 
@@ -185,7 +209,7 @@
   .faq{max-width:920px;margin:0 auto}
   .faq details{border-top:1px solid var(--line);padding:32px 0}
   .faq details:last-of-type{border-bottom:1px solid var(--line)}
-  .faq summary{font-family:'Fraunces',serif;font-weight:500;font-size:24px;color:var(--ink);
+  .faq summary{font-family:'Nunito',sans-serif;font-weight:500;font-size:24px;color:var(--ink);
     cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px;letter-spacing:-0.01em;line-height:1.2}
   .faq summary::-webkit-details-marker{display:none}
   .faq summary::after{content:"";width:32px;height:32px;border-radius:100px;background:var(--ink) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z'/></svg>") center / 16px no-repeat;flex-shrink:0;transition:transform .2s}
@@ -213,8 +237,8 @@
   footer a:hover{color:var(--ink)}
   .disclaimer{display:grid;grid-template-columns:1fr 90px;gap:32px;padding:32px 0;align-items:center;border-bottom:1px solid var(--line)}
   .disclaimer p{color:var(--ink-soft);font-size:12px;line-height:1.55;margin:0}
-  .legitscript{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;font-family:'Inter',sans-serif;font-size:9px;color:var(--teal);font-weight:600}
-  .legitscript .ls-mark{display:block;font-size:28px;line-height:1;margin-bottom:4px}
+  .legitscript{display:inline-block;line-height:0}
+  .legitscript img{display:block;width:88px;height:auto}
   .footer-bottom{display:flex;justify-content:space-between;padding-top:24px;color:var(--ink-soft);font-size:13px;flex-wrap:wrap;gap:12px}
   @media(max-width:880px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.disclaimer{grid-template-columns:1fr}}
 </style>
@@ -225,17 +249,17 @@
 
 <header>
   <div class="container nav">
-    <a href="#" class="logo"><img src="assets/logo-wide.png" alt="AmlaWellness" /></a>
+    <a href="#" class="logo"><img src="assets/logo.png" alt="AmlaWellness" /></a>
     <nav><ul>
       <li><a href="#treatments">Treatments</a></li>
       <li><a href="#how">How it works</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul></nav>
     <div class="nav-actions">
-      <a href="#login" class="btn btn-ghost">Log in</a>
-      <a href="https://glyra-health-llc.mybaskhealth.com/start-online-visit/test" class="btn btn-primary">Get started</a>
+      <a href="https://portal.amlawellness.com" class="btn btn-ghost">Log in</a>
+      <a href="https://intake.amlawellness.com" class="btn btn-primary">Get started</a>
     </div>
   </div>
 </header>
@@ -249,7 +273,7 @@
     <div class="hero-meta">
       <p>Compounded GLP-1 therapy prescribed by licensed U.S. clinicians, fulfilled by a state-licensed compounding pharmacy, and cold-shipped to your home. No insurance. No surprise pricing.</p>
       <div class="hero-ctas">
-        <a href="https://glyra-health-llc.mybaskhealth.com/start-online-visit/test" class="btn btn-primary btn-lg">Am I eligible? <span class="btn-arrow">→</span></a>
+        <a href="https://intake.amlawellness.com" class="btn btn-primary btn-lg">Am I eligible? <span class="btn-arrow">→</span></a>
         <a href="#how" class="btn btn-outline btn-lg">How it works</a>
       </div>
     </div>
@@ -259,7 +283,7 @@
         <div>
           <h4>Compounded GLP-1, delivered weekly.</h4>
         </div>
-        <img src="assets/glp1-vial.png" alt="GLP-1 vial" class="vial" />
+        <img src="assets/vial.png" alt="GLP-1 vial" class="vial" />
         <div class="meta">
           <div>
             <small>Plans from</small>
@@ -285,7 +309,7 @@
 <!-- TRUST PILLS -->
 <div class="container pills">
   <div class="pills-row">
-    <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>LegitScript Certified</span>
+    <span class="pill"><img src="assets/legitcert.png" alt="" width="18" height="18" style="display:block" />LegitScript Certified</span>
     <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>HIPAA Compliant</span>
     <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>State-Licensed Pharmacy</span>
     <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Board-Certified Clinicians</span>
@@ -305,22 +329,22 @@
     <div class="tx-grid">
       <article class="tx-card">
         <span class="tx-tag">Most popular</span>
-        <div class="tx-art"><img src="assets/glp1-vial.png" alt="Semaglutide vial" /></div>
+        <div class="tx-art"><img src="assets/vial.png" alt="Semaglutide vial" /></div>
         <h3>Compounded Semaglutide</h3>
         <p class="desc">Weekly subcutaneous injection. GLP-1 receptor agonist. Provider-directed titration and monthly refills included.</p>
         <div class="tx-meta">
           <div class="tx-price">$199<span>starting / month</span></div>
-          <a href="https://glyra-health-llc.mybaskhealth.com/start-online-visit/test" class="btn btn-teal">Am I eligible? →</a>
+          <a href="https://intake.amlawellness.com" class="btn btn-teal">Am I eligible? →</a>
         </div>
       </article>
       <article class="tx-card dark">
         <span class="tx-tag">Dual-action</span>
-        <div class="tx-art"><img src="assets/glp1-vial.png" alt="Tirzepatide vial" /></div>
+        <div class="tx-art"><img src="assets/vial.png" alt="Tirzepatide vial" /></div>
         <h3>Compounded Tirzepatide</h3>
         <p class="desc">Weekly subcutaneous injection acting on both GLP-1 and GIP receptors. Provider-directed dose ladder.</p>
         <div class="tx-meta">
           <div class="tx-price">$349<span>starting / month</span></div>
-          <a href="https://glyra-health-llc.mybaskhealth.com/start-online-visit/test" class="btn btn-outline">Am I eligible? →</a>
+          <a href="https://intake.amlawellness.com" class="btn btn-outline">Am I eligible? →</a>
         </div>
       </article>
     </div>
@@ -371,7 +395,7 @@
     <div class="compare-grid">
       <div class="compare-row head">
         <div class="compare-cell"></div>
-        <div class="compare-cell us">AmlaWellness</div>
+        <div class="compare-cell us">amla wellness</div>
         <div class="compare-cell">Traditional clinic</div>
       </div>
       <div class="compare-row">
@@ -403,7 +427,7 @@
   </div>
 </section>
 
-<!-- CONTROL / DISCLAIMER -->
+<!-- CONTROL / DISCLAIMER
 <section class="section" style="padding-top:0">
   <div class="container">
     <div class="control">
@@ -417,10 +441,10 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- PILLARS -->
-<section class="section" style="padding-top:0">
+<section class="section" id="about" style="padding-top:0">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">What we stand for</span>
@@ -452,7 +476,7 @@
 </section>
 
 <!-- FAQ -->
-<section class="section" style="padding-top:0">
+<section class="section" id="faq" style="padding-top:0">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">FAQ</span>
@@ -495,13 +519,43 @@
   </div>
 </section>
 
+<!-- CONTACT -->
+<section class="section" id="contact" style="padding-top:0">
+  <div class="container">
+    <form class="contact-form" action="#" method="post" novalidate>
+      <h2>Contact our team</h2>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="cf-name">Your name<span class="req">*</span></label>
+          <input id="cf-name" name="name" type="text" placeholder="Enter your name" required />
+        </div>
+        <div class="form-field">
+          <label for="cf-email">Your email<span class="req">*</span></label>
+          <input id="cf-email" name="email" type="email" placeholder="Enter your email" required />
+        </div>
+        <div class="form-field full">
+          <label for="cf-phone">Phone number</label>
+          <input id="cf-phone" name="phone" type="tel" placeholder="Enter your phone number" />
+        </div>
+        <div class="form-field full">
+          <label for="cf-message">Your message<span class="req">*</span></label>
+          <textarea id="cf-message" name="message" placeholder="Enter your message" required></textarea>
+        </div>
+      </div>
+      <div class="form-submit">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</section>
+
 <!-- FINAL CTA -->
 <section class="section" style="padding-top:0">
   <div class="container">
     <div class="final-cta">
       <h2>Ready to see if you're <em>eligible?</em></h2>
       <p>Take the intake questionnaire — most patients hear back within 24 hours. No commitments, no insurance needed.</p>
-      <a href="https://glyra-health-llc.mybaskhealth.com/start-online-visit/test" class="btn btn-teal btn-lg">Start intake →</a>
+      <a href="https://intake.amlawellness.com" class="btn btn-teal btn-lg">Start intake →</a>
     </div>
   </div>
 </section>
@@ -511,7 +565,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <img src="assets/logo-wide.png" alt="AmlaWellness" />
+        <img src="assets/logo.png" alt="AmlaWellness" />
         <p>Personalized telehealth weight-care, delivered with transparency. Built on the belief that quality care should be accessible — without insurance roadblocks or guesswork.</p>
       </div>
       <div>
@@ -525,9 +579,9 @@
       <div>
         <h5>Company</h5>
         <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
       <div>
@@ -541,7 +595,7 @@
     </div>
     <div class="disclaimer">
       <p>AmlaWellness is a marketplace platform that collaborates with independent healthcare professionals to deliver services. We do not directly offer medical or pharmacy services, and payment does not ensure that a prescription will be written or dispensed. Independent providers and partner pharmacies handle medical services. Information on this site is for reference only and does not replace professional medical advice. For health-related inquiries, consult your doctor. The FDA-approved brand-name drugs (such as Wegovy®, Ozempic®, Mounjaro®, Zepbound®) are exclusively the property of their manufacturers and are not affiliated with AmlaWellness.</p>
-      <div class="legitscript"><span class="ls-mark">✓</span>LegitScript<br/>Certified</div>
+      <a href="https://www.legitscript.com/" target="_blank" rel="noopener" class="legitscript"><img src="assets/legitcert.png" alt="LegitScript Certified" /></a>
     </div>
     <div class="footer-bottom">
       <div>© 2026 AmlaWellness LLC. All rights reserved.</div>
