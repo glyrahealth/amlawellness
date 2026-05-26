@@ -62,7 +62,8 @@
   header{position:sticky;top:0;z-index:30;background:rgba(248,244,237,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;gap:24px}
   .logo{display:inline-block;padding-left:16px}
-  .logo img{height:32px;display:block}
+  .logo img{height:44px;width:auto;display:block}
+  @media(max-width:520px){.logo{padding-left:4px}.logo img{height:32px}}
   nav ul{display:flex;gap:36px;list-style:none;padding:0;margin:0}
   nav a{font-weight:500;font-size:15px;color:var(--ink)}
   nav a:hover{color:var(--teal)}
@@ -249,7 +250,7 @@
 
 <header>
   <div class="container nav">
-    <a href="#" class="logo"><img src="assets/logo.png" alt="AmlaWellness" /></a>
+    <a href="#" class="logo"><img src="assets/logoHorizontal.png" alt="AmlaWellness" /></a>
     <nav><ul>
       <li><a href="#treatments">Treatments</a></li>
       <li><a href="#how">How it works</a></li>
@@ -565,7 +566,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <img src="assets/logo.png" alt="AmlaWellness" />
+        <img src="assets/logoHorizontal.png" alt="AmlaWellness" />
         <p>Personalized telehealth weight-care, delivered with transparency. Built on the belief that quality care should be accessible — without insurance roadblocks or guesswork.</p>
       </div>
       <div>
