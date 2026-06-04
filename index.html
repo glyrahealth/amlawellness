@@ -78,27 +78,29 @@
   .hero-meta{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
   .hero-meta p{font-size:19px;color:var(--ink-soft);max-width:520px;margin:0}
   .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
-  .hero-visual{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:stretch}
-  .hero-visual .stat-block{background:var(--paper);border-radius:24px;padding:48px;display:flex;flex-direction:column;justify-content:space-between;min-height:480px;border:1px solid var(--line)}
-  .hero-product{background:linear-gradient(160deg,var(--ink) 0%,var(--teal-deep) 100%);border-radius:24px;position:relative;overflow:hidden;color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:space-between;min-height:480px}
-  .hero-product .vial{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:380px;filter:drop-shadow(0 32px 48px rgba(0,0,0,.4))}
-  .hero-product h4{color:#fff;font-family:'Nunito',sans-serif;font-weight:500;font-size:32px;line-height:1.05;letter-spacing:-0.02em;margin:0;max-width:60%}
-  .hero-product .meta{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
-  .hero-product .meta small{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;opacity:.6;margin-bottom:6px;font-weight:500}
-  .hero-product .price{font-family:'Nunito',sans-serif;font-size:32px;font-weight:500;line-height:1}
-  .hero-product .price span{font-size:14px;opacity:.7;font-family:'Inter',sans-serif;font-weight:400}
-  .stat-block .stat-num{font-family:'Nunito',sans-serif;font-size:clamp(72px,11vw,120px);line-height:.9;font-weight:400;color:var(--teal);letter-spacing:-0.04em}
-  .stat-block .stat-num em{font-style:italic;font-size:.66em}
-  .stat-block .stat-label{font-size:14px;color:var(--ink-soft);max-width:280px;line-height:1.5}
-  .stat-block .stat-bullets{display:grid;gap:12px;margin-top:24px}
-  .stat-block .stat-bullets div{font-size:14px;color:var(--ink-soft);display:flex;gap:10px;align-items:flex-start}
-  .stat-block .stat-bullets div::before{content:"";flex-shrink:0;width:6px;height:6px;border-radius:100px;background:var(--teal);margin-top:8px}
+  /* HERO GOAL CARDS — entry points into the treatments selector */
+  .hero-goals{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .goal-card{position:relative;display:block;min-height:243px;border-radius:24px;overflow:hidden;
+    text-decoration:none;color:#fff;box-shadow:var(--shadow);
+    background-color:var(--sand-deep);background-position:center;background-size:cover;background-repeat:no-repeat;
+    transition:transform .3s cubic-bezier(.22,.61,.36,1),box-shadow .3s ease}
+  .goal-card.dark{background-color:var(--teal-deep)}
+  .goal-card:hover{transform:translateY(-6px);box-shadow:0 1px 0 rgba(26,32,36,.04),0 44px 72px -34px rgba(26,32,36,.34)}
+  .goal-card:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+  /* legibility scrim behind the bottom bar */
+  .goal-card::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(to top,rgba(16,28,36,.82) 0%,rgba(16,28,36,.30) 42%,rgba(16,28,36,0) 70%)}
+  .gc-bar{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;padding:22px 22px 24px}
+  .gc-name{font-family:'Nunito',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.01em;
+    color:#fff;line-height:1.15;text-shadow:0 1px 12px rgba(0,0,0,.35)}
+  .gc-arrow{width:42px;height:42px;border-radius:100px;display:grid;place-items:center;flex-shrink:0;
+    background:#fff;color:var(--ink);font-size:17px;transition:transform .25s ease,background-color .25s ease,color .25s ease}
+  .goal-card:hover .gc-arrow{background:var(--teal);color:#fff;transform:translateX(4px)}
   @media(max-width:880px){
     .hero-meta{grid-template-columns:1fr;gap:24px}
     .hero-ctas{justify-content:flex-start}
-    .hero-visual{grid-template-columns:1fr}
-    .hero-product{min-height:360px;padding:32px}
-    .hero-product .vial{width:240px;right:-20px}
+    .hero-goals{grid-template-columns:1fr}
   }
 
   /* TRUST PILLS */
@@ -186,6 +188,38 @@
   .tx-price span{font-size:14px;font-family:'Inter',sans-serif;color:var(--ink-soft);font-weight:400;display:block;margin-top:6px}
   .tx-card.dark .tx-price span{color:rgba(255,255,255,.6)}
   @media(max-width:780px){.tx-grid{grid-template-columns:1fr}.tx-card{padding:32px}}
+  .tx-grid.single{grid-template-columns:minmax(0,540px);justify-content:center}
+
+  /* GOAL SELECTOR */
+  .section-head--center{margin-left:auto;margin-right:auto;text-align:center}
+  .section-head--center p{margin-left:auto;margin-right:auto}
+  .goal-switch{display:flex;justify-content:center;margin-bottom:44px;scroll-margin-top:104px}
+  .goal-track{display:inline-flex;gap:6px;padding:6px;border-radius:100px;
+    background:linear-gradient(180deg,var(--sand) 0%,var(--sand-deep) 100%);
+    box-shadow:inset 0 1px 2px rgba(26,32,36,.12);max-width:100%}
+  .goal-btn{appearance:none;-webkit-appearance:none;border:0;background:transparent;cursor:pointer;
+    display:inline-flex;align-items:center;justify-content:center;text-align:center;
+    font-family:'Nunito',sans-serif;font-weight:600;font-size:clamp(15px,1.5vw,19px);
+    letter-spacing:-0.01em;color:rgba(20,58,74,.5);
+    padding:14px 30px;border-radius:100px;line-height:1.1;white-space:nowrap;
+    transition:color .25s ease,background-color .25s ease,box-shadow .25s ease,transform .25s ease}
+  .goal-btn:hover{color:var(--teal-deep)}
+  .goal-btn.is-active{background:var(--paper);color:var(--ink);
+    box-shadow:0 8px 20px -8px rgba(26,32,36,.4),0 1px 0 rgba(255,255,255,.7) inset}
+  .panel-lead{text-align:center;font-size:13px;font-weight:600;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--teal);margin:0 0 32px}
+  .tx-art .ph{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);
+    background:rgba(255,255,255,.6);padding:8px 16px;border-radius:100px;text-align:center}
+  .tx-card.dark .tx-art .ph{color:rgba(255,255,255,.88);background:rgba(255,255,255,.12)}
+  .goal-panel{display:none}
+  .goal-panel.is-active{display:block;animation:goalIn .45s cubic-bezier(.22,.61,.36,1)}
+  @keyframes goalIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.goal-panel.is-active{animation:none}}
+  @media(max-width:560px){
+    .goal-track{display:flex;width:100%;gap:4px;padding:5px}
+    .goal-btn{flex:1;padding:13px 8px;font-size:14px;white-space:normal}
+  }
 
   /* CONTROL — disclaimer split */
   .control{background:var(--ink);color:#fff;border-radius:32px;overflow:hidden;display:grid;grid-template-columns:1fr 1.4fr;gap:0}
@@ -271,38 +305,26 @@
     <div class="hero-headline">
       <h1>Real clinicians.<br/><em>Personalized</em> care.<br/>Delivered to your door.</h1>
     </div>
-    <div class="hero-meta">
-      <p>Compounded GLP-1 therapy prescribed by licensed U.S. clinicians, fulfilled by a state-licensed compounding pharmacy, and cold-shipped to your home. No insurance. No surprise pricing.</p>
-      <div class="hero-ctas">
-        <a href="https://intake.amlawellness.com" class="btn btn-primary btn-lg">Am I eligible? <span class="btn-arrow">→</span></a>
-        <a href="#how" class="btn btn-outline btn-lg">How it works</a>
-      </div>
-    </div>
 
-    <div class="hero-visual">
-      <div class="hero-product">
-        <div>
-          <h4>Compounded GLP-1, delivered weekly.</h4>
+    <div class="hero-goals">
+      <a class="goal-card" href="#plan-picker" data-goal-card="weight" style="background-image:url('assets/goal-weight.jpg')" aria-label="Explore Weight Loss plans">
+        <div class="gc-bar">
+          <span class="gc-name">Weight Loss</span>
+          <span class="gc-arrow" aria-hidden="true">→</span>
         </div>
-        <img src="assets/vial.png" alt="GLP-1 vial" class="vial" />
-        <div class="meta">
-          <div>
-            <small>Plans from</small>
-            <div class="price">$199<span>/month</span></div>
-          </div>
+      </a>
+      <a class="goal-card dark" href="#plan-picker" data-goal-card="metabolism" style="background-image:url('assets/goal-metabolism.jpg')" aria-label="Explore Metabolism and Energy plans">
+        <div class="gc-bar">
+          <span class="gc-name">Metabolism &amp; Energy</span>
+          <span class="gc-arrow" aria-hidden="true">→</span>
         </div>
-      </div>
-      <div class="stat-block">
-        <div>
-          <div class="stat-num">5<em>–7</em></div>
-          <div class="stat-label">Average business days from approval to first shipment, cold-chain to your door.</div>
+      </a>
+      <a class="goal-card dark" href="#plan-picker" data-goal-card="recovery" style="background-image:url('assets/goal-recovery.jpg')" aria-label="Explore Muscle Recovery plans">
+        <div class="gc-bar">
+          <span class="gc-name">Muscle Recovery</span>
+          <span class="gc-arrow" aria-hidden="true">→</span>
         </div>
-        <div class="stat-bullets">
-          <div>Independent licensed clinician review on every intake</div>
-          <div>Cash-pay pricing — no insurance gymnastics</div>
-          <div>Cancel between refills, no commitments</div>
-        </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -315,39 +337,90 @@
     <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>State-Licensed Pharmacy</span>
     <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Board-Certified Clinicians</span>
     <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Cold-Chain Shipping</span>
-    <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>48-state coverage</span>
+    <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>50-state coverage</span>
   </div>
 </div>
 
 <!-- TREATMENTS -->
 <section class="section" id="treatments">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head section-head--center">
       <span class="eyebrow">Treatments</span>
-      <h2>Two GLP-1 options.<br/><em class="italic">One personal plan.</em></h2>
-      <p>Compounded medications prescribed by an independent licensed clinician after evaluating your intake. Includes consultation, ongoing care, and cold-shipped delivery.</p>
+      <h2>Find your plan.<br/><em class="italic">Start with your goal.</em></h2>
+      <p>Tell us what you're working toward — your selection tailors the treatments, pricing, and care below. Every plan is prescribed by an independent licensed clinician after reviewing your intake, then cold-shipped to your door.</p>
     </div>
-    <div class="tx-grid">
-      <article class="tx-card">
-        <span class="tx-tag">Most popular</span>
-        <div class="tx-art"><img src="assets/vial.png" alt="Semaglutide vial" /></div>
-        <h3>Compounded Semaglutide</h3>
-        <p class="desc">Weekly subcutaneous injection. GLP-1 receptor agonist. Provider-directed titration and monthly refills included.</p>
-        <div class="tx-meta">
-          <div class="tx-price">$199<span>starting / month</span></div>
-          <a href="https://intake.amlawellness.com" class="btn btn-teal">Am I eligible? →</a>
+
+    <!-- GOAL SELECTOR -->
+    <div class="goal-switch" id="plan-picker">
+      <div class="goal-track" role="tablist" aria-label="Choose your goal">
+        <button type="button" class="goal-btn is-active" data-goal="weight" role="tab" aria-selected="true">Weight Loss</button>
+        <button type="button" class="goal-btn" data-goal="metabolism" role="tab" aria-selected="false">Metabolism &amp; Energy</button>
+        <button type="button" class="goal-btn" data-goal="recovery" role="tab" aria-selected="false">Muscle Recovery</button>
+      </div>
+    </div>
+
+    <!-- PANELS -->
+    <div class="goal-panels">
+      <!-- WEIGHT LOSS -->
+      <div class="goal-panel is-active" data-panel="weight" role="tabpanel">
+        <p class="panel-lead">GLP-1 therapy · for sustainable, clinician-guided weight loss</p>
+        <div class="tx-grid">
+          <article class="tx-card">
+            <span class="tx-tag">Most popular</span>
+            <div class="tx-art"><img src="assets/vial.png" alt="Semaglutide vial" /></div>
+            <h3>Compounded Semaglutide</h3>
+            <p class="desc">Weekly subcutaneous injection. GLP-1 receptor agonist. Provider-directed titration and monthly refills included.</p>
+            <div class="tx-meta">
+              <div class="tx-price">$199<span>starting / month</span></div>
+              <a href="https://intake.amlawellness.com" class="btn btn-teal">Am I eligible? →</a>
+            </div>
+          </article>
+          <article class="tx-card dark">
+            <span class="tx-tag">Dual-action</span>
+            <div class="tx-art"><img src="assets/vial.png" alt="Tirzepatide vial" /></div>
+            <h3>Compounded Tirzepatide</h3>
+            <p class="desc">Weekly subcutaneous injection acting on both GLP-1 and GIP receptors. Provider-directed dose ladder.</p>
+            <div class="tx-meta">
+              <div class="tx-price">$349<span>starting / month</span></div>
+              <a href="https://intake.amlawellness.com" class="btn btn-outline">Am I eligible? →</a>
+            </div>
+          </article>
         </div>
-      </article>
-      <article class="tx-card dark">
-        <span class="tx-tag">Dual-action</span>
-        <div class="tx-art"><img src="assets/vial.png" alt="Tirzepatide vial" /></div>
-        <h3>Compounded Tirzepatide</h3>
-        <p class="desc">Weekly subcutaneous injection acting on both GLP-1 and GIP receptors. Provider-directed dose ladder.</p>
-        <div class="tx-meta">
-          <div class="tx-price">$349<span>starting / month</span></div>
-          <a href="https://intake.amlawellness.com" class="btn btn-outline">Am I eligible? →</a>
+      </div>
+
+      <!-- METABOLISM -->
+      <div class="goal-panel" data-panel="metabolism" role="tabpanel">
+        <p class="panel-lead">Metabolism peptides · for cellular energy &amp; metabolic function</p>
+        <div class="tx-grid single">
+          <article class="tx-card">
+            <span class="tx-tag">Cellular vitality</span>
+            <div class="tx-art"><span class="ph">NAD+ · product shot</span></div>
+            <h3>NAD+ Injection</h3>
+            <p class="desc">Subcutaneous NAD+ to support cellular energy, metabolic function, and the body's natural repair pathways. Provider-directed dosing.</p>
+            <div class="tx-meta">
+              <div class="tx-price">$159<span>starting / month</span></div>
+              <a href="https://intake.amlawellness.com" class="btn btn-teal">Am I eligible? →</a>
+            </div>
+          </article>
         </div>
-      </article>
+      </div>
+
+      <!-- MUSCLE RECOVERY -->
+      <div class="goal-panel" data-panel="recovery" role="tabpanel">
+        <p class="panel-lead">Recovery peptides · for sleep, recovery &amp; lean mass</p>
+        <div class="tx-grid single">
+          <article class="tx-card">
+            <span class="tx-tag">GH support</span>
+            <div class="tx-art"><span class="ph">Sermorelin · product shot</span></div>
+            <h3>Sermorelin</h3>
+            <p class="desc">A growth-hormone-releasing peptide to support deeper sleep, recovery, and lean body composition as you age.</p>
+            <div class="tx-meta">
+              <div class="tx-price">$129<span>starting / month</span></div>
+              <a href="https://intake.amlawellness.com" class="btn btn-teal">Am I eligible? →</a>
+            </div>
+          </article>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -493,6 +566,10 @@
         <p>The active ingredient is the same molecule found in the brand-name product, sourced from FDA-registered facilities. Compounded products are prepared by a state-licensed compounding pharmacy and are not FDA-approved. The FDA does not evaluate compounded products for safety or efficacy.</p>
       </details>
       <details>
+        <summary>Do you offer peptides beyond GLP-1?</summary>
+        <p>Yes. Alongside our weight-loss program we offer metabolism peptides (such as NAD+) and recovery peptides (such as Sermorelin). Like our GLP-1 options, these are compounded, prescribed only when a licensed clinician determines they're appropriate for you, and are not FDA-approved.</p>
+      </details>
+      <details>
         <summary>How much does it cost — and do you take insurance?</summary>
         <p>We operate on transparent cash-pay pricing, no insurance required. Plans start at $199/mo for compounded semaglutide and $349/mo for tirzepatide. Pricing includes the clinician consultation, ongoing care, and medication.</p>
       </details>
@@ -572,8 +649,9 @@
       <div>
         <h5>Treatments</h5>
         <ul>
-          <li><a href="#treatments">Compounded Semaglutide</a></li>
-          <li><a href="#treatments">Compounded Tirzepatide</a></li>
+          <li><a href="#treatments">Weight Loss · GLP-1</a></li>
+          <li><a href="#treatments">Metabolism peptides</a></li>
+          <li><a href="#treatments">Muscle Recovery peptides</a></li>
           <li><a href="#how">How it works</a></li>
         </ul>
       </div>
@@ -603,6 +681,25 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.goal-btn'));
+  var panels=[].slice.call(document.querySelectorAll('.goal-panel'));
+  function select(goal){
+    btns.forEach(function(b){var on=b.getAttribute('data-goal')===goal;b.classList.toggle('is-active',on);b.setAttribute('aria-selected',on?'true':'false');});
+    panels.forEach(function(p){p.classList.toggle('is-active',p.getAttribute('data-panel')===goal);});
+    try{localStorage.setItem('amla-goal',goal);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){select(b.getAttribute('data-goal'));});});
+  // Hero goal cards: select the matching panel, then let the anchor scroll to #treatments
+  [].slice.call(document.querySelectorAll('[data-goal-card]')).forEach(function(c){
+    c.addEventListener('click',function(){select(c.getAttribute('data-goal-card'));});
+  });
+  var saved=null;try{saved=localStorage.getItem('amla-goal');}catch(e){}
+  if(saved&&btns.some(function(b){return b.getAttribute('data-goal')===saved;}))select(saved);
+})();
+</script>
 
 </body>
 </html>
