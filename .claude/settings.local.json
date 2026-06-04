@@ -10,7 +10,9 @@
       "Bash(git push *)",
       "Bash(sips -g pixelWidth -g pixelHeight -g hasAlpha /Users/alex/Documents/AmlaWellness/assets/logoHorizontal.png)",
       "Bash(sips -g hasAlpha /Users/alex/Documents/AmlaWellness/assets/logoHorizontal.png)",
-      "Bash(sips -g pixelWidth -g pixelHeight /Users/alex/Documents/AmlaWellness/assets/logoHorizontal.png)"
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/alex/Documents/AmlaWellness/assets/logoHorizontal.png)",
+      "WebFetch(domain:docs.google.com)",
+      "WebFetch(domain:doc-0c-7g-docstext.googleusercontent.com)"
     ]
   }
 }

@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Terms of Service — AmlaWellness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f8f4ed;--bg-deep:#efe8db;--paper:#ffffff;--ink:#1a2024;--ink-soft:#5a6770;
+    --teal:#205e76;--teal-deep:#143a4a;--sand:#e8dcc3;--sand-deep:#d4c4a1;
+    --line:rgba(26,32,36,.1);--container:1280px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{margin:0;font-family:'Nunito',sans-serif;font-weight:500;letter-spacing:-0.02em;color:var(--ink)}
+  h1{font-size:clamp(36px,5vw,64px);line-height:1.02;font-weight:500}
+  h2{font-size:clamp(22px,2.4vw,28px);line-height:1.2;font-weight:700;color:var(--teal-deep)}
+  h3{font-size:18px;line-height:1.3;font-weight:700;color:var(--teal-deep)}
+  p{margin:0 0 1em}
+  a{color:var(--teal);text-decoration:underline;text-underline-offset:2px}
+  a:hover{color:var(--teal-deep)}
+  .italic{font-style:italic;font-family:'Nunito',sans-serif;color:var(--teal)}
+  .container{max-width:var(--container);margin:0 auto;padding:0 32px}
+  @media(max-width:520px){.container{padding:0 20px}}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:11px 20px;border-radius:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;line-height:1;text-decoration:none;transition:all .2s ease;border:1.5px solid transparent;cursor:pointer;letter-spacing:.01em;white-space:nowrap}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--teal);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:rgba(26,32,36,.06)}
+
+  /* ANNOUNCEMENT */
+  .announce{background:var(--ink);color:#fff;text-align:center;font-size:13px;padding:11px;letter-spacing:.02em}
+  .announce strong{font-weight:600}
+
+  /* HEADER */
+  header{position:sticky;top:0;z-index:30;background:rgba(248,244,237,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;gap:24px}
+  .logo{display:inline-block;padding-left:16px}
+  .logo img{height:44px;width:auto;display:block}
+  @media(max-width:520px){.logo{padding-left:4px}.logo img{height:32px}}
+  nav ul{display:flex;gap:36px;list-style:none;padding:0;margin:0}
+  nav a{font-weight:500;font-size:15px;color:var(--ink);text-decoration:none}
+  nav a:hover{color:var(--teal)}
+  .nav-actions{display:flex;gap:10px;align-items:center}
+  @media(max-width:980px){nav ul{display:none}}
+
+  /* LEGAL HERO + BODY */
+  .legal-hero{padding:80px 0 24px;border-bottom:1px solid var(--line);margin-bottom:48px}
+  .legal-hero .eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+  .legal-hero h1{margin:0 0 16px}
+  .legal-hero p{font-size:17px;color:var(--ink-soft);max-width:720px;margin:0}
+
+  .legal{max-width:820px;margin:0 auto;padding:0 0 96px;color:var(--ink)}
+  .legal .toc{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px 28px;margin-bottom:48px}
+  .legal .toc h4{font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin:0 0 14px}
+  .legal .toc ol{margin:0;padding-left:20px;columns:2;column-gap:32px;font-size:14px;line-height:1.7}
+  .legal .toc a{color:var(--ink);text-decoration:none}
+  .legal .toc a:hover{color:var(--teal-deep);text-decoration:underline}
+  @media(max-width:680px){.legal .toc ol{columns:1}}
+
+  .legal section{margin-bottom:40px;scroll-margin-top:90px}
+  .legal section h2{margin:0 0 16px;font-size:24px}
+  .legal section h3{margin:24px 0 10px}
+  .legal section p{font-size:15px;line-height:1.7;color:var(--ink);margin:0 0 14px}
+  .legal section ul, .legal section ol{margin:0 0 16px;padding-left:24px}
+  .legal section li{font-size:15px;line-height:1.7;margin-bottom:8px;color:var(--ink)}
+  .legal .lede{font-size:15px;font-weight:600;color:var(--teal-deep);background:rgba(32,94,118,.06);border-left:3px solid var(--teal);padding:14px 18px;border-radius:4px;margin-bottom:32px}
+  .legal .lede p{margin:0 0 8px;color:var(--teal-deep)}
+  .legal .lede p:last-child{margin-bottom:0}
+  .legal section.upper p{text-transform:none}
+  .legal .updated{font-size:13px;color:var(--ink-soft);margin-bottom:32px}
+
+  /* FOOTER */
+  footer{background:var(--bg-deep);padding:64px 0 32px;margin-top:64px}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--line)}
+  .footer-grid img{height:40px;margin-bottom:16px}
+  .footer-grid p{font-size:14px;color:var(--ink-soft);max-width:320px}
+  footer h5{font-family:'Inter',sans-serif;font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin:0 0 16px}
+  footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+  footer ul a{font-size:14px;color:var(--ink-soft);text-decoration:none}
+  footer ul a:hover{color:var(--teal)}
+  .disclaimer{display:grid;grid-template-columns:1fr 90px;gap:32px;padding:32px 0;align-items:center;border-bottom:1px solid var(--line)}
+  .disclaimer p{font-size:11px;color:var(--ink-soft);line-height:1.55;margin:0}
+  .legitscript{display:inline-block;line-height:0}
+  .legitscript img{display:block;width:88px;height:auto}
+  .footer-bottom{display:flex;justify-content:space-between;padding-top:24px;font-size:13px;color:var(--ink-soft)}
+  @media(max-width:880px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.disclaimer{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="announce">Free shipping on every plan · First-month consultation included</div>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logoHorizontal.png" alt="AmlaWellness" /></a>
+    <nav><ul>
+      <li><a href="index.html#treatments">Treatments</a></li>
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul></nav>
+    <div class="nav-actions">
+      <a href="https://portal.amlawellness.com" class="btn btn-ghost">Log in</a>
+      <a href="https://intake.amlawellness.com" class="btn btn-primary">Get started</a>
+    </div>
+  </div>
+</header>
+
+<section class="legal-hero">
+  <div class="container">
+    <span class="eyebrow">Legal</span>
+    <h1>Terms of <em class="italic">service.</em></h1>
+    <p>These terms describe your rights and responsibilities with regard to the AmlaWellness website, owned and operated by Glyra Health LLC.</p>
+  </div>
+</section>
+
+<main class="container">
+<article class="legal">
+
+  <div class="lede">
+    <p>This service is only contemplated for specific non-emergent medical conditions or concerns.</p>
+    <p>If you are experiencing a medical emergency, call your doctor or 911 immediately.</p>
+    <p>Please read these Terms of Use carefully before using our Services or our Website.</p>
+  </div>
+
+  <div class="toc">
+    <h4>On this page</h4>
+    <ol>
+      <li><a href="#s1">Introduction</a></li>
+      <li><a href="#s2">Modification of the Terms</a></li>
+      <li><a href="#s3">Description of Glyra Health LLC</a></li>
+      <li><a href="#s4">Eligibility</a></li>
+      <li><a href="#s5">Availability</a></li>
+      <li><a href="#s6">Registration, user accounts, and user data</a></li>
+      <li><a href="#s7">Your responsibilities and acknowledgement</a></li>
+      <li><a href="#s8">Designated representative and test result access</a></li>
+      <li><a href="#s9">Restrictions on use</a></li>
+      <li><a href="#s10">License and use</a></li>
+      <li><a href="#s11">Disclaimer; limited health care services</a></li>
+      <li><a href="#s12">Telehealth consent</a></li>
+      <li><a href="#s13">GLP-1 and weight management disclosures</a></li>
+      <li><a href="#s14">Payment</a></li>
+      <li><a href="#s15">Privacy</a></li>
+      <li><a href="#s16">Intellectual property</a></li>
+      <li><a href="#s17">Links to third-party hyperlinks and websites</a></li>
+      <li><a href="#s18">Disclaimer of warranties</a></li>
+      <li><a href="#s19">Limitation of liability</a></li>
+      <li><a href="#s20">Indemnification</a></li>
+      <li><a href="#s21">Modifications to the Website</a></li>
+      <li><a href="#s22">Suspension and termination rights</a></li>
+      <li><a href="#s23">Governing law; dispute resolution; arbitration; class action waiver</a></li>
+      <li><a href="#s24">Miscellaneous</a></li>
+      <li><a href="#s25">Copyright infringement claims</a></li>
+      <li><a href="#s26">Insurance or other medical coverage</a></li>
+      <li><a href="#s27">Patient Bill of Rights</a></li>
+      <li><a href="#s28">State-specific notifications</a></li>
+    </ol>
+  </div>
+
+  <section id="s1">
+    <h2>I. Introduction</h2>
+    <p>AmlaWellness is a "doing business as" (DBA) name of Glyra Health LLC. References to "AmlaWellness" and "Glyra" in these Terms refer to the same legal entity, Glyra Health LLC.</p>
+    <p>These terms of use (the "Terms") describe your rights and responsibilities with regard to the amlawellness.com website and its related sub-domains, including intake.amlawellness.com and portal.amlawellness.com, and the glyrahealth.com website (collectively, the "Website"), owned and operated by Glyra Health LLC. In these Terms, "we", "our", "us", "AmlaWellness", and "Glyra" collectively refer to "Glyra Health LLC". The terms "you" and "yours" refer to the person using the Website. Use of the Website is governed by these Terms and our Privacy Policy. By accessing or using the Website, you acknowledge that you have read, understood, and agreed to be legally bound by and comply with these Terms and our Privacy Policy. Even though you may have arrived at the Website through a website or mobile application operated or controlled by a third party, including by an affiliate of Glyra, you understand and agree that these Terms are entered into between you and Glyra. You also understand and agree that the Website and any services provided through these Terms, except the Health Care Services described in Section III herein, are provided by Glyra or a Glyra subsidiary. You agree that when you use or enter the Website, you affirmatively consent to conduct business electronically with Glyra and engage in health-oriented activities with health professionals and professional entities affiliated with Glyra, and such processes have the same force and effect as your written signature. You agree and consent to Glyra, Glyra affiliates or certain affiliated professional entities sending you disclosures, messages, notices, and other communications to your designated mobile phone and email account. You understand that you have a choice to select any health care provider and pharmacy and, when you use or enter the Website, you affirmatively choose to use the healthcare providers affiliated with Glyra. If you do not agree with any of these Terms or our Privacy Policy, you may not use the Website.</p>
+  </section>
+
+  <section id="s2">
+    <h2>II. Modification of the Terms</h2>
+    <p>We reserve the right, in our sole discretion, to amend these Terms, in whole or in part, at any time and for any reason, without penalty or liability to you or any third party. You should check the Terms from time to time when you use the Website to determine if any changes have been made. You can determine when the Terms were last revised by referring to the "Last Modified" notation above. If you use the Website after the amended Terms have been posted, you will be deemed to have agreed to the amended Terms. If any of the provisions of these Terms are not acceptable to you, your sole and exclusive remedy is to discontinue your use of the Website.</p>
+  </section>
+
+  <section id="s3">
+    <h2>III. Description of Glyra Health LLC</h2>
+    <p>You understand and agree that the Website is intended to facilitate the following services (the "Services"): the development and gathering of health care records and information with retention of the same for use in medical provider encounters and communications; administrative support in connection with scheduling and payment for Health Care Services; administrative support in connection with coordinating optional fulfilment and payment for diagnostic or public health screening testing, weight loss services, and prescription medications ordered or prescribed by medical providers performing Health Care Services; and telecommunications and technology support for using the Website as a means of direct access to medical providers provided by affiliated professional entities for communication, consultations, assessments, and treatment by such medical providers.</p>
+    <p>You understand that the Website gathers unique information from you to enable an affiliated medical provider through the Health Care Services to determine whether a prescription or a diagnostic test is indicated and appropriate for you, including applicable health information (such as your past and present health conditions, medications, and blood pressure), diagnostic tests, as applicable, and personal information (such as your name, location, and demographic information) (collectively, "Your Information"). You further understand and agree that after reviewing Your Information, the medical provider, in his or her independent professional judgment, will determine whether to prescribe you medication, other treatment, or, alternatively, recommend that you consult with alternative clinical resources (the "Health Care Services").</p>
+    <p>You give us consent to send and disclose to the affiliated professional entities and their medical providers all Your Information so that you may receive Health Care Services. Further, you consent to our delivery of Your Information to Glyra affiliated and unaffiliated pharmacies, laboratories, and other testing companies as part of coordinating desired fulfilment and payment for testing, prescription medications, and medical devices recommended as part of the Health Care Services.</p>
+    <p>All medical providers who deliver Health Care Services through the Website are: (i) independent professionals contracted or employed with affiliated professional entities that coordinate with Glyra, and (ii) solely responsible for such Health Care Services provided to you. Glyra does not provide any Health Care Services through the Website and is not licensed to practice medicine. Glyra does not control or interfere with the provision of Health Care Services by the medical providers and affiliated professional entities, each of whom is independent and solely responsible for the Health Care Services provided to you. Therefore, you understand and agree that Glyra is not responsible for Health Care Services, or your use of any Health Care Services, provided by a medical provider or affiliated professional entity, including any personal injury or property damage.</p>
+    <p>Glyra does not provide clinical services. Clinical services are provided by telehealth providers and affiliated clinicians, independent entities not affiliated with Glyra. By requesting clinical services, you agree that your relationship to the telehealth provider groups is independent and governed by these Terms of Use and our telehealth providers' terms of use. The Website and Services rely on third-party technology platforms, systems, and infrastructure operated by independent third parties, including telehealth and care delivery partners. Glyra does not control, operate, maintain, or guarantee the availability, uptime, performance, reliability, security, or functionality of any such third-party platforms or services and shall not be responsible for any interruptions, delays, errors, data loss, or failures arising from or related to such third-party platforms.</p>
+  </section>
+
+  <section id="s4">
+    <h2>IV. Eligibility</h2>
+    <p>To use the Services through the Website, the following must be true: You must be 18 years or older, or, if you are under the age of 18, you are using the Website under the supervision of a parent or guardian. You live in the United States and in a state or territory where the Services are available. You agree to be legally bound by and comply with these Terms of Use or, if you are under the age of 18, your parent or guardian has reviewed these Terms of Use and agrees to be bound by them. You must have compatible computing and/or mobile devices, access to the Internet, and certain necessary software in order to use the Website. Fees and charges may apply to your use of the mobile services and to the Internet.</p>
+  </section>
+
+  <section id="s5">
+    <h2>V. Availability</h2>
+    <p>The Services are currently available to individuals located in certain states and that list is subject to change from time to time at the sole discretion of Glyra.</p>
+  </section>
+
+  <section id="s6">
+    <h2>VI. Registration, user accounts, and user data</h2>
+    <p>Although certain parts of the Website are accessible by any individual, you are obligated to register with Glyra in order to access the Services. The Services are available only to users who have registered with Glyra and to other persons affiliated with Glyra who have been granted accounts with usernames and passwords. The Website may not be accessible at any time, for any period, or for any reason, and Glyra will not be liable if for any reason all or any part of the Website is unavailable at any time or for any period.</p>
+    <p>Upon registration of an account, the Website may contain forms or fields that allow you to enter, submit or transmit to Glyra user information or data ("User Data") on or through the Website. You understand and agree that, consistent with applicable law, any User Data provided by you on or through the Website may be used, copied or displayed by Glyra, Glyra may use User Data solely as necessary to operate, maintain, and improve the Website and Services, consistent with applicable law and our Privacy Policy, and Glyra may provide such data to our service providers, our successors and assigns, and medical providers and their affiliated professional entities, in performance of the Services.</p>
+  </section>
+
+  <section id="s7">
+    <h2>VII. Your responsibilities and acknowledgement</h2>
+    <p>As a condition of your use of the Services through the Website, you agree to the following: All Your Information provided through the Website is accurate, complete and correct, and you will accurately maintain and update any of Your Information that you have provided to Glyra. Your permission to use the Website is personal to you; the Website will be used only by you, or you are using the Website to facilitate the Services on behalf of a minor for whom you have legal authority to act, and your identification information is accurate and truthful.</p>
+    <p>You agree to keep confidential your username and password and that you will exit from your account at the end of each session. You are responsible for all activities that occur under your account and for maintaining the confidentiality of your password. You are responsible for changing your password promptly if you think it has been compromised. You may not transfer or share your password with anyone, or create more than one account. You may not use anyone else's account at any time. You agree to immediately notify Glyra of any unauthorized use of your username, password or any other breach of security that you become aware of involving or relating to the Services by emailing Glyra at <a href="mailto:info@amlawellness.com">info@amlawellness.com</a>.</p>
+    <p>You may be asked to provide additional information to Glyra, its affiliated professional entities, or applicable medical provider(s) for the purpose of providing Health Care Services or fulfilling a prescription. You may elect to withhold requested information; however, if you do so, you may not use the Website or any other related services. You understand and agree that provision of Health Care Services through the Website depends on the completeness and accuracy of Your Information. Glyra is unable to verify all of Your Information. Therefore, Glyra is not responsible for any consequences if Your Information is inaccurate or incomplete. If Your Information is inaccurate, incomplete, or not maintained, or Glyra has reasonable grounds to suspect as much, Glyra has the right to suspend or terminate your account and your use of the Services. In addition, Glyra may take any and all actions it deems necessary or reasonable to maintain the security of the Website, Services and your account.</p>
+  </section>
+
+  <section id="s8">
+    <h2>VIII. Designated representative and test result access</h2>
+    <p>As applicable, you designate Glyra as your designated representative to pick up your prescription from the dispensing pharmacy and send your prescription to you at your designated address. You also direct Glyra and its affiliates to provide you with access to any laboratory test results generated as part of the Services provided to you.</p>
+  </section>
+
+  <section id="s9">
+    <h2>IX. Restrictions on use</h2>
+    <p>You will not use, or encourage or permit others to use, our Website except as expressly permitted in these Terms. You will not:</p>
+    <ol type="a">
+      <li>Use or attempt to use the Website or the Services for any purpose that infringes, misappropriates, or otherwise violates any intellectual property right or other right of any third party, or that violates any applicable law or regulation, or is prohibited by these Terms;</li>
+      <li>"Jailbreak" your mobile operating system. The Website is intended for use only on a mobile phone that runs an unmodified manufacturer-approved operating system. Using the Website on a mobile phone with a modified operating system may undermine security features that are intended to protect your information from unauthorized or unintended disclosure. You may compromise your information if you use the Website on a mobile phone that has been modified. Use of the Website on a mobile phone with a modified operating system is a material breach of these Terms;</li>
+      <li>License, sublicense, sell, resell, transfer, assign, distribute or otherwise commercially exploit or make available to any third party the Website or related materials in any way;</li>
+      <li>Use or access the Website to create or develop competing products or services or for any other purpose that is to Glyra's detriment or commercial disadvantage;</li>
+      <li>Take any action or use the Website in any manner which could damage, destroy, disrupt, disable, impair, overburden, interfere with, or otherwise impede or harm in any manner our Website or any content, in whole or in part;</li>
+      <li>Disrupt, interfere with, violate the security of, or attempt to gain unauthorized access to our Website or any computer network;</li>
+      <li>Bypass, breach, avoid, remove, deactivate, impair, descramble, or otherwise circumvent any security device, protection, or technological measure implemented by Glyra or any of our service providers to protect our Website;</li>
+      <li>Input, upload, transmit, distribute, or otherwise run or propagate any virus, application, Trojan horse, or any other harmful computer code that could damage or alter a computer, portable device, computer network, communication network, data, or our Website, or any other system, device, or property;</li>
+      <li>Remove, delete, alter, or obscure any trademarks, specifications, warranties, or disclaimers, or any copyright, trademark, patent, or other intellectual property or proprietary rights notices from our Website or any content made available to you on or through our Website;</li>
+      <li>Use any manual process or automated device to monitor or copy any content made available on or through our Website for any unauthorized purpose except as permitted in Section X;</li>
+      <li>Copy, duplicate, download, store in a retrieval system, publish, transmit or otherwise reproduce, transfer, distribute, store, disseminate, aggregate, use as a component of or as the basis for a database or otherwise use in any form or by any means any data, text, reports, or other materials related to Glyra or third-party content from the Website; or</li>
+      <li>Encourage or enable any other individual to do any of the foregoing.</li>
+    </ol>
+  </section>
+
+  <section id="s10">
+    <h2>X. License and use</h2>
+    <p>Subject to your compliance with these Terms, Glyra grants you a personal, limited, revocable, nonexclusive, and nontransferable license to view, download, access, and use the Website and its content, solely for your personal and non-commercial use. No other right, title, or interest in or to the Website is transferred to you, and all rights not expressly granted are reserved by Glyra or its licensors. You are not permitted to reproduce, publish, transmit, distribute, display, modify, create derivative works from, sell or participate in any sale of, or exploit in any way, in whole or in part, any such content for commercial use.</p>
+  </section>
+
+  <section id="s11">
+    <h2>XI. Disclaimer; limited health care services</h2>
+    <p>The Website is structured for use specific to certain Health Care Services and is not, and should not, be considered, or used as comprehensive medical advice, care, diagnosis or treatment. Always seek the advice of your physician or other qualified healthcare provider with any questions you may have regarding general personal health, medical conditions, or drugs or medications, and before commencing or discontinuing any course of treatment, drug or medication. The Services are not appropriate for emergency or urgent medical conditions and are not intended to replace emergency medical care.</p>
+  </section>
+
+  <section id="s12">
+    <h2>XII. Telehealth consent</h2>
+    <p>I understand that Glyra separately engages telehealth companies, which are independently owned by licensed physicians ("telehealth partners"). Glyra does not own these medical practices, employ or in any way supervise or control the telehealth partners rendering care. Through its technology platform, Glyra facilitates the provision of telehealth services but it is not itself, a source of healthcare, medical advice, or care. This Consent is effective and binding across all telehealth sessions or services rendered by the telehealth partners via Glyra's technology platform. Telehealth or telemedicine (the terms will be used interchangeably throughout this Consent) involves the use of electronic communications, information technology, or other means to enable a healthcare provider and a patient at different locations to communicate and share individual patient health information for the purpose of rendering health care services. Telehealth or telemedicine may be used for assessment, treatment, diagnosis, prescription, follow-up, and/or patient education. This Consent informs you concerning the treatment methods, risks, and limitations of using a telehealth platform.</p>
+
+    <h3>a) Electronic transmissions</h3>
+    <p>The types of electronic transmissions that may occur using the telehealth platform include, but are not limited to:</p>
+    <ul>
+      <li>Completion, exchange, and review of relevant medical information (for example: health records; images; output data from medical devices; sound and video files; diagnostic and/or lab test results) between you and a healthcare provider via: asynchronous or synchronous communications; two-way interactive audio; and/or two-way interactive audio and video interaction;</li>
+      <li>Treatment recommendations by a healthcare provider based upon such review and exchange of clinical information;</li>
+      <li>Delivery of a consultation report with a diagnosis, treatment and/or prescriptions, as deemed medically relevant;</li>
+      <li>Prescription refill reminders (if applicable); and/or</li>
+      <li>Other electronic transmissions for the purpose of rendering health care services to you.</li>
+    </ul>
+
+    <h3>b) Recording</h3>
+    <p>Telehealth sessions may be recorded where permitted by applicable law and only with your consent. Recording practices vary by provider and jurisdiction.</p>
+
+    <h3>c) Benefits</h3>
+    <ul>
+      <li>Improved access to healthcare providers by allowing you to consult a provider from your home or office; and</li>
+      <li>Improved efficiency for access to medical evaluation and management.</li>
+    </ul>
+
+    <h3>d) Risks</h3>
+    <p>As with any medical procedure, there are potential risks associated with the use of telemedicine. These risks may include, without limitation, the following:</p>
+    <ul>
+      <li>Technical problems: digital issues such as video quality, sound quality, or connectivity issues that may require an encounter to be rescheduled;</li>
+      <li>Although measures are in place to prevent a breach of privacy, security protocols could fail, causing a breach of privacy of personal medical information; and/or</li>
+      <li>Provider's inability to conduct a hands-on physical examination of me and my condition.</li>
+    </ul>
+
+    <h3>e) Patient acknowledgments</h3>
+    <ul>
+      <li>If I am experiencing a medical emergency, I will be directed to dial 9-1-1 immediately and the provider is not able to connect me directly to any local emergency services.</li>
+      <li>I have the right to withhold or withdraw my consent to the use of telehealth in the course of my care at any time without affecting my right to future care or treatment.</li>
+      <li>Federal and state law requires health care providers to protect the privacy and security of health information. I am entitled to all confidentiality protections under applicable federal and state laws. I understand all medical reports resulting from the telehealth visit are part of my medical record.</li>
+      <li>Any provider's advice, recommendations, and/or decisions may be based on factors not within his/her control, including incomplete or inaccurate data provided by me. I understand that the provider only relies on information provided by me during our telehealth encounter and that I must provide information about my medical history, condition(s), and current or previous medical care that is complete and accurate to the best of my ability. I also understand that the provider may not have access to my full medical record or information.</li>
+      <li>A healthcare provider will provide care consistent with the prevailing standards of medical practice but makes no assurances or guarantees as to the results of treatment.</li>
+      <li>There is no guarantee that all treatment of all patients will be effective.</li>
+      <li>The laws of the state in which I am located will apply to my receipt of telehealth services.</li>
+      <li>I have the right to review and receive copies of my medical records, including all information obtained during a telehealth interaction, subject to our standard policies regarding request and receipt of medical records and applicable law.</li>
+      <li>The telehealth services are not a replacement for my primary care physician or annual office check-ups. Should I desire to seek in-office care through other providers, including my primary care physician, I can do so.</li>
+      <li>Neither Glyra nor the telehealth partners are online pharmacies. However, Glyra does not control or supervise any prescription decision made by a telehealth partner.</li>
+      <li>Any prescription obtained through the Glyra platform prescribed by a telehealth partner will be used only for its intended use.</li>
+      <li>Neither Glyra nor the telehealth partners guarantee that a specific medication will be prescribed if requested.</li>
+      <li>I hereby release and hold harmless Glyra and the telehealth providers from any loss of data or information due to technical failures associated with the telehealth/telemedicine service.</li>
+      <li>I will be given information about test(s) and treatments(s), as applicable, including the benefits, risks, possible problems or complications, and alternate choices for my medical care through the telehealth/telemedicine visit.</li>
+      <li>Failure to comply with the terms of this Consent may result in the termination of my ability to use the telehealth services.</li>
+    </ul>
+
+    <h3>f) Consent to email, cellular telephone, or text usage for healthcare communications</h3>
+    <p>If at any time I provide an email address or cellphone number at which I may be contacted, I consent to receiving unsecure instructions and other healthcare communications at the email or text address I have provided or Glyra or the telehealth partners have obtained, at any text number forwarded, or transferred from that number. These instructions may include, but are not limited to: follow-up instructions, educational information, and prescription information. Note: You may opt out of these communications at any time. The practice/clinic does not charge for this service, but standard text messaging rates or cellular telephone minutes may apply as provided in your wireless plan (contact your carrier for pricing plans and details).</p>
+
+    <h3>g) Duration</h3>
+    <p>This consent will remain fully effective until it is revoked.</p>
+
+    <h3>h) Patient consent to the use of telemedicine</h3>
+    <p>I have read and understand the information provided above and understand the risks and benefits of telemedicine services. By accepting these terms, I hereby give consent to telehealth as an acceptable form of delivering healthcare services to me and that this consent will cover any and all of my sessions using telehealth.</p>
+  </section>
+
+  <section id="s13">
+    <h2>XIII. GLP-1 and weight management disclosures</h2>
+    <p>You understand that medications commonly prescribed for weight management, including GLP-1 receptor agonists, may not be appropriate for all individuals and may involve known and/or unknown risks. You acknowledge that:</p>
+    <ul>
+      <li>There is no guarantee that any specific medication will be prescribed, approved or continued.</li>
+      <li>Medication availability may be affected by manufacturer shortages, regulatory actions, pharmacy limitations, or changes in clinical guidelines.</li>
+      <li>Discontinuation of medication may result in weight regain or other effects.</li>
+      <li>Side effects may occur, including but not limited to gastrointestinal symptoms, metabolic changes, or other adverse effects, and individual responses vary.</li>
+      <li>Glyra does not manufacture, compound, dispense, or control medications and is not responsible for medication availability, formulation, or outcomes.</li>
+      <li>Changes in regulatory guidance, pharmacy policies, or supply constraints may require modification or discontinuation of treatment without notice.</li>
+    </ul>
+    <p>You agree that any decisions regarding medication use are made solely between you and your treating medical provider.</p>
+  </section>
+
+  <section id="s14">
+    <h2>XIV. Payment</h2>
+    <p>When you submit Your Information for Health Care Services, you agree to pay all fees due. You will see a prompt for your payment details, such as your credit card information and any promotional codes you may have. By entering your payment information and submitting your request, you authorize us, our affiliates, or our third-party payment processors to charge the amount due. If you receive a medical consultation, medical consult fees are not subject to or eligible for a refund. We cannot accept returns of prescription products for reuse or resale, and all sales are final. However, if you believe we have made an error in the filling of your prescription, please message us through your Glyra account or to <a href="mailto:info@amlawellness.com">info@amlawellness.com</a>.</p>
+    <p>You understand and agree that you are responsible for all fees due to receive the Services, including any fees charged by the medical providers and affiliated professional entities. Amounts collected by Glyra will include fees charged by medical providers for Health Care Services. In the event that your credit card expires or Glyra, our affiliates, or our third-party payment processors are unable to process your payment, you may receive notice for you to provide an alternative payment method. Glyra and/or the medical provider(s) have no obligation to provide any Services unless and until full payment has been received and/or verified.</p>
+    <p>Please note that professional services delivered as part of the Health Care Services are not likely to be covered by any government health care payors, and, as such, you understand that no such claims will be submitted by Glyra or our affiliates for coverage of the professional services. Glyra collects certain fees on behalf of affiliated professional entities and telehealth providers solely as a convenience to users. Any professional fees charged by medical providers are determined independently by such providers and are passed through to them in full or pursuant to separate administrative services agreements. Glyra does not set, control, or influence medical fees, diagnoses, treatment decisions, or prescribing practices.</p>
+    <p>You acknowledge that your payment obligations are owed regardless of whether Services are rendered by Glyra, a telehealth provider, or another affiliated professional entity. You acknowledge and agree that payment for Services does not guarantee that a medical provider will determine that treatment, medication, or continued care is appropriate for you. Fees paid for consultations, intake, administrative services, technology access, care coordination, or other Services are earned upon provision and are non-refundable, regardless of whether a prescription is issued, modified, delayed, denied, or discontinued for any reason, including clinical judgment, medical necessity, medication availability, regulatory requirements, or supply constraints.</p>
+    <p>You agree not to initiate a chargeback or payment dispute except where required by applicable law for Services that have been provided in accordance with these Terms. Unauthorized chargebacks may result in account suspension or termination and recovery of amounts owed to Glyra to the fullest extent permitted by law. If you enroll in a subscription or recurring payment plan, you authorize Glyra or its payment processor to charge your selected payment method on a recurring basis until you cancel in accordance with the instructions provided on the Website. Subscription fees are non-refundable once billed.</p>
+  </section>
+
+  <section id="s15">
+    <h2>XV. Privacy</h2>
+    <p>Glyra understands the importance of confidentiality and privacy regarding Your Information. Please see our <a href="privacy.html">Privacy Policy</a> for a description of how we may collect, use and disclose Your Information in connection with the Website.</p>
+  </section>
+
+  <section id="s16">
+    <h2>XVI. Intellectual property</h2>
+    <p>As between Glyra and you, Glyra is the sole and exclusive owner of all right, title and interest in and to the Website and its content, features and functionality (including, without limitation, all information, software, text, displays, images, video, audio, selection, arrangement and look and feel), and all intellectual property rights therein, and any suggestions, ideas or other feedback provided by you. Any copy, modification, revision, enhancement, adaptation, translation, or derivative work of the Website shall be owned solely and exclusively by Glyra or its licensors, including all intellectual property rights therein. You have permission to use the Website solely for your personal and non-commercial use on the condition that you comply with these Terms. No other right, title or interest in or to the Website is transferred to you, and all rights not expressly granted are reserved by us or our affiliates. Certain names, logos, and other materials displayed in and through the Website may constitute trademarks, trade names, services marks or logos ("Trademarks") of Glyra or its affiliates. You are not authorized to use any such Trademarks without the express written permission of Glyra or its affiliates. Ownership of all such Trademarks and the goodwill associated therewith remains with us or our affiliates.</p>
+  </section>
+
+  <section id="s17">
+    <h2>XVII. Links to third-party hyperlinks and websites</h2>
+    <p>The Website may contain hyperlinks or references to other websites ("Linked Sites") operated by third parties. The Linked Sites may not be under our control; therefore, we are not responsible for the information, products or services described thereon, or for the content of any Linked Site, including, without limitation, any link contained in a Linked Site, or any changes or updates to a Linked Site. We are providing these Linked Sites to you only as a convenience, and the inclusion of any link does not necessarily imply endorsement of the Linked Site or any association with its operators. Your use of these Linked Sites is at your own risk, and we are not liable to you in any way, either directly or indirectly, for any content, errors, damage or loss caused by or in connection with use of or reliance on information contained in or provided to Linked Sites. Certain Services may be delivered or supported through third-party platforms or systems not owned or controlled by Glyra, and Glyra disclaims responsibility for the availability, performance, or functionality of such platforms. You may have arrived to the Website through a Linked Site, including a Linked Site controlled by a parent, subsidiary or affiliate of Glyra. You understand and agree that we are not responsible for the information, products or services described on those Linked Sites and only these Terms will apply to your use of or access to the Website.</p>
+  </section>
+
+  <section id="s18">
+    <h2>XVIII. Disclaimer of warranties</h2>
+    <p>You acknowledge and agree that the Website and the Services are provided through the Website on an "as is" and "as available" basis. Your use of the Website is at your sole risk. Glyra Health LLC and its affiliates and their respective officers, directors, managers, partners, members, employees, and agents (collectively "Related Persons") make no representations or warranties and specifically disclaim any and all warranties of any kind, express or implied, with respect to the Website and the Services, including any representations or warranties with respect to merchantability, fitness for a particular purpose, title, non-infringement, availability, security, accuracy, freedom from viruses or malware, completeness, timeliness, functionality, reliability, sequencing or speed of delivery. We make no warranties or representations that your use of the Website or the Services will not infringe the rights of third parties. To the fullest extent of applicable law, neither Glyra Health LLC nor its Related Persons will be liable for any loss or damage caused by your reliance on information obtained through the Website. It is your responsibility to evaluate the accuracy, completeness, timeliness, reliability or usefulness of the Website. Furthermore, Glyra Health LLC does not guarantee that the Website will be uninterrupted, or free from error, defect, loss, delay in operation, corruption, cyber attack, viruses, interference, hacking, malware, or other security intrusion, and Glyra Health LLC disclaims any liability relating thereto. You understand and agree that any content, material and/or information obtained through the use of the Website are used at your sole risk and that you will be solely responsible for any damage to your computer or mobile phone or loss of data that results from the download of such content, material and/or information.</p>
+  </section>
+
+  <section id="s19">
+    <h2>XIX. Limitation of liability</h2>
+    <p>To the fullest extent permissible pursuant to applicable law and except as set forth in this section, neither Glyra Health LLC nor its Related Persons or licensors will be liable to you or to any party for any claims, liabilities, losses, costs or damages under any legal or equitable theory, whether in tort (including negligence), contract, strict liability or otherwise, including, but not limited to, any indirect, punitive, special, incidental, or consequential damages, including lost profits, loss of data or loss of goodwill, service interruption, computer or mobile phone damage, or system failure, or the cost of substitute products or services, or for any damages for personal or bodily injury or emotional distress, including death, arising out of or in connection with any access, use of (or inability to use) the Website or any Services provided through the Website. This is true even if Glyra Health LLC or Related Persons have been advised of the possibility of such damages or losses. To the extent permitted by law and subject to this section, the total liability of Glyra Health LLC and its Related Persons for any claims under these Terms shall not exceed U.S. one hundred dollars ($100.00 USD). Note that some jurisdictions do not allow limitations of liability or may place limitations on our ability to limit our liability to you, so the foregoing limitation may not apply to you.</p>
+  </section>
+
+  <section id="s20">
+    <h2>XX. Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold Glyra and any of its Related Persons, licensors, and suppliers harmless from and against any and all third-party claims, demands, liabilities, costs or expenses, including attorneys' fees and costs, arising from or related to: (i) any breach by you of these Terms, (ii) your use of material or features available on the Website in an unauthorized manner, and/or (iii) a violation by you of any and all applicable laws, rules, or regulations. Glyra has no obligation to indemnify you for acts or omissions of medical providers, pharmacies, laboratories, or telehealth partners.</p>
+  </section>
+
+  <section id="s21">
+    <h2>XXI. Modifications to the Website</h2>
+    <p>Glyra reserves the right at any time and for any reason to modify, or temporarily or permanently discontinue, the Website, or any portion thereof, with or without notice. You agree that Glyra shall not be liable to you and to any third party for any modification, suspension, or discontinuance of the Website.</p>
+  </section>
+
+  <section id="s22">
+    <h2>XXII. Suspension and termination rights</h2>
+    <p>The Terms will remain in full force and effect as long as you continue to access or use the Website. You may terminate the Terms at any time by discontinuing use of the Website. Your permission to use the Website automatically terminates if you violate these Terms. We may terminate or suspend any of the rights granted by these Terms and your access to our Website with or without prior notice, at any time, and for any reason. The following provisions survive the expiration or termination of these Terms for any reason whatsoever: Disclaimer of Warranties; Limitation of Liability; Indemnification; Governing Law, Dispute Resolution, Arbitration, Class Action Waiver; and Miscellaneous. Subject to applicable law, Glyra reserves the right to maintain, delete or destroy all communications and materials posted or uploaded to the Website pursuant to its internal record retention and/or content destruction policies. After any termination, Glyra will have no further obligation to provide the Services, except to the extent we are obligated to provide you access to your health records or required to provide you with continuing care under our applicable legal, ethical and professional obligations to you. Termination or suspension of your account, whether initiated by you, Glyra, or a medical provider, does not entitle you to any refund for Services already rendered or fees already earned.</p>
+  </section>
+
+  <section id="s23">
+    <h2>XXIII. Governing law; dispute resolution; arbitration; class action waiver</h2>
+    <p><strong>Please read this section carefully because it requires you and Glyra Health LLC to resolve all disputes between us through binding individual arbitration and limits the manner in which you can seek relief from Glyra Health LLC.</strong></p>
+    <h3>a) Governing law</h3>
+    <p>The Website is controlled and operated by us from the United States and is not intended to subject us to the laws or jurisdiction of any state, country or territory other than that of the United States. These Terms will be governed by the laws of the State of Florida without regard to conflicts of law principles.</p>
+    <h3>b) Arbitration agreement</h3>
+    <p>You and Glyra agree that all claims and disputes relating in any way to your use of our Website, or arising out of or in connection with these Terms, shall be resolved by binding arbitration, to the fullest extent permitted by applicable law, on an individual basis, except for disputes which can be resolved in small claims court, any dispute in which either party seeks equitable relief for the alleged unlawful use of copyrights, trademarks, trade names, logos, trade secrets, or patents, or any dispute already pending at the time you first agree to these Terms. You also agree that any arbitration will take place in Boca Raton, FL.</p>
+    <h3>c) Waiver of jury trial</h3>
+    <p>In the event arbitration is contrary to applicable law, you and Glyra Health LLC waive any constitutional or statutory right to go to court and have a trial in front of a judge or a jury. You and Glyra are instead electing to have claims and disputes resolved by arbitration. Arbitration is the referral of a claim or dispute to one or more persons charged with reviewing the claim or dispute and making a final binding determination to resolve it instead of having it decided by a judge or jury in court. Arbitration procedures are typically more limited, more efficient, and less costly than rules applicable in court and are subject to very limited review by a court. The arbitrator's award shall be binding and may be entered as a judgment in any court of competent jurisdiction.</p>
+    <h3>d) No class arbitrations, class actions, or representative actions</h3>
+    <p>You and Glyra Health LLC agree that all claims and disputes within the scope of this arbitration agreement must be arbitrated or litigated on an individual basis and not on a class basis. Claims and disputes of more than one customer or user cannot be brought as a class or other type of representative action, whether within or outside of arbitration, or on behalf of any individual or other group. Unless both you and Glyra Health LLC agree otherwise, the arbitrator may not consolidate or join more than one person's or party's claims and may not otherwise preside over any form of a consolidated, representative, or class proceeding. Also, the arbitrator may award relief (including monetary, injunctive, and declaratory relief) only in favor of the individual party seeking relief and only to the extent necessary to provide relief necessitated by that party's individual claim(s) or dispute. Any relief awarded cannot affect other Glyra users.</p>
+    <h3>e) Arbitration rules</h3>
+    <p>The Federal Arbitration Act governs the interpretation and enforcement of this dispute resolution provision. Any arbitration between you and Glyra will be initiated through the American Arbitration Association ("AAA") and will be governed by the AAA Consumer Arbitration Rules. The AAA Rules and filing forms are available at <a href="https://www.adr.org" target="_blank" rel="noopener">www.adr.org</a>.</p>
+    <h3>f) Severability</h3>
+    <p>If any portion of this Section XXIII is found unenforceable, the remainder shall remain in full force and effect.</p>
+  </section>
+
+  <section id="s24">
+    <h2>XXIV. Miscellaneous</h2>
+    <p>The Terms set forth the entire understanding and agreement between you and us with respect to the subject matter hereof. If any provision of the Terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavor to give effect to the parties' intentions as reflected in the provision, and the other provisions of the Terms shall remain in full force and effect. Headings are for reference only and in no way define, limit, construe, or describe the scope or extent of such section. Our failure to act with respect to any failure by you or others to comply with these Terms does not waive our right to act with respect to subsequent or similar failures. You may not assign or transfer your rights or obligations under these Terms without our prior written consent, and any assignment or transfer in violation of this provision shall be null and void.</p>
+  </section>
+
+  <section id="s25">
+    <h2>XXV. Copyright infringement claims</h2>
+    <p>Glyra reserves the right to remove any content or any other material or information available on or through our Website, at any time, for any reason. Glyra otherwise complies with the provisions of the Digital Millennium Copyright Act ("DMCA") applicable to Internet service providers (17 U.S.C. § 512, as amended), and responds to clear notices of alleged copyright infringement. This Section XXV describes the procedure that should be followed to file a notification of alleged copyright infringement with Glyra.</p>
+    <h3>a) Notification of claimed copyright infringement</h3>
+    <p>If you have objections to copyrighted content or material made available on or through our Website, you may submit a notification to our Designated Agent at the following address: <a href="mailto:info@amlawellness.com">info@amlawellness.com</a>. Any notification to Glyra under 17 U.S.C. § 512(c) alleging copyright infringement must include the following information:</p>
+    <ul>
+      <li>An electronic or physical signature of the person authorized to act on behalf of the owner of the exclusive right being infringed;</li>
+      <li>An identification of the copyrighted work or other intellectual property that you claim has been infringed or, if multiple copyrighted works are covered by a single notification, a representative list of such works;</li>
+      <li>An identification of the content or material that you claim is infringing and where it is located on our Website;</li>
+      <li>Information sufficient for Glyra to contact you, such as your address, telephone number, and/or email address;</li>
+      <li>A statement by you that you have a good-faith belief that the use of the content or material of which you are complaining is not authorized by the copyright owner, its agent, or the law; and</li>
+      <li>A signed statement by you that the above information in your notice is accurate and that, under penalty of perjury, you are the copyright owner or authorized to act on the copyright owner's behalf.</li>
+    </ul>
+  </section>
+
+  <section id="s26">
+    <h2>XXVI. Insurance or other medical coverage</h2>
+    <p>The provision of Health Care Services by the health professionals and professional entities affiliated with Glyra are not substitutes for health insurance or other health plan coverage (such as membership in an HMO). You acknowledge that you have been advised to obtain or keep in full force your health insurance policy(ies) or plans in order to cover you and your family members for other healthcare services and/or costs. You acknowledge that neither Glyra or the health professionals and professional entities affiliated with Glyra will bill your insurer for any medical services and that Health Care Services are not intended to be covered by your insurer. It is your responsibility to submit any invoices paid for Health Care Services to any health insurance or health plan coverage provider. Glyra and the health professionals and professional entities affiliated with Glyra in no way provide any representations to you that any Health Care Services will be eligible for coverage under any insurance policy held by you.</p>
+  </section>
+
+  <section id="s27">
+    <h2>XXVII. Patient Bill of Rights</h2>
+    <p>Patients receiving Health Care Services by the health professionals and professional entities affiliated with Glyra have certain rights as described below:</p>
+    <ul>
+      <li>A patient has the right to be treated with courtesy and respect, with appreciation of his or her individual dignity, and with protection of his or her need for privacy.</li>
+      <li>A patient has the right to a prompt and reasonable response to questions and requests within the context of the Service.</li>
+      <li>A patient has the right to know who is providing medical services and who is responsible for his or her care.</li>
+      <li>A patient has the right to know what patient support services are available, including whether an interpreter is available if he or she does not speak English.</li>
+      <li>A patient has the right to know what rules and regulations apply to his or her conduct.</li>
+      <li>A patient has the right to be given information by the health care provider concerning diagnosis, planned course of treatment, alternatives, risks, and prognosis.</li>
+      <li>A patient has the right to refuse any treatment provided via the Health Care Service unless otherwise required by law.</li>
+      <li>A patient has the right to receive a copy of a reasonably clear and understandable, itemized bill and/or receipt and, upon request, to have the charges explained.</li>
+      <li>A patient has the right to impartial access to medical treatment or accommodations, regardless of race, national origin, religion, handicap, or source of payment, subject to the technical limitations of the Health Care Service.</li>
+      <li>A patient has the right to express grievances regarding any violation of his or her rights, as stated in state law, through the grievance procedure of the health care provider which served him or her and to the appropriate state licensing agency.</li>
+      <li>A patient is responsible for providing to the health care provider, to the best of his or her knowledge, accurate and complete information about present complaints, past illnesses, hospitalizations, medications, and other matters relating to his or her health.</li>
+      <li>A patient is responsible for reporting unexpected changes in his or her condition to the health care provider.</li>
+      <li>A patient is responsible for reporting to the health care provider whether he or she comprehends a contemplated course of action and what is expected of him or her.</li>
+      <li>A patient is responsible for following the treatment plan recommended by the health care provider.</li>
+      <li>A patient is responsible for his or her actions if he or she refuses treatment or does not follow the health care provider's instructions.</li>
+    </ul>
+  </section>
+
+  <section id="s28">
+    <h2>XXVIII. State-specific notifications</h2>
+
+    <h3>a) For California residents</h3>
+    <ul>
+      <li>You or your legal representative retain the option to withhold or withdraw consent to receive health care services via the Health Care Services at any time without affecting your right to future care or treatment nor risking the loss or withdrawal of any benefits to which you or your legal representative would otherwise be entitled.</li>
+      <li>All existing confidentiality protections apply.</li>
+      <li>All existing laws regarding patient access to medical information and copies of medical records apply.</li>
+      <li>Dissemination of any of your identifiable images or information from the telemedicine interaction to researchers or other entities shall not occur without your consent.</li>
+      <li>All provisions herein, including your informed consent to receive services via the Website are for the benefit of the treating provider as well as for your benefit.</li>
+      <li>Medical doctors are licensed and regulated by the Medical Board of California. To check up on a license or to file a complaint go to <a href="https://www.mbc.ca.gov" target="_blank" rel="noopener">www.mbc.ca.gov</a>, email <a href="mailto:licensecheck@mbc.ca.gov">licensecheck@mbc.ca.gov</a>, or call (800) 632-2322.</li>
+      <li>Physician assistants are licensed and regulated by the Physician Assistant Board of California, <a href="https://www.pab.ca.gov" target="_blank" rel="noopener">www.pab.ca.gov</a> or (916) 561-8780.</li>
+      <li>The Open Payments database is a federal tool used to search payments made by drug and device companies to physicians and teaching hospitals. It can be found at <a href="https://openpaymentsdata.cms.gov" target="_blank" rel="noopener">openpaymentsdata.cms.gov</a>. This link to the federal Centers for Medicare and Medicaid Services (CMS) Open Payments web page is provided here for informational purposes only. The federal Physician Payments Sunshine Act requires that detailed information about payment and other payments of value worth over ten dollars ($10) from manufacturers of drugs, medical devices, and biologics to physicians and teaching hospitals be made available to the public.</li>
+    </ul>
+
+    <h3>b) For Connecticut, Ohio, Utah, and Texas residents</h3>
+    <p>If you would like the record of this visit to be forwarded to another provider, please include the name and contact information in a message to us.</p>
+
+    <h3>c) For Florida residents</h3>
+    <p>Each provider is a physician licensed by the Florida Board of Medicine or the Florida Board of Osteopathic Medicine. The provider's hours are variable and will be posted on the Website.</p>
+
+    <h3>d) For Georgia residents</h3>
+    <p>The patient has the right to file a grievance with the Georgia Composite Medical Board concerning the physician, staff, office, and treatment received. The patient should either call the Board with such a complaint or send a written complaint to the Board. The patient should be able to provide the physician or practice name, the address, and the specific nature of the complaint. The Georgia Composite Medical Board current phone number is (404) 656-3913 and the address is 2 Peachtree Street NW, 6th Floor, Atlanta, GA 30303-3465.</p>
+
+    <h3>e) For Indiana residents</h3>
+    <ul>
+      <li>Unless your provider specifically discloses otherwise, with the exception of charges for services delivered to patients, providers do not have any financial interest in any information, products, or services offered through the Website.</li>
+      <li>You may access, supplement and amend your personal health information that you have provided to the health care providers affiliated with Glyra and you may provide feedback regarding the site and the quality of information and services, and you may register complaints, including information regarding filing a complaint with the Consumer Protection Division Office of the Attorney General.</li>
+      <li>Notice concerning complaints: You may either file a complaint online or download the appropriate complaint form. If downloading, you must complete, sign, print, and mail it, along with copies of all relevant supporting documentation to: Consumer Protection Division Office of the Indiana Attorney General, 302 W. Washington St., 5th Floor, Indianapolis, IN 46204. You can also request a complaint form by calling (800) 382-5516 or (317) 232-6330.</li>
+    </ul>
+
+    <h3>f) For Kansas residents</h3>
+    <p>Notice to patients — required signage for K.A.R. 100-22-6, prepared by the State Board of Healing Arts, April 5, 2007. It is unlawful for any person who is not licensed under the Kansas Healing Arts Act to open or maintain an office for the practice of the healing arts in Kansas. Services are provided by a person who is licensed to practice the healing arts in Kansas.</p>
+    <p>Questions and concerns regarding this professional practice may be directed to: Kansas State Board of Healing Arts, 800 SW Jackson, Lower Level – Suite A, Topeka, Kansas 66612. Phone: (785) 296-7413. Toll Free: (888) 886-7205. Fax: (785) 368-7102. Website: <a href="https://www.ksbha.org" target="_blank" rel="noopener">www.ksbha.org</a>.</p>
+
+    <h3>g) For Louisiana residents</h3>
+    <p>In addition to any informed consent and right to privacy and confidentiality pursuant to state and federal law or regulations, you shall be informed of the relationship between your health care provider, you and the respective role of any other health care provider with respect to the management of your care and treatment; and you may decline to receive services and may withdraw from such care at any time.</p>
+
+    <h3>h) For Maryland residents</h3>
+    <ul>
+      <li>Glyra verifies the identity of the individual transmitting the communication. After the initial verification, Glyra will verify your identification through the assignment and use of a unique username and password combination and a pin number should you choose to use it. When you sign into the Website, your username and password (and pin number, as applicable) identify you.</li>
+      <li>Access to data via the Website is restricted through the use of unique usernames and passwords. The username and password assigned to you are personal to you and you must not share them with any other individual.</li>
+      <li>Provider is hereby providing you with access to provider's notice of privacy practices. During the appointment, the provider will communicate with you and respond to your questions.</li>
+      <li>A primary difference between telehealth and direct in-person service delivery is the inability to have direct physical contact with you.</li>
+      <li>The quality of transmitted data may affect the quality of services provided by your health care provider.</li>
+      <li>Changes in the environment and test conditions could be impossible to make during delivery of the Health Care Services.</li>
+      <li>Health Care Services may not be provided by correspondence only. Health Care Services must be delivered by either audio or audio-visual devices.</li>
+    </ul>
+
+    <h3>i) For Minnesota residents</h3>
+    <ul>
+      <li>Disclosures of your health records without your written consent shall be made in accordance with state and federal law regarding privacy and confidentiality. Examples of such disclosures include, but are not limited to, for specific public health activities, for health oversight activities, for judicial and administrative proceedings, for specific law enforcement purposes.</li>
+      <li>You have the right to access and obtain copies of your health records and other information about you that is maintained by your health care provider. For more specific information regarding your rights to access health records, please refer to the Minnesota Department of Health Notices Related to Health Records at <a href="https://health.state.mn.us/facilities/notices/index.html" target="_blank" rel="noopener">health.state.mn.us/facilities/notices/index.html</a>.</li>
+    </ul>
+
+    <h3>j) For Oklahoma residents</h3>
+    <ul>
+      <li>You always retain the option to withhold or withdraw consent from obtaining Health Care Services. If you decide that you no longer wish to obtain health care services via the Website, it will not affect your right to future care or treatment, nor will you risk the loss or withdrawal of any program benefits to which you would otherwise be entitled.</li>
+      <li>Patient access.</li>
+    </ul>
+  </section>
+
+</article>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/logoHorizontal.png" alt="AmlaWellness" />
+        <p>Personalized telehealth weight-care, delivered with transparency. Built on the belief that quality care should be accessible — without insurance roadblocks or guesswork.</p>
+      </div>
+      <div>
+        <h5>Treatments</h5>
+        <ul>
+          <li><a href="index.html#treatments">Compounded Semaglutide</a></li>
+          <li><a href="index.html#treatments">Compounded Tirzepatide</a></li>
+          <li><a href="index.html#how">How it works</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="privacy.html">Privacy policy</a></li>
+          <li><a href="terms.html">Terms of service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <p>AmlaWellness is a marketplace platform that collaborates with independent healthcare professionals to deliver services. We do not directly offer medical or pharmacy services, and payment does not ensure that a prescription will be written or dispensed. Independent providers and partner pharmacies handle medical services. Information on this site is for reference only and does not replace professional medical advice. For health-related inquiries, consult your doctor. The FDA-approved brand-name drugs (such as Wegovy®, Ozempic®, Mounjaro®, Zepbound®) are exclusively the property of their manufacturers and are not affiliated with AmlaWellness.</p>
+      <a href="https://www.legitscript.com/" target="_blank" rel="noopener" class="legitscript"><img src="assets/legitcert.png" alt="LegitScript Certified" /></a>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Glyra Health LLC, dba AmlaWellness. All rights reserved.</div>
+      <div>Made with care for your wellness journey.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Privacy Policy — AmlaWellness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f8f4ed;--bg-deep:#efe8db;--paper:#ffffff;--ink:#1a2024;--ink-soft:#5a6770;
+    --teal:#205e76;--teal-deep:#143a4a;--sand:#e8dcc3;--sand-deep:#d4c4a1;
+    --line:rgba(26,32,36,.1);--container:1280px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{margin:0;font-family:'Nunito',sans-serif;font-weight:500;letter-spacing:-0.02em;color:var(--ink)}
+  h1{font-size:clamp(36px,5vw,64px);line-height:1.02;font-weight:500}
+  h2{font-size:clamp(22px,2.4vw,28px);line-height:1.2;font-weight:700;color:var(--teal-deep)}
+  h3{font-size:18px;line-height:1.3;font-weight:700;color:var(--teal-deep)}
+  p{margin:0 0 1em}
+  a{color:var(--teal);text-decoration:underline;text-underline-offset:2px}
+  a:hover{color:var(--teal-deep)}
+  .italic{font-style:italic;font-family:'Nunito',sans-serif;color:var(--teal)}
+  .container{max-width:var(--container);margin:0 auto;padding:0 32px}
+  @media(max-width:520px){.container{padding:0 20px}}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:11px 20px;border-radius:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;line-height:1;text-decoration:none;transition:all .2s ease;border:1.5px solid transparent;cursor:pointer;letter-spacing:.01em;white-space:nowrap}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--teal);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:rgba(26,32,36,.06)}
+
+  .announce{background:var(--ink);color:#fff;text-align:center;font-size:13px;padding:11px;letter-spacing:.02em}
+  .announce strong{font-weight:600}
+
+  header{position:sticky;top:0;z-index:30;background:rgba(248,244,237,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;gap:24px}
+  .logo{display:inline-block;padding-left:16px}
+  .logo img{height:44px;width:auto;display:block}
+  @media(max-width:520px){.logo{padding-left:4px}.logo img{height:32px}}
+  nav ul{display:flex;gap:36px;list-style:none;padding:0;margin:0}
+  nav a{font-weight:500;font-size:15px;color:var(--ink);text-decoration:none}
+  nav a:hover{color:var(--teal)}
+  .nav-actions{display:flex;gap:10px;align-items:center}
+  @media(max-width:980px){nav ul{display:none}}
+
+  .legal-hero{padding:80px 0 24px;border-bottom:1px solid var(--line);margin-bottom:48px}
+  .legal-hero .eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+  .legal-hero h1{margin:0 0 16px}
+  .legal-hero p{font-size:17px;color:var(--ink-soft);max-width:720px;margin:0}
+
+  .legal{max-width:820px;margin:0 auto;padding:0 0 96px;color:var(--ink)}
+  .legal .toc{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px 28px;margin-bottom:48px}
+  .legal .toc h4{font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin:0 0 14px}
+  .legal .toc ol{margin:0;padding-left:20px;columns:2;column-gap:32px;font-size:14px;line-height:1.7}
+  .legal .toc a{color:var(--ink);text-decoration:none}
+  .legal .toc a:hover{color:var(--teal-deep);text-decoration:underline}
+  @media(max-width:680px){.legal .toc ol{columns:1}}
+
+  .legal section{margin-bottom:40px;scroll-margin-top:90px}
+  .legal section h2{margin:0 0 16px;font-size:24px}
+  .legal section h3{margin:24px 0 10px}
+  .legal section p{font-size:15px;line-height:1.7;color:var(--ink);margin:0 0 14px}
+  .legal section ul, .legal section ol{margin:0 0 16px;padding-left:24px}
+  .legal section li{font-size:15px;line-height:1.7;margin-bottom:8px;color:var(--ink)}
+  .legal .updated{font-size:13px;color:var(--ink-soft);margin-bottom:32px;font-weight:500}
+
+  footer{background:var(--bg-deep);padding:64px 0 32px;margin-top:64px}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--line)}
+  .footer-grid img{height:40px;margin-bottom:16px}
+  .footer-grid p{font-size:14px;color:var(--ink-soft);max-width:320px}
+  footer h5{font-family:'Inter',sans-serif;font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin:0 0 16px}
+  footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+  footer ul a{font-size:14px;color:var(--ink-soft);text-decoration:none}
+  footer ul a:hover{color:var(--teal)}
+  .disclaimer{display:grid;grid-template-columns:1fr 90px;gap:32px;padding:32px 0;align-items:center;border-bottom:1px solid var(--line)}
+  .disclaimer p{font-size:11px;color:var(--ink-soft);line-height:1.55;margin:0}
+  .legitscript{display:inline-block;line-height:0}
+  .legitscript img{display:block;width:88px;height:auto}
+  .footer-bottom{display:flex;justify-content:space-between;padding-top:24px;font-size:13px;color:var(--ink-soft)}
+  @media(max-width:880px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.disclaimer{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="announce">Free shipping on every plan · First-month consultation included</div>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logoHorizontal.png" alt="AmlaWellness" /></a>
+    <nav><ul>
+      <li><a href="index.html#treatments">Treatments</a></li>
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul></nav>
+    <div class="nav-actions">
+      <a href="https://portal.amlawellness.com" class="btn btn-ghost">Log in</a>
+      <a href="https://intake.amlawellness.com" class="btn btn-primary">Get started</a>
+    </div>
+  </div>
+</header>
+
+<section class="legal-hero">
+  <div class="container">
+    <span class="eyebrow">Legal</span>
+    <h1>Privacy <em class="italic">policy.</em></h1>
+    <p>How Glyra Health LLC collects, uses, and shares information about you, and the privacy choices we offer.</p>
+  </div>
+</section>
+
+<main class="container">
+<article class="legal">
+
+  <p class="updated">Last updated: 12/31/2025</p>
+
+  <div class="toc">
+    <h4>On this page</h4>
+    <ol>
+      <li><a href="#p1">Please read carefully</a></li>
+      <li><a href="#p2">Changes to this Privacy Policy</a></li>
+      <li><a href="#p3">Confidentiality of health information</a></li>
+      <li><a href="#p4">Collection of information</a></li>
+      <li><a href="#p5">Use of information</a></li>
+      <li><a href="#p6">Sharing of information</a></li>
+      <li><a href="#p7">Opt-in policy</a></li>
+      <li><a href="#p8">Social media and third party platforms</a></li>
+      <li><a href="#p9">Security</a></li>
+      <li><a href="#p10">Your privacy choices</a></li>
+    </ol>
+  </div>
+
+  <section id="p1">
+    <h2>1. Please read carefully</h2>
+    <p>AmlaWellness is a "doing business as" (DBA) name of Glyra Health LLC. References to "AmlaWellness" and "Glyra" in this Privacy Policy refer to the same legal entity, Glyra Health LLC. This policy governs amlawellness.com and its sub-domains (including intake.amlawellness.com and portal.amlawellness.com), as well as glyrahealth.com.</p>
+    <p>This Online Privacy Policy describes the information that Glyra Health LLC ("we", "Company", or "AmlaWellness") collects about you though our website(s), mobile application, and any other services we provide (collectively, the "Services"), how we use and share that information, and the privacy choices we offer. This policy applies to information we collect when you access or use our website(s) and mobile application (collectively, the "Platform"), when you use our Services or when you otherwise interact with us.</p>
+  </section>
+
+  <section id="p2">
+    <h2>2. Changes to this Online Privacy Policy</h2>
+    <p>We may change this Online Privacy Policy from time to time. If we make changes, we will notify you by posting the updated policy on our Platform and revising the "Last Updated" date above. We encourage you to review the Online Privacy Policy whenever you use our Services to stay informed about our information practices and about ways you can help protect your privacy.</p>
+  </section>
+
+  <section id="p3">
+    <h2>3. Confidentiality of health information</h2>
+    <p>Company understands that health information about you and your health is personal. We support your privacy and ensure that the transmittal and use of your information complies with all laws, except to the extent that you have authorized Company to transmit information to you by other means. In this regard, where applicable, we comply with the Health Insurance Portability and Accountability Act of 1996 ("HIPAA") and the Health Information Technology for Economic and Clinical Health Act ("HITECH Act"), and other relevant state laws and regulations by entering into Business Associate Agreements with the treatment providers for which we provide services to ensure that your health information is appropriately safeguarded. Set forth below is Company's Notice of Privacy Practices.</p>
+  </section>
+
+  <section id="p4">
+    <h2>4. Collection of information</h2>
+
+    <h3>4.1. Information you provide</h3>
+    <p>We collect information you provide, such as when you email us, sign up through our Platform, or submit information through our Platform. We may collect, but are not limited to collecting, the following information: your name, gender, email address, mailing address, phone number, date of birth, payment and bank information provided.</p>
+
+    <h3>4.2. Children</h3>
+    <p>Company does not knowingly collect or maintain personally identifiable information from persons under 18 years of age without verifiable parental consent. If you are under 18 years of age, then please do not use the Services without parental consent. If Company learns that personally identifiable information of persons less than 18 years of age has been collected without verifiable parental consent, then Company will take the appropriate steps to delete this information. To make such a request, please contact us at <a href="mailto:info@amlawellness.com">info@amlawellness.com</a>.</p>
+
+    <h3>4.3. Information we collect from your use of the Services</h3>
+    <p>We collect information about you when you use our Platform, including, but not limited to the following:</p>
+    <ul>
+      <li><strong>Account information:</strong> When you register with us using the Platform to create an account and become a registered user, you will need to provide us with certain personally identifiable information to complete the registration, including information that can be used to contact or identify you and payment or other billing information in some cases.</li>
+      <li><strong>Device information:</strong> We may automatically collect certain information about the computer or devices (including mobile devices) you use to access the Services. For example, we may collect and analyze information such as (a) IP addresses, geolocation information (as described in the next section below), unique device identifiers and other information about your mobile phone or other mobile device(s), browser types, browser language, operating system, the state or country from which you accessed the Services; and (b) information related to the ways in which you interact with the Services, such as: referring and exit pages and URLs, platform type, the number of clicks, domain names, landing pages, pages and content viewed and the order of those pages, the amount of time spent on particular pages, the date and time you used the Services, the frequency of your use of the Services, error logs, and other similar information. As described further below, we may use third-party analytics providers and technologies, including cookies and similar tools, to assist in collecting this information.</li>
+      <li><strong>Location information:</strong> We may collect different types of information about your location, including general information (e.g., IP address, zip code) and more specific information (e.g., GPS-based functionality on mobile devices used to access the Services), and may use that information to customize the Services with location-based information, advertising, and features. For example, if your IP address indicates an origin in Los Angeles, California, the Services may be customized with Los Angeles-specific information and advertisements. In order to do this, your location information may be shared with our agents, vendors or advertisers. If you access the Services through a mobile device and you do not want your device to provide us with location-tracking information, you can disable the GPS or other location-tracking functions on your device, provided your device allows you to do this. See your device manufacturer's instructions for further details.</li>
+      <li><strong>Cookies and other electronic technologies:</strong> We may use the tools outlined below in order to better understand users. As we adopt additional technologies, we may also gather additional information through other methods.</li>
+      <li><strong>Cookies:</strong> "Cookies" are small computer files transferred to your computing device that contain information such as user ID, user preferences, lists of pages visited and activities conducted while using the Services. We use Cookies to help us improve or tailor the Services by tracking your navigation habits, storing your authentication status so you do not have to re-enter your credentials each time you use the Services, customizing your experience with the Services, and for analytics and fraud prevention. We may use a type of advertising commonly known as interest-based or online behavioral advertising. This means that some of our business partners use Cookies to display Company ads on other websites and services based on information about your use of the Services and on your interests (as inferred from your online activity). Other Cookies used by our business partners may collect information when you use the Services, such as the IP address, mobile device ID, operating system, browser, web page interactions, the geographic location of your internet service provider, and demographic information such as sex and age range. These Cookies help Company learn more about our users' demographics and internet behaviors. For more information on cookies, visit <a href="http://www.allaboutcookies.org" target="_blank" rel="noopener">allaboutcookies.org</a>.</li>
+      <li><strong>Web beacons:</strong> "Web Beacons" (a.k.a. clear GIFs or pixel tags) are tiny graphic image files imbedded in a web page or email that may be used to collect anonymous information about your use of our Services, the websites of selected advertisers, and the emails, special promotions or newsletters that we send you. The information collected by Web Beacons allows us to analyze how many people are using the Services, using the selected advertisers' websites or opening our emails, and for what purpose, and also allows us to enhance our interest-based advertising.</li>
+      <li><strong>Platform analytics:</strong> We may use third-party analytics services in connection with the Platform, including, for example, to register mouse clicks, mouse movements, scrolling activity and text that you type into the Platform. These analytics services generally do not collect personal information unless you voluntarily provide it and generally do not track your browsing habits across sites which do not use their services. We use the information collected from these services to help make the Platform easier to use.</li>
+      <li><strong>Mobile device identifiers:</strong> Mobile device identifiers are data stored on your mobile device that may track mobile device and data and activities occurring on and through it, as well as the applications installed on it. Mobile device identifiers enable collection of personal information (such as media access control, address and location) and traffic data. Mobile device identifiers help Company learn more about our users' demographics and internet behaviors.</li>
+    </ul>
+
+    <h3>4.4. Information from third parties</h3>
+    <p>We may obtain additional information about you from third parties such as marketers, partners, researchers, and others. We may combine information that we collect from you with information about you that we obtain from such third parties and information derived from any other subscription, product, or service we provide.</p>
+
+    <h3>4.5. Aggregate or de-identified data</h3>
+    <p>We may aggregate and/or de-identify information collected by the Services or via other means so that the information is not intended to identify you. Our use and disclosure of aggregated and/or de-identified information is not subject to any restrictions under this Online Privacy Policy, and we may disclose it to others without limitation for any purpose, in accordance with applicable laws and regulations.</p>
+  </section>
+
+  <section id="p5">
+    <h2>5. Use of information</h2>
+    <p>We use the information that we collect for the following purposes:</p>
+    <ul>
+      <li>For the purposes for which you provided the information.</li>
+      <li>To contact you when necessary or requested.</li>
+      <li>To personalize your experience with the Services by informing you of products, programs, events, services, and promotions of Company, our affiliates, our partners and/or third parties that we believe may be of interest to you (see the "Opt-In Policy" below).</li>
+      <li>To fulfill your purchase from us, including, to process your payments, communicate with you regarding your purchase or provide you with related customer service.</li>
+      <li>To send mobile notifications (you may opt-out of this service).</li>
+      <li>To provide, maintain, administer, improve, or expand the Services, perform business analyses, or for other internal purposes to support, improve or enhance our business, the Services, and other products and services we offer.</li>
+      <li>To customize and tailor your experience of the Services.</li>
+      <li>To send emails and other communications that display content that we think will interest you and according to your preferences.</li>
+      <li>To send you news and information about our Services.</li>
+      <li>To track and analyze trends and usage in connection with our Services.</li>
+      <li>To better understand who uses the Services and how we can deliver a better user experience.</li>
+      <li>To combine information received from third parties with the information that we have from or about you and use the combined information for any of the purposes described in this Online Privacy Policy.</li>
+      <li>To use statistical information that we collect in any way permitted by law, including from third parties in connection with their commercial and marketing efforts.</li>
+      <li>To prevent, detect, and investigate security breaches, fraud, and other potentially illegal or prohibited activities.</li>
+      <li>To enforce the legal terms that govern your use of the Services.</li>
+      <li>To protect our rights or property.</li>
+      <li>To administer and troubleshoot the Services.</li>
+      <li>For any other purpose disclosed to you in connection with our Services.</li>
+    </ul>
+    <p>We may use third-party service providers to process and store personal information in the United States and other countries.</p>
+  </section>
+
+  <section id="p6">
+    <h2>6. Sharing of information</h2>
+    <p>We may share personal information about you as follows:</p>
+    <ul>
+      <li>With third parties to provide, maintain, and improve our Services, including service providers who access information about you to perform services on our behalf.</li>
+      <li>With our affiliates and partners so that they may use such information for the purposes described in this Online Privacy Policy.</li>
+      <li>With our affiliates, partners or other third parties to allow them to contact you regarding products, programs, services, and promotions that we and/or they believe may be of interest to you (see the "Opt-In Policy" below).</li>
+      <li>In connection with, or during the negotiation of, any merger, sale of Company stock or assets, financing, acquisition, divestiture or dissolution of all or a portion of our business (but only under non-disclosure and confidentiality agreements and protections).</li>
+      <li>If we believe that disclosure is reasonably necessary to comply with any applicable law, regulation, legal process or governmental request; to enforce applicable user agreements or policies; to protect the security or integrity of our Services; and to protect us, our users or the public from harm or illegal activities.</li>
+      <li>With your consent.</li>
+    </ul>
+    <p>We may also share aggregated, non-personally identifiable information with third parties.</p>
+  </section>
+
+  <section id="p7">
+    <h2>7. Opt-in policy</h2>
+    <p>When you supply us with personally identifiable information in connection with your use of the Services, you may be asked to indicate whether you are interested in receiving information from us about our product and service offerings and if you would like us to share personally identifiable information about you with our affiliates, partners or other third parties for their marketing purposes. If you do choose to opt-in, you will receive such communications and/or we will share your information in accordance with your "opt-in" consent.</p>
+    <p>You may, of course, choose not to receive additional marketing information from us or choose not to allow our sharing of your personally identifiable information as follows: at any time, you can follow a link provided in our marketing-related email messages (but excluding e-commerce confirmations and other administrative emails) to opt out from receiving such communications; or at any time, you can contact us in accordance with the "Contact us" section below to opt out from receiving such communications.</p>
+    <p>If you decide to contact us to change your contact preferences to opt out of receiving communications from us, please specify clearly which of the following choices you are opting out of: (a) receiving marketing communications from us; (b) allowing us to share personally identifiable information about you with our affiliates and partners for their marketing purposes; and/or (c) allowing us to share personally identifiable information about you with other third parties for their marketing purposes. We will endeavor to implement your requested change as soon as reasonably practicable after receiving your request. Please be aware that your requested change will not be effective until we implement such change. Please note that if you choose not to allow our sharing of your personally identifiable information, we are not responsible for removing your personally identifiable information from the databases of third parties with which we have already shared your personally identifiable information as of the date that we implement your request. If you wish to cease receiving marketing-related emails from these third parties, please contact them directly or utilize any opt-out mechanisms in their privacy policies or marketing-related emails.</p>
+    <p>Please note that if you do opt-out of receiving marketing-related messages from us, we may still send you important administrative messages. You cannot opt-out from receiving these administrative messages. We reserve the right, from time to time, to contact former customers or users of the Services for administrative purposes or in order to comply with applicable laws, rules or regulations.</p>
+  </section>
+
+  <section id="p8">
+    <h2>8. Social media and third party platforms</h2>
+    <p>Certain sections or functionalities on our Services may permit you to share information on third party social media sites or platforms such as Facebook, Instagram, LinkedIn, Twitter, or other similar sites (collectively, "Social Media Sites"). Company does not own or control such Social Media Sites, and posting your information on Social Media Sites is subject to the third party's Online Privacy Policy and other legal terms, which may not provide privacy protections with which you agree. Company is not responsible for any act or omission of any Social Media Platform, nor are we responsible for the consequences of your choosing to share your information on Social Media Sites.</p>
+  </section>
+
+  <section id="p9">
+    <h2>9. Security</h2>
+    <p>We take reasonable measures, including administrative, technical, and physical safeguards, to help protect personal information from loss, theft, misuse, unauthorized access, disclosure, alteration, and destruction. Unfortunately, no data transmission over the Internet can be guaranteed to be 100% secure. As a result, while we strive to protect your personal information, Company cannot ensure or warrant the security of any information you transmit to us or from our online products or services, and you do so at your own risk.</p>
+  </section>
+
+  <section id="p10">
+    <h2>10. Your privacy choices</h2>
+
+    <h3>10.1. How you can access and update your information</h3>
+    <p>You may update or correct information about yourself at any time or by emailing us at <a href="mailto:info@amlawellness.com">info@amlawellness.com</a>.</p>
+
+    <h3>10.2. Cookies</h3>
+    <p>Most web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove or reject cookies; however, our Services may not function properly if you do so.</p>
+
+    <h3>10.3. Options for opting out of cookies and mobile device identifiers</h3>
+    <p>If you are interested in more information about interest-based advertising and how you can generally control cookies from being put on your computer to deliver tailored advertising, you may visit the Network Advertising Initiative's Consumer Opt-Out link, the Digital Advertising Alliance's Consumer Opt-Out link or TRUSTe's Advertising Choices Page to opt-out of receiving tailored advertising from companies that participate in those programs. Please note that even after opting out of interest-based advertising, you may still see Company's advertisements that are not interest-based (i.e., not targeted toward you). Also, opting out does not mean that Company is no longer using its tracking tools — Company still may collect information about your use of the Services even after you have opted out of interest-based advertisements and may still serve advertisements to you via the Services based on information it collects via the Services.</p>
+
+    <h3>10.4. How Company responds to browser "Do Not Track" signals</h3>
+    <p>We are committed to providing you with meaningful choices about the information collected on our Platform for third-party purposes, and that is why we provide above the Network Advertising Initiative's "Consumer Opt-out" link, Digital Advertising Alliance's Consumer Opt-Out Link, and TRUSTe's Advertising Choices page. However, we do not recognize or respond to browser-initiated Do Not Track signals, as the Internet industry is currently still working on Do Not Track standards, implementations and solutions. For more information about DNT signals, visit <a href="http://allaboutdnt.com" target="_blank" rel="noopener">allaboutdnt.com</a>.</p>
+
+    <h3>10.5. Links to other websites</h3>
+    <p>Our Services may contain links to other websites and those websites may not follow the same privacy practices as Company. We are not responsible for the privacy practices of third party websites. We encourage you to read the privacy policies of such third parties to learn more about their privacy practices.</p>
+
+    <h3>10.6. No rights of third parties</h3>
+    <p>This Online Privacy Policy does not create rights enforceable by third parties.</p>
+  </section>
+
+</article>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/logoHorizontal.png" alt="AmlaWellness" />
+        <p>Personalized telehealth weight-care, delivered with transparency. Built on the belief that quality care should be accessible — without insurance roadblocks or guesswork.</p>
+      </div>
+      <div>
+        <h5>Treatments</h5>
+        <ul>
+          <li><a href="index.html#treatments">Compounded Semaglutide</a></li>
+          <li><a href="index.html#treatments">Compounded Tirzepatide</a></li>
+          <li><a href="index.html#how">How it works</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="privacy.html">Privacy policy</a></li>
+          <li><a href="terms.html">Terms of service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <p>AmlaWellness is a marketplace platform that collaborates with independent healthcare professionals to deliver services. We do not directly offer medical or pharmacy services, and payment does not ensure that a prescription will be written or dispensed. Independent providers and partner pharmacies handle medical services. Information on this site is for reference only and does not replace professional medical advice. For health-related inquiries, consult your doctor. The FDA-approved brand-name drugs (such as Wegovy®, Ozempic®, Mounjaro®, Zepbound®) are exclusively the property of their manufacturers and are not affiliated with AmlaWellness.</p>
+      <a href="https://www.legitscript.com/" target="_blank" rel="noopener" class="legitscript"><img src="assets/legitcert.png" alt="LegitScript Certified" /></a>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Glyra Health LLC, dba AmlaWellness. All rights reserved.</div>
+      <div>Made with care for your wellness journey.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
