@@ -82,7 +82,8 @@
   .hero-goals{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .goal-card{position:relative;display:block;min-height:243px;border-radius:24px;overflow:hidden;
     text-decoration:none;color:#fff;box-shadow:var(--shadow);
-    background-color:var(--sand-deep);background-position:center;background-size:cover;background-repeat:no-repeat;
+    /* portrait photos in a wide card crop top/bottom — bias the crop upward so heads stay in frame */
+    background-color:var(--sand-deep);background-position:center 25%;background-size:cover;background-repeat:no-repeat;
     transition:transform .3s cubic-bezier(.22,.61,.36,1),box-shadow .3s ease}
   .goal-card.dark{background-color:var(--teal-deep)}
   .goal-card:hover{transform:translateY(-6px);box-shadow:0 1px 0 rgba(26,32,36,.04),0 44px 72px -34px rgba(26,32,36,.34)}
@@ -178,7 +179,9 @@
   .tx-card.dark .tx-tag{background:var(--sand);color:var(--ink)}
   .tx-card .tx-art{height:200px;border-radius:16px;background:linear-gradient(160deg,#efe8db,#d4c4a1);position:relative;display:grid;place-items:center;overflow:hidden}
   .tx-card.dark .tx-art{background:linear-gradient(160deg,var(--teal-deep),var(--ink))}
-  .tx-card .tx-art img{max-height:80%;max-width:50%;object-fit:contain;filter:drop-shadow(0 20px 32px rgba(0,0,0,.25))}
+  .tx-card .tx-art img{max-height:100%;max-width:65%;object-fit:contain;
+    filter:drop-shadow(0 18px 28px rgba(0,0,0,.28));
+    transform:rotate(-15deg)}
   .tx-card h3{margin:0;font-family:'Nunito',sans-serif;font-weight:500}
   .tx-card .desc{color:var(--ink-soft);font-size:15px}
   .tx-card.dark .desc{color:rgba(255,255,255,.7)}
@@ -187,7 +190,8 @@
   .tx-card.dark .tx-price{color:var(--sand)}
   .tx-price span{font-size:14px;font-family:'Inter',sans-serif;color:var(--ink-soft);font-weight:400;display:block;margin-top:6px}
   .tx-card.dark .tx-price span{color:rgba(255,255,255,.6)}
-  @media(max-width:780px){.tx-grid{grid-template-columns:1fr}.tx-card{padding:32px}}
+  @media(max-width:780px){.tx-grid{grid-template-columns:1fr}.tx-card{padding:32px}
+    .tx-card .tx-art img{max-width:80%}}
   .tx-grid.single{grid-template-columns:minmax(0,540px);justify-content:center}
 
   /* GOAL SELECTOR */
@@ -305,19 +309,19 @@
     </div>
 
     <div class="hero-goals">
-      <a class="goal-card" href="#plan-picker" data-goal-card="weight" style="background-image:url('assets/goal-weight.jpg')" aria-label="Explore Weight Loss plans">
+      <a class="goal-card" href="#plan-picker" data-goal-card="weight" style="background-image:url('assets/goal-weight.png'); background-position:center 35%;background-size: 70%" aria-label="Explore Weight Loss plans">
         <div class="gc-bar">
           <span class="gc-name">Weight Loss</span>
           <span class="gc-arrow" aria-hidden="true">→</span>
         </div>
       </a>
-      <a class="goal-card dark" href="#plan-picker" data-goal-card="metabolism" style="background-image:url('assets/goal-metabolism.jpg')" aria-label="Explore Metabolism and Energy plans">
+      <a class="goal-card dark" href="#plan-picker" data-goal-card="metabolism" style="background-image:url('assets/goal-metabolism.png'); background-position:center 15%" aria-label="Explore Metabolism and Energy plans">
         <div class="gc-bar">
           <span class="gc-name">Metabolism &amp; Energy</span>
           <span class="gc-arrow" aria-hidden="true">→</span>
         </div>
       </a>
-      <a class="goal-card dark" href="#plan-picker" data-goal-card="recovery" style="background-image:url('assets/goal-recovery.jpg')" aria-label="Explore Muscle Recovery plans">
+      <a class="goal-card dark" href="#plan-picker" data-goal-card="recovery" style="background-image:url('assets/goal-recovery.png'); background-position:center 25%"" aria-label="Explore Muscle Recovery plans">
         <div class="gc-bar">
           <span class="gc-name">Muscle Recovery</span>
           <span class="gc-arrow" aria-hidden="true">→</span>
@@ -392,7 +396,7 @@
         <div class="tx-grid single">
           <article class="tx-card">
             <span class="tx-tag">Cellular vitality</span>
-            <div class="tx-art"><span class="ph">NAD+ · product shot</span></div>
+            <div class="tx-art"><img src="assets/vial_nad.png" alt="NAD+ vial" /></div>
             <h3>Personalized NAD+</h3>
             <p class="desc">NAD+ to support cellular energy, metabolic function, and the body's natural repair pathways. Provider-directed dosing.</p>
             <div class="tx-meta">
@@ -409,7 +413,7 @@
         <div class="tx-grid single">
           <article class="tx-card">
             <span class="tx-tag">Recovery Support</span>
-            <div class="tx-art"><span class="ph">Sermorelin · product shot</span></div>
+            <div class="tx-art"><img src="assets/vial_sermorelin.png" alt="Sermorelin vial" /></div>
             <h3>Sermorelin</h3>
             <p class="desc">A growth-hormone-releasing peptide to support deeper sleep, recovery, and lean body composition as you age.</p>
             <div class="tx-meta">

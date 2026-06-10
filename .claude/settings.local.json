@@ -17,7 +17,26 @@
       "WebFetch(domain:api.anthropic.com)",
       "Bash(mkdir -p /tmp/amla-design)",
       "Bash(tar xzf *)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=old --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1280,2400 --screenshot=/tmp/amla-full.png \"http://localhost:8731/index.html#treatments\")",
+      "Bash(echo \"exit $?\")",
+      "Bash(python3 -c \"from PIL import Image; im=Image.open\\('/tmp/amla-full.png'\\); print\\('shot size', im.size\\)\")",
+      "Bash(cp /Users/alex/Documents/AmlaWellness/assets/vial.png /tmp/vial.png)",
+      "Bash(cat)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=old --disable-gpu --hide-scrollbars --force-device-scale-factor=2 --window-size=600,280 --screenshot=/tmp/test-shot.png \"http://localhost:8731/../../../tmp/test.html\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=old --disable-gpu --hide-scrollbars --force-device-scale-factor=2 --window-size=600,280 --screenshot=/tmp/test-shot.png \"file:///tmp/test.html\")",
+      "Bash(python3 -c \"from PIL import Image;print\\('shot',Image.open\\('/tmp/test-shot.png'\\).size\\)\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=old --disable-gpu --hide-scrollbars --force-device-scale-factor=2 --window-size=600,280 --screenshot=/tmp/test-shot2.png \"file:///tmp/test.html\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 --window-size=600,560 --screenshot=/tmp/test-shot3.png \"file:///tmp/test.html\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1280,2400 --screenshot=/tmp/amla-new.png \"http://localhost:8731/index.html\")",
+      "Bash(pkill -f \"http.server 8731\")",
+      "Bash(rm -f /tmp/amla-full.png /tmp/amla-full2.png /tmp/amla-new.png /tmp/amla-cards.png /tmp/amla-cards2.png /tmp/amla-artbox.png /tmp/amla-new-cards.png /tmp/test.html /tmp/test-shot.png /tmp/test-shot2.png /tmp/test-shot3.png /tmp/vial.png /tmp/amla-server.log)",
+      "Bash(rembg i *)",
+      "Bash(cp vial_nad.png vial_nad-original.png)",
+      "Bash(cp vial_sermorelin.png vial_sermorelin-original.png)",
+      "Bash(cp /tmp/vial_nad_v2.png vial_nad.png)",
+      "Bash(cp /tmp/vial_sermorelin_v2.png vial_sermorelin.png)",
+      "Bash(grep -nB6 'vial_nad.png\\\\|vial_sermorelin.png' index.html)"
     ]
   }
 }
