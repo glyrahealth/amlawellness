@@ -284,6 +284,68 @@
 </head>
 <body data-screen-label="01 Landing · B Modern Clinical">
 
+<!-- TEMP PASSWORD GATE — remove this entire block (down to "/TEMP PASSWORD GATE") to restore public access -->
+<style>
+  #amla-gate{position:fixed;inset:0;z-index:9999;background:var(--bg,#f8f4ed);display:flex;align-items:center;justify-content:center;padding:24px;font-family:'Inter',system-ui,sans-serif}
+  html.amla-locked,html.amla-locked body{overflow:hidden}
+  .amla-gate-card{width:100%;max-width:380px;text-align:center}
+  .amla-gate-card img{height:40px;width:auto;margin-bottom:32px}
+  .amla-gate-card h1{font-family:'Nunito',sans-serif;font-size:28px;font-weight:600;letter-spacing:-0.02em;color:#1a2024;margin:0 0 10px;line-height:1.15}
+  .amla-gate-card p{color:#5a6770;font-size:15px;margin:0 0 24px}
+  #amla-gate-form{display:flex;flex-direction:column;gap:12px}
+  #amla-gate-input{width:100%;background:#fff;border:1.5px solid rgba(20,58,74,.18);border-radius:100px;padding:14px 20px;font-family:'Inter',sans-serif;font-size:15px;color:#1a2024;outline:none;transition:border-color .2s ease}
+  #amla-gate-input:focus{border-color:#143a4a}
+  #amla-gate-form button{background:#1a2024;color:#fff;border:0;padding:14px;border-radius:100px;font-family:'Inter',sans-serif;font-weight:600;font-size:15px;cursor:pointer;transition:background .2s ease}
+  #amla-gate-form button:hover{background:#205e76}
+  #amla-gate-error{display:none;color:#c0392b;font-size:13px;margin-top:2px}
+  #amla-gate-error.show{display:block}
+</style>
+<div id="amla-gate">
+  <div class="amla-gate-card">
+    <img src="assets/logoHorizontal.png" alt="AmlaWellness" />
+    <h1>This site is private</h1>
+    <p>Enter the access password to continue.</p>
+    <form id="amla-gate-form" autocomplete="off">
+      <input id="amla-gate-input" type="password" placeholder="Password" aria-label="Access password" />
+      <button type="submit">Enter</button>
+      <div id="amla-gate-error" role="alert">Incorrect password. Please try again.</div>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var PW='BYneQxAMBjSA';            // temporary access password — client-side gate only
+  var KEY='amla-gate-ok';
+  var doc=document.documentElement;
+  var ok=false;
+  try{ok=sessionStorage.getItem(KEY)==='1';}catch(err){}
+  if(ok){return;}                   // already unlocked this session
+  doc.classList.add('amla-locked');
+  function ready(fn){if(document.readyState!=='loading'){fn();}else{document.addEventListener('DOMContentLoaded',fn);}}
+  ready(function(){
+    var gate=document.getElementById('amla-gate');
+    var form=document.getElementById('amla-gate-form');
+    var input=document.getElementById('amla-gate-input');
+    var err=document.getElementById('amla-gate-error');
+    if(!gate||!form){return;}
+    input.focus();
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(input.value===PW){
+        try{sessionStorage.setItem(KEY,'1');}catch(err){}
+        doc.classList.remove('amla-locked');
+        if(gate.parentNode){gate.parentNode.removeChild(gate);}
+      }else{
+        err.classList.add('show');
+        input.value='';
+        input.focus();
+      }
+    });
+  });
+})();
+</script>
+<!-- /TEMP PASSWORD GATE -->
+
 <header>
   <div class="container nav">
     <a href="#" class="logo"><img src="assets/logoHorizontal.png" alt="AmlaWellness" /></a>
@@ -308,6 +370,7 @@
       <h1>Real clinicians.<br/><em>Personalized</em> care.<br/>Delivered to your door.</h1>
     </div>
 
+    <!-- TEMP (weight-loss-only): hero goal cards hidden — restore to bring back the 3 category cards
     <div class="hero-goals">
       <a class="goal-card" href="#plan-picker" data-goal-card="weight" style="background-image:url('assets/goal-weight.png'); background-position:center 35%;background-size: 70%" aria-label="Explore Weight Loss plans">
         <div class="gc-bar">
@@ -328,6 +391,7 @@
         </div>
       </a>
     </div>
+    -->
   </div>
 </section>
 
@@ -346,13 +410,17 @@
 <!-- TREATMENTS -->
 <section class="section" id="treatments">
   <div class="container">
-    <div class="section-head section-head--center">
+    <div class="section-head section-head--center" id="plan-picker">
       <span class="eyebrow">Treatments</span>
+      <!-- TEMP (weight-loss-only): goal-selection headline + subcopy hidden — restore for the multi-goal version
       <h2>Find your plan.<br/><em class="italic">Start with your goal.</em></h2>
       <p>Tell us what you're working toward — your selection tailors the treatments, pricing, and care below. Every plan is prescribed by an independent licensed clinician after reviewing your intake, then cold-shipped to your door.</p>
+      -->
+      <h2>Weight Loss <em class="italic">Treatments</em></h2>
+      <p>Every plan is prescribed by an independent licensed clinician after reviewing your intake, then cold-shipped to your door.</p>
     </div>
 
-    <!-- GOAL SELECTOR -->
+    <!-- GOAL SELECTOR — TEMP (weight-loss-only): segmented control hidden; restore to re-enable goal switching
     <div class="goal-switch" id="plan-picker">
       <div class="goal-track" role="tablist" aria-label="Choose your goal">
         <button type="button" class="goal-btn is-active" data-goal="weight" role="tab" aria-selected="true">Weight Loss</button>
@@ -360,6 +428,8 @@
         <button type="button" class="goal-btn" data-goal="recovery" role="tab" aria-selected="false">Muscle Recovery</button>
       </div>
     </div>
+    -->
+    <div style="margin-bottom:44px"></div>
 
     <!-- PANELS -->
     <div class="goal-panels">
@@ -655,8 +725,10 @@
         <h5>Treatments</h5>
         <ul>
           <li><a href="#plan-picker" data-goal-card="weight">Weight Loss · GLP-1</a></li>
+          <!-- TEMP (weight-loss-only): other category links hidden — restore to bring them back
           <li><a href="#plan-picker" data-goal-card="metabolism">Metabolism & Energy</a></li>
           <li><a href="#plan-picker" data-goal-card="recovery">Muscle Recovery</a></li>
+          -->
           <li><a href="#how">How it works</a></li>
         </ul>
       </div>
