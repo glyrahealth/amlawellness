@@ -8,10 +8,12 @@ AmlaWellness is a static marketing site for a GLP-1 telehealth brand, hosted on 
 
 ## Development
 
-The site is served by GitHub Pages, which runs **Jekyll** automatically on push (no `_config.yml` is required; do not add a `.nojekyll` file or Jekyll includes stop working).
+The site is served by GitHub Pages, which runs **Jekyll** automatically on push (do not add a `.nojekyll` file or Jekyll includes stop working). The build is configured by `_config.yml`.
 
-- Every page starts with an empty Jekyll front-matter block (`---` / `---`) so Liquid `{% include %}` tags are processed. Because of this, pages render correctly only when built by Jekyll — open them via a GitHub Pages preview or `bundle exec jekyll serve`, **not** by double-clicking the file.
-- Do not put a literal `{{` or `{%` in page content unless it is meant as Liquid — wrap such snippets in `{% raw %}…{% endraw %}`.
+- Every page starts with a Jekyll front-matter block declaring `layout: none` so Liquid `include` tags are processed AND the page is rendered as-authored. The `none` layout (`_layouts/none.html`) is a passthrough that just emits the page content — this stops GitHub Pages' default theme (`jekyll-theme-primer`) + `jekyll-default-layout` from wrapping these complete HTML documents inside a theme layout. Do not remove the front matter or the layout declaration.
+- Because of the front matter, pages render correctly only when built by Jekyll — open them via a GitHub Pages preview or `bundle exec jekyll serve`, **not** by double-clicking the file.
+- Pages are run through Liquid, so a literal double-brace or brace-percent sequence in page content is parsed as Liquid and can break the build. Escape such snippets with a Liquid raw/endraw block.
+- `_config.yml` excludes project docs (this file, `README.md`) from the build, so they are neither published nor parsed by Liquid. To preview locally, install Jekyll into Homebrew Ruby (`brew install ruby` then `gem install jekyll bundler`), or reproduce the exact GitHub Pages environment with the `ghcr.io/actions/jekyll-build-pages` Docker image.
 
 There is no package manager or test suite.
 

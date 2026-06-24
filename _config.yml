@@ -1,0 +1,14 @@
+# GitHub Pages / Jekyll configuration.
+#
+# Only the marketing pages (index/privacy/terms) and assets should be built.
+# Project docs and tooling are excluded so they are neither published nor run
+# through Liquid — e.g. CLAUDE.md contains literal brace sequences that would
+# otherwise break the build, and README.md would be turned into the homepage
+# by the jekyll-readme-index plugin.
+exclude:
+  - README.md
+  - CLAUDE.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
