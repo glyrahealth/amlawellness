@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -284,22 +286,7 @@
 </head>
 <body data-screen-label="01 Landing · B Modern Clinical">
 
-<header>
-  <div class="container nav">
-    <a href="#" class="logo"><img src="assets/logoHorizontal.png" alt="AmlaWellness" /></a>
-    <nav><ul>
-      <li><a href="#treatments">Treatments</a></li>
-      <li><a href="#how">How it works</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul></nav>
-    <div class="nav-actions">
-      <a href="https://portal.amlawellness.com" class="btn btn-teal">Log in</a>
-      <!-- <a href="https://intake.amlawellness.com" class="btn btn-primary">Get started</a> -->
-    </div>
-  </div>
-</header>
+{% include header.html home=true %}
 
 <!-- HERO -->
 <section class="hero">
@@ -652,50 +639,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <img src="assets/logoHorizontal.png" alt="AmlaWellness" />
-        <p>Personalized telehealth weight-care, delivered with transparency. Built on the belief that quality care should be accessible — without insurance roadblocks or guesswork.</p>
-      </div>
-      <div>
-        <h5>Treatments</h5>
-        <ul>
-          <li><a href="#plan-picker" data-goal-card="weight">Weight Loss · GLP-1</a></li>
-          <!-- TEMP (weight-loss-only): other category links hidden — restore to bring them back
-          <li><a href="#plan-picker" data-goal-card="metabolism">Metabolism & Energy</a></li>
-          <li><a href="#plan-picker" data-goal-card="recovery">Muscle Recovery</a></li>
-          -->
-          <li><a href="#how">How it works</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Company</h5>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Legal</h5>
-        <ul>
-          <li><a href="privacy.html">Privacy policy</a></li>
-          <li><a href="terms.html">Terms of service</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="disclaimer">
-      <p>AmlaWellness is a marketplace platform that collaborates with independent healthcare professionals to deliver services. We do not directly offer medical or pharmacy services, and payment does not ensure that a prescription will be written or dispensed. Independent providers and partner pharmacies handle medical services. Information on this site is for reference only and does not replace professional medical advice. For health-related inquiries, consult your doctor. The FDA-approved brand-name drugs (such as Wegovy®, Ozempic®, Mounjaro®, Zepbound®) are exclusively the property of their manufacturers and are not affiliated with AmlaWellness.</p>
-      <a href="https://www.legitscript.com/websites/?checker_keywords=amlawellness.com" target="_blank" rel="noopener" class="legitscript" title="Verify LegitScript Approval for www.amlawellness.com"><img src="https://static.legitscript.com/seals/51244065.png" alt="Verify Approval for www.amlawellness.com" width="73" height="79" /></a>
-    </div>
-    <div class="footer-bottom">
-      <div>© 2026 Glyra Health LLC, dba AmlaWellness. All rights reserved.</div>
-      <div>Made with care for your wellness journey.</div>
-    </div>
-  </div>
-</footer>
+{% include footer.html home=true %}
 
 <script>
 (function(){

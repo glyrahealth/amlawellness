@@ -1,0 +1,22 @@
+{% assign nav = "index.html" %}{% if include.home %}{% assign nav = "" %}{% endif %}
+<header>
+  <div class="container nav">
+    <a href="{% if include.home %}#{% else %}index.html{% endif %}" class="logo"><img src="assets/logoHorizontal.png" alt="AmlaWellness" /></a>
+    <nav><ul>
+      <li><a href="{{ nav }}#treatments">Treatments</a></li>
+      <li><a href="{{ nav }}#how">How it works</a></li>
+      <li><a href="{{ nav }}#about">About</a></li>
+      <li><a href="{{ nav }}#faq">FAQ</a></li>
+      <li><a href="{{ nav }}#contact">Contact</a></li>
+    </ul></nav>
+    <div class="nav-actions">
+      {%- if include.home %}
+      <a href="https://portal.amlawellness.com" class="btn btn-teal">Log in</a>
+      <!-- <a href="https://intake.amlawellness.com" class="btn btn-primary">Get started</a> -->
+      {%- else %}
+      <a href="https://portal.amlawellness.com" class="btn btn-ghost">Log in</a>
+      <a href="https://intake.amlawellness.com" class="btn btn-primary">Get started</a>
+      {%- endif %}
+    </div>
+  </div>
+</header>

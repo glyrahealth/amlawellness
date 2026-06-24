@@ -36,7 +36,23 @@
       "Bash(cp vial_sermorelin.png vial_sermorelin-original.png)",
       "Bash(cp /tmp/vial_nad_v2.png vial_nad.png)",
       "Bash(cp /tmp/vial_sermorelin_v2.png vial_sermorelin.png)",
-      "Bash(grep -nB6 'vial_nad.png\\\\|vial_sermorelin.png' index.html)"
+      "Bash(grep -nB6 'vial_nad.png\\\\|vial_sermorelin.png' index.html)",
+      "Bash(sort -t: -k2)",
+      "Bash(uniq -c -f1)",
+      "Bash(command -v jekyll)",
+      "Bash(jekyll --version)",
+      "Bash(echo \"jekyll found: $\\(jekyll --version\\)\")",
+      "Bash(command -v bundle)",
+      "Bash(bundle exec *)",
+      "Bash(awk '/^<style>/{f=1} f{print} /^<\\\\/style>/{f=0}' privacy.html)",
+      "Bash(awk '/^<style>/{f=1} f{print} /^<\\\\/style>/{f=0}' terms.html)",
+      "Bash(cd *)",
+      "Bash(ruby --version)",
+      "Bash(gem --version)",
+      "Bash(gem list *)",
+      "Bash(/opt/homebrew/opt/ruby/bin/gem environment *)",
+      "Bash(/opt/homebrew/opt/ruby/bin/gem install *)",
+      "Bash(/opt/homebrew/lib/ruby/gems/4.0.0/bin/jekyll build *)"
     ]
   }
 }

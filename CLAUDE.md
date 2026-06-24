@@ -4,21 +4,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-AmlaWellness is a static marketing landing page for a GLP-1 telehealth brand. It's a single `index.html` file with all CSS inlined in a `<style>` block — no build tools, no JavaScript, no framework.
+AmlaWellness is a static marketing site for a GLP-1 telehealth brand, hosted on GitHub Pages. All three pages (`index.html`, `privacy.html`, `terms.html`) share a header and footer via Jekyll includes. No JavaScript framework, no client-side build tooling.
 
 ## Development
 
-Open `index.html` directly in a browser or serve with any static server (`python3 -m http.server`). There is no build step, no package manager, and no test suite.
+The site is served by GitHub Pages, which runs **Jekyll** automatically on push (no `_config.yml` is required; do not add a `.nojekyll` file or Jekyll includes stop working).
+
+- Every page starts with an empty Jekyll front-matter block (`---` / `---`) so Liquid `{% include %}` tags are processed. Because of this, pages render correctly only when built by Jekyll — open them via a GitHub Pages preview or `bundle exec jekyll serve`, **not** by double-clicking the file.
+- Do not put a literal `{{` or `{%` in page content unless it is meant as Liquid — wrap such snippets in `{% raw %}…{% endraw %}`.
+
+There is no package manager or test suite.
 
 ## Architecture
 
-- **index.html** — the entire site: markup + inline CSS. Sections: announcement bar, sticky header, hero, trust pills, treatments, how-it-works, comparison table, disclaimer, pillars, FAQ (native `<details>`), final CTA, footer.
-- **assets/** — static images (logo, product vials). Referenced from `index.html`.
-- Navigation links to `about.html`, `faq.html`, `contact.html`, `privacy.html`, `terms.html` — these pages do not exist yet.
+- **index.html** — the landing page: markup + inline `<style>`. Sections: sticky header, hero, trust pills, treatments, how-it-works, comparison table, disclaimer, pillars, FAQ (native `<details>`), final CTA, footer. Includes the header/footer with `home=true`.
+- **privacy.html / terms.html** — legal pages. Their shared CSS lives in `assets/styles.css` (linked via `<link>`); they have no inline `<style>`. They include the header/footer with no parameter (default = legal variant).
+- **_includes/** — shared Jekyll partials: `header.html`, `footer.html`. Edit these once to update the header/footer on every page. They are parameterized: `{% include header.html home=true %}` (landing variant — same-page `#` anchors, `btn-teal` login, "Get started" commented out, goal-picker footer links) vs `{% include header.html %}` (legal variant — `index.html#…` cross-page anchors, `btn-ghost` login + "Get started", plain treatment footer links). The `home` flag drives the `{% if include.home %}` branches inside both partials.
+- **assets/styles.css** — shared design system + component CSS for the **legal pages only**. The landing page's CSS has diverged (heading scale, links, buttons, footer spacing) and stays inline in `index.html`; the two are NOT in sync, so a change to one is not automatically reflected in the other.
+- **assets/** — static images (logo, product vials).
+- Navigation also links to `about.html`, `faq.html`, `contact.html` — these pages do not exist yet.
 
-## Design system (inline CSS custom properties)
+## Design system (CSS custom properties)
 
-Defined as `:root` custom properties in `index.html`. Copy this block when porting the brand to another page or app.
+Defined as `:root` custom properties — inline in `index.html` for the landing page, and in `assets/styles.css` for the legal pages (same token values). Copy this block when porting the brand to another page or app.
 
 ### Colors
 

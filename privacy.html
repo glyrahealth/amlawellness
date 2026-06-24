@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,111 +9,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<style>
-  :root{
-    --bg:#f8f4ed;--bg-deep:#efe8db;--paper:#ffffff;--ink:#1a2024;--ink-soft:#5a6770;
-    --teal:#205e76;--teal-deep:#143a4a;--sand:#e8dcc3;--sand-deep:#d4c4a1;
-    --line:rgba(26,32,36,.1);--container:1280px;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-  body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
-  h1,h2,h3,h4{margin:0;font-family:'Nunito',sans-serif;font-weight:500;letter-spacing:-0.02em;color:var(--ink)}
-  h1{font-size:clamp(36px,5vw,64px);line-height:1.02;font-weight:500}
-  h2{font-size:clamp(22px,2.4vw,28px);line-height:1.2;font-weight:700;color:var(--teal-deep)}
-  h3{font-size:18px;line-height:1.3;font-weight:700;color:var(--teal-deep)}
-  p{margin:0 0 1em}
-  a{color:var(--teal);text-decoration:underline;text-underline-offset:2px}
-  a:hover{color:var(--teal-deep)}
-  .italic{font-style:italic;font-family:'Nunito',sans-serif;color:var(--teal)}
-  .container{max-width:var(--container);margin:0 auto;padding:0 32px}
-  @media(max-width:520px){.container{padding:0 20px}}
-
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:11px 20px;border-radius:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;line-height:1;text-decoration:none;transition:all .2s ease;border:1.5px solid transparent;cursor:pointer;letter-spacing:.01em;white-space:nowrap}
-  .btn-primary{background:var(--ink);color:#fff}
-  .btn-primary:hover{background:var(--teal);transform:translateY(-1px)}
-  .btn-ghost{background:transparent;color:var(--ink)}
-  .btn-ghost:hover{background:rgba(26,32,36,.06)}
-
-  .announce{background:var(--ink);color:#fff;text-align:center;font-size:13px;padding:11px;letter-spacing:.02em}
-  .announce strong{font-weight:600}
-
-  header{position:sticky;top:0;z-index:30;background:rgba(248,244,237,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;gap:24px}
-  .logo{display:inline-block;padding-left:16px}
-  .logo img{height:44px;width:auto;display:block}
-  @media(max-width:520px){.logo{padding-left:4px}.logo img{height:32px}}
-  nav ul{display:flex;gap:36px;list-style:none;padding:0;margin:0}
-  nav a{font-weight:500;font-size:15px;color:var(--ink);text-decoration:none}
-  nav a:hover{color:var(--teal)}
-  .nav-actions{display:flex;gap:10px;align-items:center}
-  @media(max-width:980px){nav ul{display:none}}
-
-  .legal-hero{padding:80px 0 24px;border-bottom:1px solid var(--line);margin-bottom:48px}
-  .legal-hero .eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
-  .legal-hero h1{margin:0 0 16px}
-  .legal-hero p{font-size:17px;color:var(--ink-soft);max-width:720px;margin:0}
-
-  .legal{max-width:820px;margin:0 auto;padding:0 0 96px;color:var(--ink)}
-  .legal .toc{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px 28px;margin-bottom:48px}
-  .legal .toc h4{font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin:0 0 14px}
-  .legal .toc ol{margin:0;padding-left:20px;columns:2;column-gap:32px;font-size:14px;line-height:1.7}
-  .legal .toc a{color:var(--ink);text-decoration:none}
-  .legal .toc a:hover{color:var(--teal-deep);text-decoration:underline}
-  @media(max-width:680px){.legal .toc ol{columns:1}}
-
-  .legal section{margin-bottom:40px;scroll-margin-top:90px}
-  .legal section h2{margin:0 0 16px;font-size:24px}
-  .legal section h3{margin:24px 0 10px}
-  .legal section p{font-size:15px;line-height:1.7;color:var(--ink);margin:0 0 14px}
-  .legal section ul, .legal section ol{margin:0 0 16px;padding-left:24px}
-  .legal section li{font-size:15px;line-height:1.7;margin-bottom:8px;color:var(--ink)}
-  .legal .updated{font-size:13px;color:var(--ink-soft);margin-bottom:32px;font-weight:500}
-
-  footer{background:var(--bg-deep);padding:64px 0 32px;margin-top:64px}
-  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--line)}
-  .footer-grid img{height:40px;margin-bottom:16px}
-  .footer-grid p{font-size:14px;color:var(--ink-soft);max-width:320px}
-  footer h5{font-family:'Inter',sans-serif;font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin:0 0 16px}
-  footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-  footer ul a{font-size:14px;color:var(--ink-soft);text-decoration:none}
-  footer ul a:hover{color:var(--teal)}
-  .disclaimer{display:grid;grid-template-columns:1fr 90px;gap:32px;padding:32px 0;align-items:center;border-bottom:1px solid var(--line)}
-  .disclaimer p{font-size:11px;color:var(--ink-soft);line-height:1.55;margin:0}
-  .legitscript{display:inline-block;line-height:0}
-  .legitscript img{display:block}
-  .footer-bottom{display:flex;justify-content:space-between;padding-top:24px;font-size:13px;color:var(--ink-soft)}
-  @media(max-width:880px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.disclaimer{grid-template-columns:1fr}}
-</style>
+<link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
 
-<div class="announce">Free shipping on every plan · First-month consultation included</div>
-
-<header>
-  <div class="container nav">
-    <a href="index.html" class="logo"><img src="assets/logoHorizontal.png" alt="AmlaWellness" /></a>
-    <nav><ul>
-      <li><a href="index.html#treatments">Treatments</a></li>
-      <li><a href="index.html#how">How it works</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#faq">FAQ</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul></nav>
-    <div class="nav-actions">
-      <a href="https://portal.amlawellness.com" class="btn btn-ghost">Log in</a>
-      <a href="https://intake.amlawellness.com" class="btn btn-primary">Get started</a>
-    </div>
-  </div>
-</header>
+{% include header.html %}
 
 <section class="legal-hero">
   <div class="container">
     <span class="eyebrow">Legal</span>
     <h1>Privacy <em class="italic">policy.</em></h1>
-    <p>How Glyra Health LLC collects, uses, and shares information about you, and the privacy choices we offer.</p>
+    <p>How Glyra Health LLC d/b/a AmlaWellness collects, uses, and shares information about you, and the privacy choices we offer.</p>
   </div>
 </section>
 
@@ -133,6 +41,7 @@
       <li><a href="#p8">Social media and third party platforms</a></li>
       <li><a href="#p9">Security</a></li>
       <li><a href="#p10">Your privacy choices</a></li>
+      <li><a href="#p11">Notice of Privacy Practices</a></li>
     </ol>
   </div>
 
@@ -159,7 +68,7 @@
     <p>We collect information you provide, such as when you email us, sign up through our Platform, or submit information through our Platform. We may collect, but are not limited to collecting, the following information: your name, gender, email address, mailing address, phone number, date of birth, payment and bank information provided.</p>
 
     <h3>4.2. Children</h3>
-    <p>Company does not knowingly collect or maintain personally identifiable information from persons under 18 years of age without verifiable parental consent. If you are under 18 years of age, then please do not use the Services without parental consent. If Company learns that personally identifiable information of persons less than 18 years of age has been collected without verifiable parental consent, then Company will take the appropriate steps to delete this information. To make such a request, please contact us at <a href="mailto:info@amlawellness.com">info@amlawellness.com</a>.</p>
+    <p>Company does not knowingly collect or maintain personally identifiable information from persons under 18 years of age. The Services are intended only for individuals who are 18 years of age or older. If Company learns that personally identifiable information from a person under 18 has been collected, Company will take appropriate steps to delete this information. To make such a request, please contact us at <a href="mailto:info@amlawellness.com">info@amlawellness.com</a>.</p>
 
     <h3>4.3. Information we collect from your use of the Services</h3>
     <p>We collect information about you when you use our Platform, including, but not limited to the following:</p>
@@ -205,6 +114,7 @@
       <li>For any other purpose disclosed to you in connection with our Services.</li>
     </ul>
     <p>We may use third-party service providers to process and store personal information in the United States and other countries.</p>
+    <p>We do not use protected health information or sensitive health information for targeted advertising, and we do not disclose such information to advertising platforms except as permitted by applicable law and with any required authorization or consent.</p>
   </section>
 
   <section id="p6">
@@ -261,50 +171,55 @@
     <p>This Online Privacy Policy does not create rights enforceable by third parties.</p>
   </section>
 
+  <section id="p11">
+    <h2>11. Notice of Privacy Practices</h2>
+    <p>Glyra Health LLC d/b/a AmlaWellness ("AmlaWellness," "Glyra," "Company," "we," "us," or "our") is dedicated to maintaining the privacy of your protected health information ("PHI"). PHI is information about you that may be used to identify you, such as your name, address, date of birth, or other identifying information, and that relates to: (a) your past, present, or future physical or mental health or condition; (b) the provision of healthcare to you; or (c) your past, present, or future payment for the provision of healthcare.</p>
+    <p>In conducting its business, Company may receive, create, maintain, use, or disclose records containing your PHI in connection with the Services. AmlaWellness is not itself a medical provider or pharmacy. Medical services are provided by independent healthcare providers or provider groups, and prescription fulfillment services may be provided by licensed pharmacies or pharmacy partners. Company may work with third-party technology, telehealth, administrative, payment, customer support, provider-network, pharmacy-support, prescription-routing, and fulfillment vendors to help operate the Platform and support the Services.</p>
+    <p>This Notice is in effect from the date noted above until Company replaces it. Company reserves the right to change the terms of this Notice at any time, as long as the changes comply with applicable law. If Company changes the terms of this Notice, the new terms will apply to all PHI that Company maintains, including PHI that was created or received before such changes were made. If Company changes this Notice, it will post the new Notice on the Platform and will make the new Notice available upon request.</p>
+
+    <h3>11.1. Uses and Disclosures of PHI</h3>
+    <p>Company may use and disclose your PHI in the following ways:</p>
+    <p><strong>Treatment, Payment, and Healthcare Operations.</strong> Company may use and disclose your PHI for purposes of treatment, payment, and healthcare operations, as permitted by applicable law. For example:</p>
+    <ul>
+      <li><strong>Treatment.</strong> Company may disclose your PHI to independent healthcare providers, provider groups, pharmacies, pharmacy partners, telehealth platform vendors, prescription-routing vendors, or other parties involved in providing or supporting healthcare services to you.</li>
+      <li><strong>Payment.</strong> Company may use and disclose your PHI in connection with payment-related activities, including processing payments, coordinating billing, confirming eligibility for services, responding to payment inquiries, and supporting related administrative functions. To the extent applicable, Company may also disclose PHI to a health insurer, health plan, or other payer in connection with the processing or payment of claims or charges.</li>
+      <li><strong>Healthcare Operations.</strong> Company may use and disclose your PHI in connection with healthcare operations, such as customer support, care coordination support, quality review, compliance, auditing, fraud prevention, safety activities, business management, platform administration, and service improvement. Company may engage third parties to provide various services on Company's behalf. If any such third party must have access to your PHI in order to perform its services, Company will require that third party to enter into an agreement that binds the third party to appropriate use, disclosure, privacy, and security restrictions.</li>
+    </ul>
+    <p><strong>Authorization.</strong> Company may use and disclose your PHI pursuant to your written authorization, to the extent such use or disclosure is consistent with your authorization. You may revoke any such authorization at any time, except to the extent Company has already relied on it.</p>
+    <p><strong>As Required by Law.</strong> Company may use and disclose your PHI to the extent required by applicable law.</p>
+    <p><strong>Special Circumstances.</strong> The following categories describe unique circumstances in which Company may use or disclose your PHI:</p>
+    <ul>
+      <li><strong>Public Health Activities.</strong> Company may disclose your PHI to public health authorities or other governmental authorities for purposes including preventing or controlling disease, injury, or disability; reporting child abuse or neglect; reporting domestic violence; and reporting to the Food and Drug Administration or similar agencies regarding the quality, safety, or effectiveness of a regulated product or activity. Company may, in certain circumstances, disclose PHI to persons who may have been exposed to a communicable disease or may otherwise be at risk of contracting or spreading a disease or condition.</li>
+      <li><strong>Workers' Compensation.</strong> Company may disclose your PHI as authorized by, and to the extent necessary to comply with, workers' compensation programs and other similar programs relating to work-related illnesses or injuries.</li>
+      <li><strong>Health Oversight Activities.</strong> Company may disclose your PHI to a health oversight agency for authorized activities such as audits, investigations, inspections, licensing, disciplinary actions, and other activities relating to the healthcare system or government benefit programs.</li>
+      <li><strong>Judicial and Administrative Proceedings.</strong> Company may disclose your PHI, in certain circumstances and as permitted by applicable law, in response to an order from a court or administrative agency, subpoena, discovery request, or other lawful process.</li>
+      <li><strong>Law Enforcement.</strong> Company may, under certain circumstances, disclose your PHI to law enforcement officials, such as for purposes of identifying or locating a suspect, fugitive, material witness, or missing person, or as otherwise permitted or required by law.</li>
+      <li><strong>Decedents.</strong> Company may, under certain circumstances, disclose PHI to coroners, medical examiners, and funeral directors for purposes such as identification, determining the cause of death, and fulfilling duties relating to decedents.</li>
+      <li><strong>Organ Procurement.</strong> Company may, under certain circumstances, use or disclose PHI for purposes of organ donation and transplantation.</li>
+      <li><strong>Research.</strong> Company may, under certain circumstances, use or disclose PHI as necessary for research purposes, subject to applicable legal requirements.</li>
+      <li><strong>Threat to Health or Safety.</strong> Company may, under certain circumstances, use or disclose PHI if necessary to prevent or lessen a serious and imminent threat to the health or safety of a person or the public.</li>
+      <li><strong>Specialized Government Functions.</strong> Company may, in certain situations, use and disclose PHI of persons who are, or were, in the Armed Forces for purposes such as ensuring proper execution of a military mission or determining entitlement to benefits. Company may also disclose PHI to authorized federal officials for intelligence, counterintelligence, national security, protective services, or other specialized government functions.</li>
+    </ul>
+
+    <h3>11.2. Your Rights Regarding Your PHI</h3>
+    <p>You have the following rights regarding PHI maintained by Company, subject to applicable law:</p>
+    <ul>
+      <li><strong>Confidential Communications.</strong> You have the right to request that Company communicate with you about your PHI through alternate means or at an alternate location. Company will accommodate reasonable requests as required by applicable law. You must submit your request in writing to Company.</li>
+      <li><strong>Restrictions.</strong> You have the right to request restrictions on certain uses and disclosures of PHI for treatment, payment, or healthcare operations. You also have the right to request that Company limit its disclosures of PHI to certain individuals involved in your care or payment for your care. You must submit your request in writing to Company. Company is not required to agree to every requested restriction. However, if Company agrees to a restriction, it will comply with that restriction except when otherwise required by law or in the event of an emergency.</li>
+      <li><strong>Inspection and Copies.</strong> You have the right to inspect and obtain a copy of PHI maintained by Company, subject to certain exceptions under applicable law. You must submit your request in writing to Company. Company may impose a reasonable fee for the costs of copying, mailing, labor, and supplies associated with your request, as permitted by law. Company may deny your request to inspect or copy PHI in certain limited circumstances. If that occurs, Company will inform you of the reason for the denial and, where applicable, your right to request review of the denial.</li>
+      <li><strong>Amendment.</strong> You have the right to request that Company amend PHI maintained by Company if you believe it is incorrect or incomplete. You may request an amendment for as long as the information is maintained by Company. You must submit your request in writing to Company and provide a reason to support the requested amendment. Company may deny your request under certain circumstances by sending you a written notice of denial. If Company denies your request, you may be permitted to submit a statement of disagreement for inclusion in your records.</li>
+      <li><strong>Accounting of Disclosures.</strong> You have the right to receive an accounting of certain disclosures Company has made of your PHI. However, this right does not include disclosures made for treatment, payment, or healthcare operations; disclosures made to you; disclosures made pursuant to an authorization; and certain other disclosures excluded by applicable law. You must submit your request in writing to Company and specify the time period involved, which may not be longer than six years from the date of the disclosure. Your first accounting in any 12-month period will be free of charge. Company may charge you for the costs involved in fulfilling additional requests within the same 12-month period. Company will inform you of such costs in advance so that you may withdraw or modify your request.</li>
+      <li><strong>Breach Notification.</strong> You have the right to be notified in the event Company, or a Company business associate, discovers a breach of unsecured PHI, as required by applicable law.</li>
+      <li><strong>Paper Copy.</strong> You have the right to obtain a paper copy of this Notice from Company at any time upon request. To obtain a paper copy of this Notice, please contact Company by emailing <a href="mailto:info@amlawellness.com">info@amlawellness.com</a>.</li>
+      <li><strong>Complaint.</strong> You may complain to Company and to the Secretary of the U.S. Department of Health and Human Services if you believe your privacy rights have been violated. To file a complaint with Company, you must submit a written statement to Company at <a href="mailto:info@amlawellness.com">info@amlawellness.com</a>. Company will not retaliate against you for filing a complaint.</li>
+      <li><strong>Further Information.</strong> If you would like more information about your privacy rights, please contact Company by emailing <a href="mailto:info@amlawellness.com">info@amlawellness.com</a> and ask to speak to the Privacy and Security Officer. To the extent you are required to submit a written request to Company to exercise any right described in this Notice, you must submit your request to <a href="mailto:info@amlawellness.com">info@amlawellness.com</a> unless Company provides you with an alternate written submission method.</li>
+    </ul>
+  </section>
+
 </article>
 </main>
 
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <img src="assets/logoHorizontal.png" alt="AmlaWellness" />
-        <p>Personalized telehealth weight-care, delivered with transparency. Built on the belief that quality care should be accessible — without insurance roadblocks or guesswork.</p>
-      </div>
-      <div>
-        <h5>Treatments</h5>
-        <ul>
-          <li><a href="index.html#treatments">Compounded Semaglutide</a></li>
-          <li><a href="index.html#treatments">Compounded Tirzepatide</a></li>
-          <li><a href="index.html#how">How it works</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Company</h5>
-        <ul>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#faq">FAQ</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Legal</h5>
-        <ul>
-          <li><a href="privacy.html">Privacy policy</a></li>
-          <li><a href="terms.html">Terms of service</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="disclaimer">
-      <p>AmlaWellness is a marketplace platform that collaborates with independent healthcare professionals to deliver services. We do not directly offer medical or pharmacy services, and payment does not ensure that a prescription will be written or dispensed. Independent providers and partner pharmacies handle medical services. Information on this site is for reference only and does not replace professional medical advice. For health-related inquiries, consult your doctor. The FDA-approved brand-name drugs (such as Wegovy®, Ozempic®, Mounjaro®, Zepbound®) are exclusively the property of their manufacturers and are not affiliated with AmlaWellness.</p>
-      <a href="https://www.legitscript.com/websites/?checker_keywords=amlawellness.com" target="_blank" rel="noopener" class="legitscript" title="Verify LegitScript Approval for www.amlawellness.com"><img src="https://static.legitscript.com/seals/51244065.png" alt="Verify Approval for www.amlawellness.com" width="73" height="79" /></a>
-    </div>
-    <div class="footer-bottom">
-      <div>© 2026 Glyra Health LLC, dba AmlaWellness. All rights reserved.</div>
-      <div>Made with care for your wellness journey.</div>
-    </div>
-  </div>
-</footer>
+{% include footer.html %}
 
 </body>
 </html>

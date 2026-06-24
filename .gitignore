@@ -34,3 +34,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# jekyll (github pages build output)
+_site/
+.jekyll-cache/
+.jekyll-metadata
