@@ -11,11 +11,11 @@
     </ul></nav>
     <div class="nav-actions">
       {%- if include.home %}
-      <a href="https://portal.amlawellness.com" class="btn btn-teal">Log in</a>
-      <!-- <a href="https://intake.amlawellness.com" class="btn btn-primary">Get started</a> -->
+      <a href="{{ site.portal_url }}" class="btn btn-teal">Log in</a>
+      <!-- <a href="{{ site.intake_url }}" class="btn btn-primary">Get started</a> -->
       {%- else %}
-      <a href="https://portal.amlawellness.com" class="btn btn-ghost">Log in</a>
-      <a href="https://intake.amlawellness.com" class="btn btn-primary">Get started</a>
+      <a href="{{ site.portal_url }}" class="btn btn-ghost">Log in</a>
+      <a href="{{ site.intake_url }}" class="btn btn-primary">Get started</a>
       {%- endif %}
     </div>
   </div>

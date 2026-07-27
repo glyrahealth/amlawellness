@@ -5,6 +5,12 @@
 # through Liquid — e.g. CLAUDE.md contains literal brace sequences that would
 # otherwise break the build, and README.md would be turned into the homepage
 # by the jekyll-readme-index plugin.
+# External destinations, referenced as {{ site.intake_url }} / {{ site.portal_url }}.
+# No trailing slash — per-program intake paths in _data/programs.yml supply their
+# own leading slash.
+intake_url: https://intake.amlawellness.com
+portal_url: https://portal.amlawellness.com
+
 exclude:
   - README.md
   - CLAUDE.md

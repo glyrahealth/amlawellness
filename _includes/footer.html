@@ -9,18 +9,22 @@
       <div>
         <h5>Treatments</h5>
         <ul>
+          {%- comment -%}
+          Both variants render from _data/programs.yml: the landing page lists the goal
+          categories (clicking one selects that panel), the legal pages list the products.
+          {%- endcomment -%}
           {%- if include.home %}
-          <li><a href="#plan-picker" data-goal-card="weight">Weight Loss · GLP-1</a></li>
-          <!-- TEMP (weight-loss-only): other category links hidden — restore to bring them back
-          <li><a href="#plan-picker" data-goal-card="metabolism">Metabolism & Energy</a></li>
-          <li><a href="#plan-picker" data-goal-card="recovery">Muscle Recovery</a></li>
-          -->
-          <li><a href="#how">How it works</a></li>
+          {%- for program in site.data.programs %}
+          <li><a href="#plan-picker" data-goal-card="{{ program.id }}">{{ program.footer_name | default: program.name | escape }}</a></li>
+          {%- endfor %}
           {%- else %}
-          <li><a href="index.html#treatments">Compounded Semaglutide</a></li>
-          <li><a href="index.html#treatments">Compounded Tirzepatide</a></li>
-          <li><a href="index.html#how">How it works</a></li>
+          {%- for program in site.data.programs %}
+          {%- for tx in program.treatments %}
+          <li><a href="index.html#treatments">{{ tx.short_name | default: tx.name | escape }}</a></li>
+          {%- endfor %}
+          {%- endfor %}
           {%- endif %}
+          <li><a href="{{ nav }}#how">How it works</a></li>
         </ul>
       </div>
       <div>

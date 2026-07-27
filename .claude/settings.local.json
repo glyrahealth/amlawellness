@@ -52,7 +52,17 @@
       "Bash(gem list *)",
       "Bash(/opt/homebrew/opt/ruby/bin/gem environment *)",
       "Bash(/opt/homebrew/opt/ruby/bin/gem install *)",
-      "Bash(/opt/homebrew/lib/ruby/gems/4.0.0/bin/jekyll build *)"
+      "Bash(/opt/homebrew/lib/ruby/gems/4.0.0/bin/jekyll build *)",
+      "Bash(dig +short amlawellness.com A)",
+      "Bash(dig +short amlawellness.com AAAA)",
+      "Bash(dig +short www.amlawellness.com CNAME)",
+      "Bash(dig +short www.amlawellness.com A)",
+      "Bash(dig +short amlawellness.com CAA)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(jekyll build *)",
+      "Bash(jekyll serve *)",
+      "Bash(curl *)",
+      "Bash(echo \"=== EXIT: $? ===\")"
     ]
   }
 }

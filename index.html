@@ -268,6 +268,39 @@ layout: none
   .final-cta .btn-teal{background:var(--sand);color:var(--ink)}
   .final-cta .btn-teal:hover{background:#fff}
 
+  /* INTAKE PICKER MODAL */
+  .modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:24px}
+  .modal.is-open{display:flex}
+  .modal-scrim{position:absolute;inset:0;background:rgba(26,32,36,.55);backdrop-filter:blur(3px);
+    animation:scrimIn .2s ease}
+  .modal-card{position:relative;width:100%;max-width:520px;background:var(--paper);border-radius:24px;
+    padding:40px;box-shadow:var(--shadow);max-height:calc(100vh - 48px);overflow-y:auto;
+    animation:modalIn .3s cubic-bezier(.22,.61,.36,1)}
+  @keyframes scrimIn{from{opacity:0}to{opacity:1}}
+  @keyframes modalIn{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.modal-scrim,.modal-card{animation:none}}
+  .modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border:0;border-radius:100px;
+    background:transparent;color:var(--ink-soft);cursor:pointer;display:flex;align-items:center;
+    justify-content:center;transition:all .2s ease}
+  .modal-close:hover{background:rgba(26,32,36,.06);color:var(--ink)}
+  .modal-card h3{margin-bottom:8px;padding-right:32px}
+  .modal-card > p{color:var(--ink-soft);margin-bottom:28px;font-size:15px}
+  .intake-options{display:grid;gap:12px}
+  .intake-option{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:18px;
+    border:1.5px solid var(--line);background:var(--paper);text-decoration:none;color:var(--ink);
+    transition:all .2s ease}
+  .intake-option:hover{border-color:var(--teal);background:var(--bg);transform:translateY(-1px)}
+  .intake-option:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+  .io-text{flex:1;min-width:0}
+  .io-name{display:block;font-weight:600;font-size:16px;line-height:1.3}
+  .io-desc{display:block;color:var(--ink-soft);font-size:13.5px;line-height:1.4;margin-top:3px}
+  .io-arrow{flex:none;width:32px;height:32px;border-radius:100px;background:rgba(26,32,36,.06);
+    color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:15px;
+    transition:all .2s ease}
+  .intake-option:hover .io-arrow{background:var(--teal);color:#fff;transform:translateX(3px)}
+  @media(max-width:520px){.modal-card{padding:32px 24px;border-radius:20px}
+    .intake-option{padding:16px}}
+
   /* FOOTER */
   footer{padding:80px 0 32px;background:var(--bg-deep)}
   .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--line)}
@@ -296,28 +329,16 @@ layout: none
       <h1>Real clinicians.<br/><em>Personalized</em> care.<br/>Delivered to your door.</h1>
     </div>
 
-    <!-- TEMP (weight-loss-only): hero goal cards hidden — restore to bring back the 3 category cards
     <div class="hero-goals">
-      <a class="goal-card" href="#plan-picker" data-goal-card="weight" style="background-image:url('assets/goal-weight.png'); background-position:center 35%;background-size: 70%" aria-label="Explore Weight Loss plans">
+      {%- for program in site.data.programs %}
+      <a class="goal-card{% if program.card_dark %} dark{% endif %}" href="#plan-picker" data-goal-card="{{ program.id }}" style="background-image:url('{{ program.card_image }}'); {{ program.card_style }}" aria-label="{{ program.aria_label | escape }}">
         <div class="gc-bar">
-          <span class="gc-name">Weight Loss</span>
+          <span class="gc-name">{{ program.name | escape }}</span>
           <span class="gc-arrow" aria-hidden="true">→</span>
         </div>
       </a>
-      <a class="goal-card dark" href="#plan-picker" data-goal-card="metabolism" style="background-image:url('assets/goal-metabolism.png'); background-position:center 15%" aria-label="Explore Metabolism and Energy plans">
-        <div class="gc-bar">
-          <span class="gc-name">Metabolism &amp; Energy</span>
-          <span class="gc-arrow" aria-hidden="true">→</span>
-        </div>
-      </a>
-      <a class="goal-card dark" href="#plan-picker" data-goal-card="recovery" style="background-image:url('assets/goal-recovery.png'); background-position:center 25%"" aria-label="Explore Muscle Recovery plans">
-        <div class="gc-bar">
-          <span class="gc-name">Muscle Recovery</span>
-          <span class="gc-arrow" aria-hidden="true">→</span>
-        </div>
-      </a>
+      {%- endfor %}
     </div>
-    -->
   </div>
 </section>
 
@@ -336,89 +357,43 @@ layout: none
 <!-- TREATMENTS -->
 <section class="section" id="treatments">
   <div class="container">
-    <div class="section-head section-head--center" id="plan-picker">
+    <div class="section-head section-head--center">
       <span class="eyebrow">Treatments</span>
-      <!-- TEMP (weight-loss-only): goal-selection headline + subcopy hidden — restore for the multi-goal version
       <h2>Find your plan.<br/><em class="italic">Start with your goal.</em></h2>
       <p>Tell us what you're working toward — your selection tailors the treatments, pricing, and care below. Every plan is prescribed by an independent licensed clinician after reviewing your intake, then cold-shipped to your door.</p>
-      -->
-      <h2>Weight Loss <em class="italic">Treatments</em></h2>
-      <p>Every plan is prescribed by an independent licensed clinician after reviewing your intake, then cold-shipped to your door.</p>
     </div>
 
-    <!-- GOAL SELECTOR — TEMP (weight-loss-only): segmented control hidden; restore to re-enable goal switching
+    <!-- GOAL SELECTOR -->
     <div class="goal-switch" id="plan-picker">
       <div class="goal-track" role="tablist" aria-label="Choose your goal">
-        <button type="button" class="goal-btn is-active" data-goal="weight" role="tab" aria-selected="true">Weight Loss</button>
-        <button type="button" class="goal-btn" data-goal="metabolism" role="tab" aria-selected="false">Metabolism &amp; Energy</button>
-        <button type="button" class="goal-btn" data-goal="recovery" role="tab" aria-selected="false">Muscle Recovery</button>
+        {%- for program in site.data.programs %}
+        <button type="button" class="goal-btn{% if forloop.first %} is-active{% endif %}" data-goal="{{ program.id }}" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">{{ program.name | escape }}</button>
+        {%- endfor %}
       </div>
     </div>
-    -->
-    <div style="margin-bottom:44px"></div>
 
     <!-- PANELS -->
     <div class="goal-panels">
-      <!-- WEIGHT LOSS -->
-      <div class="goal-panel is-active" data-panel="weight" role="tabpanel">
-        <p class="panel-lead">GLP-1 therapy · for sustainable, clinician-guided weight loss</p>
-        <div class="tx-grid">
-          <article class="tx-card">
-            <span class="tx-tag">Most popular</span>
-            <div class="tx-art"><img src="assets/vial.png" alt="Semaglutide vial" /></div>
-            <h3>Personalized, Compounded Semaglutide</h3>
-            <p class="desc">Weekly subcutaneous injection. GLP-1 receptor agonist. Provider-directed titration and monthly refills included.</p>
+      {%- for program in site.data.programs %}
+      <div class="goal-panel{% if forloop.first %} is-active{% endif %}" data-panel="{{ program.id }}" role="tabpanel">
+        <p class="panel-lead">{{ program.lead | escape }}</p>
+        <div class="tx-grid{% if program.treatments.size == 1 %} single{% endif %}">
+          {%- for tx in program.treatments %}
+          {%- assign tx_path = tx.intake_path | default: program.intake_path %}
+          <article class="tx-card{% if tx.dark %} dark{% endif %}">
+            <span class="tx-tag">{{ tx.tag | escape }}</span>
+            <div class="tx-art"><img src="{{ tx.image }}" alt="{{ tx.image_alt | escape }}" /></div>
+            <h3>{{ tx.name | escape }}</h3>
+            <p class="desc">{{ tx.desc | escape }}</p>
             <div class="tx-meta">
-              <div class="tx-price">$175<span>starting / month</span></div>
-              <a href="https://intake.amlawellness.com/start-online-visit/weight-loss" class="btn btn-teal">Am I eligible? →</a>
+              <div class="tx-price">{{ tx.price }}<span>{{ tx.price_note | escape }}</span></div>
+              <a href="{{ site.intake_url }}{{ tx_path }}" class="btn {% if tx.dark %}btn-outline{% else %}btn-teal{% endif %}">Am I eligible? →</a>
             </div>
           </article>
-          <article class="tx-card dark">
-            <span class="tx-tag">Dual-action</span>
-            <div class="tx-art"><img src="assets/vial.png" alt="Tirzepatide vial" /></div>
-            <h3>Personalized, Compounded Tirzepatide</h3>
-            <p class="desc">Weekly subcutaneous injection acting on both GLP-1 and GIP receptors. Provider-directed dose ladder.</p>
-            <div class="tx-meta">
-              <div class="tx-price">$242<span>starting / month</span></div>
-              <a href="https://intake.amlawellness.com/start-online-visit/weight-loss" class="btn btn-outline">Am I eligible? →</a>
-            </div>
-          </article>
+          {%- endfor %}
         </div>
       </div>
-
-      <!-- METABOLISM -->
-      <div class="goal-panel" data-panel="metabolism" role="tabpanel">
-        <p class="panel-lead">Metabolism Coenzyme · for cellular energy &amp; metabolic function</p>
-        <div class="tx-grid single">
-          <article class="tx-card">
-            <span class="tx-tag">Cellular vitality</span>
-            <div class="tx-art"><img src="assets/vial_nad.png" alt="NAD+ vial" /></div>
-            <h3>Personalized NAD+</h3>
-            <p class="desc">NAD+ to support cellular energy, metabolic function, and the body's natural repair pathways. Provider-directed dosing.</p>
-            <div class="tx-meta">
-              <div class="tx-price">$159<span>starting / month</span></div>
-              <a href="https://intake.amlawellness.com/" class="btn btn-teal">Am I eligible? →</a>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <!-- MUSCLE RECOVERY -->
-      <div class="goal-panel" data-panel="recovery" role="tabpanel">
-        <p class="panel-lead">Recovery peptides · for sleep, recovery &amp; lean mass</p>
-        <div class="tx-grid single">
-          <article class="tx-card">
-            <span class="tx-tag">Recovery Support</span>
-            <div class="tx-art"><img src="assets/vial_sermorelin.png" alt="Sermorelin vial" /></div>
-            <h3>Sermorelin</h3>
-            <p class="desc">A growth-hormone-releasing peptide to support deeper sleep, recovery, and lean body composition as you age.</p>
-            <div class="tx-meta">
-              <div class="tx-price">$129<span>starting / month</span></div>
-              <a href="https://intake.amlawellness.com/" class="btn btn-teal">Am I eligible? →</a>
-            </div>
-          </article>
-        </div>
-      </div>
+      {%- endfor %}
     </div>
   </div>
 </section>
@@ -634,13 +609,38 @@ layout: none
     <div class="final-cta">
       <h2>Ready to see if you're <em>eligible?</em></h2>
       <p>Take the intake questionnaire — most patients hear back within 24 hours. No commitments, no insurance needed.</p>
-      <a href="https://intake.amlawellness.com/start-online-visit/weight-loss" class="btn btn-teal btn-lg">Start intake →</a>
+      <!-- Opens the goal picker below. The href is the no-JS fallback: the first program in _data/programs.yml. -->
+      {%- assign primary = site.data.programs | first %}
+      <a href="{{ site.intake_url }}{{ primary.intake_path }}" class="btn btn-teal btn-lg" data-intake-open>Start intake →</a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 {% include footer.html home=true %}
+
+<!-- INTAKE PICKER MODAL -->
+<div class="modal" id="intake-modal" role="dialog" aria-modal="true" aria-labelledby="intake-modal-title" hidden>
+  <div class="modal-scrim" data-intake-close></div>
+  <div class="modal-card">
+    <button type="button" class="modal-close" data-intake-close aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <h3 id="intake-modal-title">What are you here for?</h3>
+    <p>Each program has its own intake questionnaire. Pick the one that fits your goal.</p>
+    <div class="intake-options">
+      {%- for program in site.data.programs %}
+      <a class="intake-option" href="{{ site.intake_url }}{{ program.intake_path }}" data-intake-goal="{{ program.id }}">
+        <span class="io-text">
+          <span class="io-name">{{ program.name | escape }}</span>
+          <span class="io-desc">{{ program.blurb | escape }}</span>
+        </span>
+        <span class="io-arrow" aria-hidden="true">→</span>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</div>
 
 <script>
 (function(){
@@ -658,6 +658,54 @@ layout: none
   });
   var saved=null;try{saved=localStorage.getItem('amla-goal');}catch(e){}
   if(saved&&btns.some(function(b){return b.getAttribute('data-goal')===saved;}))select(saved);
+})();
+
+// Intake picker: the final CTA serves all three programs, so ask which one before leaving the site.
+(function(){
+  var modal=document.getElementById('intake-modal');
+  if(!modal)return;
+  var card=modal.querySelector('.modal-card');
+  var opts=[].slice.call(modal.querySelectorAll('.intake-option'));
+  var lastFocus=null;
+
+  function focusable(){
+    return [].slice.call(card.querySelectorAll('a[href],button:not([disabled])'));
+  }
+  function open(e){
+    if(e)e.preventDefault();
+    lastFocus=document.activeElement;
+    modal.hidden=false;
+    modal.classList.add('is-open');
+    document.body.style.overflow='hidden';
+    // Start on the goal they were already browsing, if any.
+    var goal=null;try{goal=localStorage.getItem('amla-goal');}catch(err){}
+    var match=opts.filter(function(o){return o.getAttribute('data-intake-goal')===goal;})[0];
+    (match||opts[0]||card).focus();
+  }
+  function close(){
+    modal.classList.remove('is-open');
+    modal.hidden=true;
+    document.body.style.overflow='';
+    if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  }
+
+  [].slice.call(document.querySelectorAll('[data-intake-open]')).forEach(function(t){
+    t.addEventListener('click',open);
+  });
+  [].slice.call(modal.querySelectorAll('[data-intake-close]')).forEach(function(t){
+    t.addEventListener('click',close);
+  });
+  document.addEventListener('keydown',function(e){
+    if(!modal.classList.contains('is-open'))return;
+    if(e.key==='Escape'){close();return;}
+    if(e.key!=='Tab')return;
+    var f=focusable();
+    if(!f.length)return;
+    var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    else if(f.indexOf(document.activeElement)===-1){e.preventDefault();first.focus();}
+  });
 })();
 </script>
 

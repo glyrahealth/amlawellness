@@ -23,6 +23,7 @@ There is no package manager or test suite.
 - **privacy.html / terms.html** — legal pages. Their shared CSS lives in `assets/styles.css` (linked via `<link>`); they have no inline `<style>`. They include the header/footer with no parameter (default = legal variant).
 - **_includes/** — shared Jekyll partials: `header.html`, `footer.html`. Edit these once to update the header/footer on every page. They are parameterized: `{% include header.html home=true %}` (landing variant — same-page `#` anchors, `btn-teal` login, "Get started" commented out, goal-picker footer links) vs `{% include header.html %}` (legal variant — `index.html#…` cross-page anchors, `btn-ghost` login + "Get started", plain treatment footer links). The `home` flag drives the `{% if include.home %}` branches inside both partials.
 - **assets/styles.css** — shared design system + component CSS for the **legal pages only**. The landing page's CSS has diverged (heading scale, links, buttons, footer spacing) and stays inline in `index.html`; the two are NOT in sync, so a change to one is not automatically reflected in the other.
+- **_data/programs.yml** — the single source of truth for programs (goal categories) and the treatments inside them: name, price, copy, imagery, and each program's intake path. `index.html` renders the hero goal cards, the goal tabs, the treatment panels, and the intake-picker modal from it; `_includes/footer.html` renders its "Treatments" column from it. **Add or edit a product here, not in the markup** — the file's header comment documents every field. Order in the file is the order on the page, and the first program is the default-selected tab plus the no-JS fallback for the final CTA. The `id` of each program is the value the tab/panel JS and `localStorage` use (`data-goal` / `data-panel` / `data-goal-card`), so renaming an `id` resets the remembered goal for returning visitors.
 - **assets/** — static images (logo, product vials).
 - Navigation also links to `about.html`, `faq.html`, `contact.html` — these pages do not exist yet.
 
@@ -80,6 +81,10 @@ Status / utility colors (not tokens, used inline): required-asterisk red `#c0392
 
 ## External integrations
 
-- Eligibility / intake flow: `https://intake.amlawellness.com`
-- Patient portal / login: `https://portal.amlawellness.com`
+The two brand domains are set once in `_config.yml` and referenced as Liquid variables — do not hardcode them in markup.
+
+- Eligibility / intake flow: `site.intake_url` → `https://intake.amlawellness.com`. Per-program paths (`/start-online-visit/weight-loss`, `/start-online-visit/nad`, `/start-online-visit/sermorelin`) live in `_data/programs.yml` as `intake_path` and are appended to it. A single treatment can override its program's path with its own `intake_path`.
+- Patient portal / login: `site.portal_url` → `https://portal.amlawellness.com`
 - LegitScript certification badge links to `https://www.legitscript.com/`
+
+Note that editing `_config.yml` requires restarting `jekyll serve` locally; `_data/` changes are picked up by `--watch`.

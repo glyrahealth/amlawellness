@@ -1,0 +1,102 @@
+# Single source of truth for the programs (goal categories) and the treatments
+# inside them. Jekyll exposes this as `site.data.programs`.
+#
+# Everything that lists a program or a product renders from this file:
+#   index.html          hero goal cards, goal tabs, treatment panels, intake modal
+#   _includes/footer.html   the "Treatments" column (both home and legal variants)
+#
+# To add a product, add an entry under an existing program's `treatments`.
+# To add a whole new category, append a program here — no markup edits needed.
+# Order in this file is the order shown on the page; the first program is the
+# default-selected tab and the no-JS fallback target for the final CTA.
+#
+# Program fields
+#   id           slug used by the tab/panel JS and localStorage (data-goal / data-panel).
+#                Changing it resets the remembered goal for returning visitors.
+#   name         short label — hero card, goal tab, modal option, footer link
+#   footer_name  OPTIONAL — overrides `name` in the landing-page footer only
+#   aria_label   hero goal-card aria-label (spelled out, e.g. "and" not "&")
+#   intake_path  appended to `site.intake_url` — this program's intake questionnaire
+#   lead         the `.panel-lead` line above the treatment cards
+#   blurb        one-line description under the name in the intake modal
+#   card_image   hero goal-card background image
+#   card_style   extra inline CSS for the hero card (background-position/size)
+#   card_dark    true renders the hero card as `.goal-card.dark`
+#
+# Treatment fields
+#   name         full product name (card heading)
+#   short_name   compact name for footer links
+#   tag          the `.tx-tag` badge
+#   image        product vial image
+#   image_alt    alt text for it
+#   desc         card body copy
+#   price        headline price, including the currency symbol
+#   price_note   the smaller text beside it
+#   dark         true renders `.tx-card.dark` with a `btn-outline` CTA
+#   intake_path  OPTIONAL — overrides the program's intake_path for this product only
+
+- id: weight
+  name: Weight Loss
+  footer_name: "Weight Loss · GLP-1"
+  aria_label: Explore Weight Loss plans
+  intake_path: /start-online-visit/weight-loss
+  lead: "GLP-1 therapy · for sustainable, clinician-guided weight loss"
+  blurb: "GLP-1 therapy — Compounded Semaglutide or Compounded Tirzepatide"
+  card_image: assets/goal-weight.png
+  card_style: "background-position:center 35%;background-size: 70%"
+  treatments:
+    - name: "Personalized, Compounded Semaglutide"
+      short_name: Compounded Semaglutide
+      tag: Most popular
+      image: assets/vial.png
+      image_alt: Semaglutide vial
+      desc: "Weekly subcutaneous injection. GLP-1 receptor agonist. Provider-directed titration and monthly refills included."
+      price: "$175"
+      price_note: starting / month
+    - name: "Personalized, Compounded Tirzepatide"
+      short_name: Compounded Tirzepatide
+      tag: Dual-action
+      image: assets/vial.png
+      image_alt: Tirzepatide vial
+      desc: "Weekly subcutaneous injection acting on both GLP-1 and GIP receptors. Provider-directed dose ladder."
+      price: "$242"
+      price_note: starting / month
+      dark: true
+
+- id: metabolism
+  name: Metabolism & Energy
+  aria_label: Explore Metabolism and Energy plans
+  intake_path: /start-online-visit/nad
+  lead: "Metabolism Coenzyme · for cellular energy & metabolic function"
+  blurb: NAD+ for cellular energy and metabolic function
+  card_image: assets/goal-metabolism.png
+  card_style: "background-position:center 15%"
+  card_dark: true
+  treatments:
+    - name: Personalized NAD+
+      short_name: NAD+
+      tag: Cellular vitality
+      image: assets/vial_nad.png
+      image_alt: NAD+ vial
+      desc: "NAD+ to support cellular energy, metabolic function, and the body's natural repair pathways. Provider-directed dosing."
+      price: "$159"
+      price_note: starting / month
+
+- id: recovery
+  name: Muscle Recovery
+  aria_label: Explore Muscle Recovery plans
+  intake_path: /start-online-visit/sermorelin
+  lead: "Recovery peptides · for sleep, recovery & lean mass"
+  blurb: Sermorelin for sleep, recovery and lean mass
+  card_image: assets/goal-recovery.png
+  card_style: "background-position:center 25%"
+  card_dark: true
+  treatments:
+    - name: Sermorelin
+      short_name: Sermorelin
+      tag: Recovery Support
+      image: assets/vial_sermorelin.png
+      image_alt: Sermorelin vial
+      desc: "A growth-hormone-releasing peptide to support deeper sleep, recovery, and lean body composition as you age."
+      price: "$129"
+      price_note: starting / month
