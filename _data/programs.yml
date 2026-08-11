@@ -51,7 +51,7 @@
       image: assets/vial.png
       image_alt: Semaglutide vial
       desc: "Weekly subcutaneous injection. GLP-1 receptor agonist. Provider-directed titration and monthly refills included."
-      price: "$167"
+      price: "$208"
       price_note: starting / month
     - name: "Personalized, Compounded Tirzepatide"
       short_name: Compounded Tirzepatide
@@ -59,7 +59,7 @@
       image: assets/vial.png
       image_alt: Tirzepatide vial
       desc: "Weekly subcutaneous injection acting on both GLP-1 and GIP receptors. Provider-directed dose ladder."
-      price: "$233"
+      price: "$292"
       price_note: starting / month
       dark: true
 
@@ -79,7 +79,7 @@
       image: assets/vial_nad.png
       image_alt: NAD+ vial
       desc: "NAD+ to support cellular energy, metabolic function, and the body's natural repair pathways. Provider-directed dosing."
-      price: "$125"
+      price: "$157"
       price_note: starting / month
 
 - id: recovery
@@ -98,5 +98,5 @@
       image: assets/vial_sermorelin.png
       image_alt: Sermorelin vial
       desc: "A growth-hormone-releasing peptide to support deeper sleep, recovery, and lean body composition as you age."
-      price: "$125"
+      price: "$157"
       price_note: starting / month
