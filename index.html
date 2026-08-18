@@ -547,7 +547,8 @@ layout: none
       </details> -->
       <details>
         <summary>How much does it cost — and do you take insurance?</summary>
-        <p>We operate on transparent cash-pay pricing, no insurance required. Plans start at $199/mo for compounded semaglutide and $349/mo for tirzepatide. Pricing includes the clinician consultation, ongoing care, and medication.</p>
+        {% assign weight_program = site.data.programs | where: "id", "weight" | first %}
+        <p>We operate on transparent cash-pay pricing, no insurance required. Plans start at {% for tx in weight_program.treatments %}{{ tx.price }}/mo for {{ tx.short_name | downcase }}{% unless forloop.last %}{% if forloop.rindex == 2 %} and {% else %}, {% endif %}{% endunless %}{% endfor %}. Pricing includes the clinician consultation, ongoing care, and medication.</p>
       </details>
       <details>
         <summary>What states do you ship to?</summary>
