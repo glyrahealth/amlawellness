@@ -11,6 +11,9 @@
 intake_url: https://intake.amlawellness.com
 portal_url: https://portal.amlawellness.com
 
+# Intercom messenger workspace ID, used by _includes/intercom.html.
+intercom_app_id: tpiwyckx
+
 exclude:
   - README.md
   - CLAUDE.md
