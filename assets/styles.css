@@ -80,6 +80,9 @@ footer h5{font-family:'Inter',sans-serif;font-weight:600;font-size:12px;letter-s
 footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 footer ul a{font-size:14px;color:var(--ink-soft);text-decoration:none}
 footer ul a:hover{color:var(--teal)}
+.footer-contact{padding:24px 0;border-bottom:1px solid var(--line);text-align:center}
+.footer-contact p{font-size:14px;color:var(--ink-soft);margin:0}
+.footer-contact a{color:var(--teal);font-weight:500}
 .disclaimer{display:grid;grid-template-columns:1fr 90px;gap:32px;padding:32px 0;align-items:center;border-bottom:1px solid var(--line)}
 .disclaimer p{font-size:11px;color:var(--ink-soft);line-height:1.55;margin:0}
 .legitscript{display:inline-block;line-height:0}

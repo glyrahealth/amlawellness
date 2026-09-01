@@ -133,23 +133,6 @@ layout: none
   @media(max-width:980px){.how-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:520px){.how-grid{grid-template-columns:1fr}}
 
-  /* CONTACT FORM */
-  .contact-form{max-width:720px}
-  .contact-form h2{color:var(--teal-deep);margin-bottom:32px}
-  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
-  .form-field{display:flex;flex-direction:column}
-  .form-field.full{grid-column:1 / -1}
-  .form-field label{font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;color:var(--teal-deep);margin-bottom:8px;letter-spacing:-0.01em}
-  .form-field label .req{color:#c0392b;margin-left:3px;font-size:12px;vertical-align:top}
-  .form-field input,.form-field textarea{width:100%;background:transparent;border:1.5px solid rgba(20,58,74,.18);border-radius:100px;padding:12px 18px;font-family:'Inter',sans-serif;font-size:14px;color:var(--ink);transition:border-color .2s ease;outline:none}
-  .form-field textarea{border-radius:14px;min-height:120px;resize:vertical}
-  .form-field input::placeholder,.form-field textarea::placeholder{color:rgba(20,58,74,.4)}
-  .form-field input:focus,.form-field textarea:focus{border-color:var(--teal-deep)}
-  .form-submit{margin-top:20px}
-  .form-submit button{background:var(--teal-deep);color:#fff;border:0;padding:14px 40px;border-radius:100px;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;cursor:pointer;transition:background .2s ease}
-  .form-submit button:hover{background:var(--ink)}
-  @media(max-width:580px){.form-grid{grid-template-columns:1fr}}
-
   /* COMPARISON */
   .compare{background:var(--bg)}
   .compare-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden}
@@ -310,6 +293,10 @@ layout: none
   footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:14px}
   footer a{color:var(--ink-soft)}
   footer a:hover{color:var(--ink)}
+  .footer-contact{padding:24px 0;border-bottom:1px solid var(--line);text-align:center}
+  .footer-contact p{color:var(--ink-soft);font-size:14px;margin:0}
+  .footer-contact a{color:var(--teal);text-decoration:none;font-weight:500}
+  .footer-contact a:hover{color:var(--teal-deep);text-decoration:underline}
   .disclaimer{display:grid;grid-template-columns:1fr 90px;gap:32px;padding:32px 0;align-items:center;border-bottom:1px solid var(--line)}
   .disclaimer p{color:var(--ink-soft);font-size:12px;line-height:1.55;margin:0}
   .legitscript{display:inline-block;line-height:0}
@@ -571,36 +558,6 @@ layout: none
         <p>No. Ozempic®, Wegovy®, Mounjaro®, and Zepbound® are FDA-approved brand-name products manufactured by their respective companies and are not affiliated with AmlaWellness. Our compounded products contain the same active ingredient but are prepared by a compounding pharmacy and are not FDA-approved.</p>
       </details> -->
     </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section" id="contact" style="padding-top:0">
-  <div class="container">
-    <form class="contact-form" action="#" method="post" novalidate>
-      <h2>Contact our team</h2>
-      <div class="form-grid">
-        <div class="form-field">
-          <label for="cf-name">Your name<span class="req">*</span></label>
-          <input id="cf-name" name="name" type="text" placeholder="Enter your name" required />
-        </div>
-        <div class="form-field">
-          <label for="cf-email">Your email<span class="req">*</span></label>
-          <input id="cf-email" name="email" type="email" placeholder="Enter your email" required />
-        </div>
-        <div class="form-field full">
-          <label for="cf-phone">Phone number</label>
-          <input id="cf-phone" name="phone" type="tel" placeholder="Enter your phone number" />
-        </div>
-        <div class="form-field full">
-          <label for="cf-message">Your message<span class="req">*</span></label>
-          <textarea id="cf-message" name="message" placeholder="Enter your message" required></textarea>
-        </div>
-      </div>
-      <div class="form-submit">
-        <button type="submit">Submit</button>
-      </div>
-    </form>
   </div>
 </section>
 
