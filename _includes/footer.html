@@ -1,9 +1,9 @@
-{% assign nav = "index.html" %}{% if include.home %}{% assign nav = "" %}{% endif %}
+{% assign nav = "/" | relative_url %}{% if include.home %}{% assign nav = "" %}{% endif %}
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div>
-        <img src="assets/logoHorizontal.png" alt="AmlaWellness" />
+        <img src="{{ '/assets/logoHorizontal.png' | relative_url }}" alt="AmlaWellness" />
         <p>Personalized telehealth weight-care, delivered with transparency. Built on the belief that quality care should be accessible — without insurance roadblocks or guesswork.</p>
       </div>
       <div>
@@ -20,7 +20,7 @@
           {%- else %}
           {%- for program in site.data.programs %}
           {%- for tx in program.treatments %}
-          <li><a href="index.html#treatments">{{ tx.short_name | default: tx.name | escape }}</a></li>
+          <li><a href="{{ nav }}#treatments">{{ tx.short_name | default: tx.name | escape }}</a></li>
           {%- endfor %}
           {%- endfor %}
           {%- endif %}
@@ -38,8 +38,8 @@
       <div>
         <h5>Legal</h5>
         <ul>
-          <li><a href="privacy.html">Privacy policy</a></li>
-          <li><a href="terms.html">Terms of service</a></li>
+          <li><a href="{{ '/privacy.html' | relative_url }}">Privacy policy</a></li>
+          <li><a href="{{ '/terms.html' | relative_url }}">Terms of service</a></li>
         </ul>
       </div>
     </div>

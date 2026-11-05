@@ -1,7 +1,21 @@
-{% assign nav = "index.html" %}{% if include.home %}{% assign nav = "" %}{% endif %}
+{%- comment -%}
+Params: home=true  → landing variant (same-page # anchors). Omit for the legal variant.
+        partner=<key> → co-brand lockup with that partner's logo, plus its announcement
+                        banner under the nav (_data/partners.yml).
+Served from more than one directory depth, so site-local URLs are root-relative.
+{%- endcomment -%}
+{% assign nav = "/" | relative_url %}{% if include.home %}{% assign nav = "" %}{% endif %}
+{%- assign header_partner = site.data.partners[include.partner] %}
 <header>
   <div class="container nav">
-    <a href="{% if include.home %}#{% else %}index.html{% endif %}" class="logo"><img src="assets/logoHorizontal.png" alt="AmlaWellness" /></a>
+    {%- if header_partner %}
+    <div class="logo-lockup">
+      <a href="#" class="logo"><img src="{{ '/assets/logoHorizontal.png' | relative_url }}" alt="AmlaWellness" /></a>
+      <span class="logo-partner" style="--partner-baseline:{{ header_partner.logo_baseline | default: 0 }};--partner-inset:{{ header_partner.logo_inset | default: 0 }}"><span class="sr-only">for members of</span><img src="{{ header_partner.logo | relative_url }}" alt="{{ header_partner.name | escape }}" /></span>
+    </div>
+    {%- else %}
+    <a href="{% if include.home %}#{% else %}{{ nav }}{% endif %}" class="logo"><img src="{{ '/assets/logoHorizontal.png' | relative_url }}" alt="AmlaWellness" /></a>
+    {%- endif %}
     <nav><ul>
       <li><a href="{{ nav }}#treatments">Treatments</a></li>
       <li><a href="{{ nav }}#how">How it works</a></li>
@@ -18,4 +32,8 @@
       {%- endif %}
     </div>
   </div>
+  {%- if header_partner.announce_headline or header_partner.announce %}
+  {%- comment %} Inside <header> so the banner stays pinned with it. {% endcomment %}
+  <div class="announce"><strong>{{ header_partner.announce_headline | escape }}</strong> {{ header_partner.announce | escape }}</div>
+  {%- endif %}
 </header>

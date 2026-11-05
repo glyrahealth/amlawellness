@@ -1,0 +1,55 @@
+# Partner landing pages — co-branded copies of the home page with member pricing
+# and a discount code baked into every intake link. Jekyll exposes this as
+# `site.data.partners`; the top-level key is the value a page passes as `partner`.
+#
+# A partner page is a front-matter stub that renders the shared landing page:
+#   partners/beyondmed.html  →  {% include landing.html partner="beyondmed" %}
+# Everything else (programs, products, copy, images) still comes from
+# _data/programs.yml, so partner pages never drift from the home page.
+#
+# To add a partner: add a block here, then copy partners/beyondmed.html to
+# partners/<key>.html and change its `permalink` and `partner` value.
+#
+# Fields
+#   name           display name used in copy ("Beyond Med members: …")
+#   logo           co-brand logo shown beside the AmlaWellness logo in the header
+#                  (site-root path, no leading slash)
+#   logo_baseline  where the logo's text baseline sits, below the image's vertical centre,
+#                  as a fraction of the image height — lets the header put it on the same
+#                  baseline as our logo. Measure it from the PNG: (baseline_row - height/2) / height.
+#   logo_inset     transparent space left of the logo's text, as a fraction of the image
+#                  height (left edge of the opaque pixels / height). Trimmed off in the header.
+#   title          the page <title>
+#   announce_headline  bold lead-in of the announcement bar pinned under the header nav
+#   announce       the rest of the announcement bar, in regular weight after the headline
+#   price_label    short badge beside the struck-through regular price ("Beyond Med Price");
+#                  screen readers also hear it before the partner price
+#   noindex        true adds <meta name="robots" content="noindex"> so search engines
+#                  don't list the member-only pricing page
+#   intake_params  query parameters appended to EVERY intake link on the page (product
+#                  CTAs, final CTA, intake-picker modal) — this is how the discount code is
+#                  applied automatically. Values are URL-encoded on output.
+#   prices         treatment `id` (from _data/programs.yml) → partner price, including the
+#                  currency symbol. The regular price from programs.yml is shown struck
+#                  through beside it. Treatments not listed show their regular price only.
+
+beyondmed:
+  name: Beyond Med
+  logo: assets/beyondmed-logo-full.png
+  logo_baseline: 0.2333   # 2871×405 PNG: baseline at row 296 (the "y" descender and ™ hang below)
+  logo_inset: 0.2494      # text starts at x=101
+  title: "Beyond Med member pricing — AmlaWellness"
+  announce_headline: "Beyond Med members save 25% on all medications."
+  announce: "Your discount is automatically applied during intake."
+  price_label: Beyond Med Price
+  noindex: true
+  intake_params:
+    promo: BEYONDMED
+    promo-source: coupon
+  # 25% off the exact gross price, to the cent. The regular price in _data/programs.yml
+  # (shown struck through) is that gross price rounded up to whole dollars.
+  prices:
+    semaglutide: "$108.13"
+    tirzepatide: "$168.13"
+    nad: "$93.75"
+    sermorelin: "$93.75"
