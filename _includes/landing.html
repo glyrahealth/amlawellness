@@ -85,6 +85,12 @@ so every site-local URL must be root-relative — pipe paths through `relative_u
   .logo{display:inline-block;padding-left:16px}
   .logo img{height:44px;width:auto;display:block}
   @media(max-width:520px){.logo{padding-left:4px}.logo img{height:32px}}
+  /* Phones: logo + Log in must fit side by side without sideways scroll. `.container.nav` outranks
+     the ≤520px `.container` padding override, which would otherwise wipe out the nav's vertical
+     padding; the logo steps down so it plus the button fit at 320–400px. */
+  @media(max-width:520px){.container.nav{padding:12px 20px;gap:12px}}
+  @media(max-width:400px){.logo img{height:26px}}
+  @media(max-width:340px){.logo img{height:22px}}
   /* Partner co-brand: [our logo] | [partner logo]; the partner logo stacks under ours on narrow screens.
      Side by side, the two wordmarks share a baseline and the partner's cap height optically matches
      our x-height. The logo PNGs carry different empty space below the baseline (descenders, ™), so
@@ -101,7 +107,7 @@ so every site-local URL must be root-relative — pipe paths through `relative_u
     transform:translateY(calc(var(--logo-h) * .4338 - var(--partner-h) * var(--partner-baseline, 0)))}
   /* The lockup is ~640px wide: drop the nav links (same-page anchors) earlier than the
      980px default so they don't wrap, then stack the logos once even that doesn't fit. */
-  @media(max-width:1180px){.logo-lockup ~ nav ul{display:none}}
+  @media(max-width:1180px){.logo-lockup ~ nav{display:none}}
   @media(max-width:860px){
     .logo-lockup{--partner-h:17px;flex-direction:column;align-items:flex-start;gap:6px}
     .logo-partner{height:auto;border-left:0;padding-left:16px}
@@ -113,7 +119,8 @@ so every site-local URL must be root-relative — pipe paths through `relative_u
   nav a:hover{color:var(--teal)}
   .nav-actions{display:flex;gap:10px;align-items:center}
   .nav-actions .btn{padding:11px 20px;font-size:14px}
-  @media(max-width:980px){nav ul{display:none}}
+  /* Hide the whole <nav>, not just its list: an empty nav still takes up two flex gaps. */
+  @media(max-width:980px){header nav{display:none}}
 
   /* HERO */
   .hero{padding:80px 0 0;position:relative}
@@ -352,6 +359,9 @@ so every site-local URL must be root-relative — pipe paths through `relative_u
   .legitscript img{display:block}
   .footer-bottom{display:flex;justify-content:space-between;padding-top:24px;color:var(--ink-soft);font-size:13px;flex-wrap:wrap;gap:12px}
   @media(max-width:880px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.disclaimer{grid-template-columns:1fr}}
+  /* The brand column (logo + blurb) gets its own row on phones; squeezed into half the width,
+     the logo forced the two-column grid wider than the screen. */
+  @media(max-width:520px){.footer-grid>:first-child{grid-column:1/-1}}
 </style>
 </head>
 <body data-screen-label="01 Landing · B Modern Clinical">
