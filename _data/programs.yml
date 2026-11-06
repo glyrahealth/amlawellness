@@ -2,7 +2,8 @@
 # inside them. Jekyll exposes this as `site.data.programs`.
 #
 # Everything that lists a program or a product renders from this file:
-#   index.html          hero goal cards, goal tabs, treatment panels, intake modal
+#   _includes/landing.html  hero goal cards, goal tabs, treatment panels, intake modal
+#                       (rendered by index.html and every partners/*.html page)
 #   _includes/footer.html   the "Treatments" column (both home and legal variants)
 #
 # To add a product, add an entry under an existing program's `treatments`.
@@ -24,6 +25,8 @@
 #   card_dark    true renders the hero card as `.goal-card.dark`
 #
 # Treatment fields
+#   id           stable slug for the product — partner price lists in
+#                _data/partners.yml are keyed by it, so don't rename casually.
 #   name         full product name (card heading)
 #   short_name   compact name for footer links
 #   tag          the `.tx-tag` badge
@@ -34,6 +37,11 @@
 #   price_note   the smaller text beside it
 #   dark         true renders `.tx-card.dark` with a `btn-outline` CTA
 #   intake_path  OPTIONAL — overrides the program's intake_path for this product only
+#
+# Image paths are site-root paths without a leading slash (assets/…); templates
+# run them through `relative_url` so they also resolve from sub-pages like
+# /partners/beyondmed/. intake_path must not contain a query string — partner
+# pages append their own (see _data/partners.yml).
 
 - id: weight
   name: Weight Loss
@@ -45,21 +53,23 @@
   card_image: assets/goal-weight.png
   card_style: "background-position:center 35%;background-size: 70%"
   treatments:
-    - name: "Personalized, Compounded Semaglutide"
+    - id: semaglutide
+      name: "Personalized, Compounded Semaglutide"
       short_name: Compounded Semaglutide
       tag: Most popular
       image: assets/vial.png
       image_alt: Semaglutide vial
       desc: "Weekly subcutaneous injection. GLP-1 receptor agonist. Provider-directed titration and monthly refills included."
-      price: "$208"
+      price: "$145"
       price_note: starting / month
-    - name: "Personalized, Compounded Tirzepatide"
+    - id: tirzepatide
+      name: "Personalized, Compounded Tirzepatide"
       short_name: Compounded Tirzepatide
       tag: Dual-action
       image: assets/vial.png
       image_alt: Tirzepatide vial
       desc: "Weekly subcutaneous injection acting on both GLP-1 and GIP receptors. Provider-directed dose ladder."
-      price: "$292"
+      price: "$225"
       price_note: starting / month
       dark: true
 
@@ -73,13 +83,14 @@
   card_style: "background-position:center 15%"
   card_dark: true
   treatments:
-    - name: Personalized NAD+
+    - id: nad
+      name: Personalized NAD+
       short_name: NAD+
       tag: Cellular vitality
       image: assets/vial_nad.png
       image_alt: NAD+ vial
       desc: "NAD+ to support cellular energy, metabolic function, and the body's natural repair pathways. Provider-directed dosing."
-      price: "$157"
+      price: "$125"
       price_note: starting / month
 
 - id: recovery
@@ -92,11 +103,12 @@
   card_style: "background-position:center 25%"
   card_dark: true
   treatments:
-    - name: Sermorelin
+    - id: sermorelin
+      name: Sermorelin
       short_name: Sermorelin
       tag: Recovery Support
       image: assets/vial_sermorelin.png
       image_alt: Sermorelin vial
       desc: "A growth-hormone-releasing peptide to support deeper sleep, recovery, and lean body composition as you age."
-      price: "$157"
+      price: "$125"
       price_note: starting / month

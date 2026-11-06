@@ -1,6 +1,6 @@
 # Amla Wellness — Landing Page
 
-A static marketing site for **Amla Wellness**, a GLP-1 and peptide telehealth brand. Three pages (`index.html`, `privacy.html`, `terms.html`) sharing a header and footer via Jekyll includes. No framework and no client-side build tooling — the landing page is markup + inline CSS plus one small inline `<script>` for the goal selector.
+A static marketing site for **Amla Wellness**, a GLP-1 and peptide telehealth brand. The landing page (`index.html`), partner landing pages (`partners/*.html`), and legal pages (`privacy.html`, `terms.html`) share a header and footer via Jekyll includes. No framework and no client-side build tooling — the landing page is markup + inline CSS plus one small inline `<script>` for the goal selector.
 
 ## Run locally
 
@@ -28,11 +28,14 @@ There is no package manager and no test suite.
 
 ```
 .
-├── index.html        # landing page — markup + inline CSS + goal-selector script
+├── index.html        # landing page — a stub that renders _includes/landing.html
+├── partners/
+│   └── beyondmed.html # Beyond Med member page (/partners/beyondmed/) — same landing page, partner="beyondmed"
 ├── privacy.html      # privacy policy
 ├── terms.html        # terms of service
 ├── _config.yml       # Jekyll config (excludes project docs from the build)
-├── _includes/        # header.html, footer.html — shared across all three pages
+├── _includes/        # landing.html (the landing page: markup + inline CSS + scripts), header.html, footer.html
+├── _data/            # programs.yml (programs, products, prices), partners.yml (partner pages)
 ├── _layouts/         # none.html — passthrough layout, defeats the default Pages theme
 ├── assets/
 │   ├── styles.css    # shared CSS for the legal pages only (not the landing page)
@@ -44,13 +47,18 @@ There is no package manager and no test suite.
 
 - The `layout: none` front matter on each page is required. It makes Jekyll process the Liquid includes while emitting the page as authored — without it, GitHub Pages' default theme wraps these complete HTML documents inside a theme layout. Don't remove the front matter, and don't add a `.nojekyll` file (includes stop working).
 - Page content is run through Liquid, so a literal double-brace or brace-percent sequence in the markup is parsed as a Liquid tag and can break the build. Escape such snippets with a `raw`/`endraw` block.
-- `assets/styles.css` covers the **legal pages only**. The landing page's CSS has diverged and stays inline in `index.html`; the two are not in sync.
+- `assets/styles.css` covers the **legal pages only**. The landing page's CSS has diverged and stays inline in `_includes/landing.html`; the two are not in sync.
+- Pages are served from more than one directory depth (`/` and `/partners/<key>/`), so shared markup must use root-relative URLs: `{{ '/assets/x.png' | relative_url }}`, never a bare `assets/x.png`.
+
+### Partner pages
+
+`/partners/beyondmed/` is the full landing page co-branded for Beyond Med members: partner logo in the header, an announcement bar, member prices with the regular price struck through, and the partner's discount code appended to every intake link. All of that is configured in `_data/partners.yml`. To add a partner, add a block there and copy `partners/beyondmed.html` with a new `permalink` and `partner` value.
 
 ### Page sections (top to bottom)
 
 Sticky header → hero (headline + 3 goal cards) → **treatments (goal selector)** → how-it-works → comparison table → pillars → FAQ → contact → final CTA → footer.
 
-The trust-pill row and the standalone disclaimer section are currently commented out in `index.html`.
+The trust-pill row and the standalone disclaimer section are currently commented out in `_includes/landing.html`.
 
 ### Goal selector
 
@@ -64,11 +72,9 @@ The Treatments section has a Yucca-style segmented control that tailors the card
 
 Three entry points drive it, all wired to the same handler in the inline script: the segmented control itself, the three hero goal cards, and the treatment links in the footer (`[data-goal-card]`). The selection persists across reloads via `localStorage` (`amla-goal` key) and respects `prefers-reduced-motion`.
 
-> **Provisional:** peptide pricing (NAD+ $159, Sermorelin $129) is not final. The NAD+ and Sermorelin cards also still point at the bare intake root rather than a goal-specific intake path like the GLP-1 cards do.
-
 ## Design system
 
-Colors, typography, and layout rules live as `:root` custom properties — inline in `index.html` for the landing page, and in `assets/styles.css` for the legal pages (same token values). Both are documented in [`CLAUDE.md`](./CLAUDE.md). In short: warm cream background (`--bg #f8f4ed`), petrol-teal accent (`--teal #205e76`), Nunito for headings + Inter for body, both loaded from Google Fonts.
+Colors, typography, and layout rules live as `:root` custom properties — inline in `_includes/landing.html` for the landing page, and in `assets/styles.css` for the legal pages (same token values). Both are documented in [`CLAUDE.md`](./CLAUDE.md). In short: warm cream background (`--bg #f8f4ed`), petrol-teal accent (`--teal #205e76`), Nunito for headings + Inter for body, both loaded from Google Fonts.
 
 ## External integrations
 
